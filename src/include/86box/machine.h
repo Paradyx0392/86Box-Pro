@@ -1516,6 +1516,7 @@ extern int             machine_at_prosignias31x_bx_init(const machine_t *);
 extern int             machine_at_s1857_init(const machine_t *);
 
 /* VIA Apollo Pro 133 */
+extern int             machine_at_m6vca_init(const machine_t *);
 extern int             machine_at_p6bat_init(const machine_t *);
 
 /* m_at_slot2.c */
