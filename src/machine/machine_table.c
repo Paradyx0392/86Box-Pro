@@ -22325,7 +22325,7 @@ const machine_t machines[] = {
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
-        .snd_device               = NULL,
+        .snd_device               = &es1373_onboard_device,
         .net_device               = NULL,
         .aliases                  = { "" }
     },
@@ -22374,7 +22374,7 @@ const machine_t machines[] = {
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
-        .snd_device               = &es1373_onboard_device,
+        .snd_device               = NULL,
         .net_device               = NULL,
         .aliases                  = { "MSI BX Master", "" }
     },
