@@ -1263,6 +1263,10 @@ extern const device_t  ms5146_device;
 #endif
 extern int             machine_at_ms5146_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  ms5147_device;
+#endif
+extern int             machine_at_ms5147_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  r534f_device;
 #endif
 extern int             machine_at_r534f_init(const machine_t *);
