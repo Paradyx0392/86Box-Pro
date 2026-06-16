@@ -927,6 +927,15 @@ static const device_config_t ms6122_config[] = {
                 .files         = { "roms/machines/ms6122/W622MS10.BIN", "" }
             },
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.04 (LG IBM Multinet x7F)",
+                .internal_name = "ms6122_lgibm204",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6122/BIOS.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 2.0A (LG IBM Multinet x7F)",
                 .internal_name = "ms6122_lgibm",
                 .bios_type     = BIOS_NORMAL,

@@ -1562,6 +1562,10 @@ extern int             machine_at_vim863s_init(const machine_t *);
 extern const device_t  m6vch_device;
 #endif
 extern int             machine_at_m6vch_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  m6vci_device;
+#endif
+extern int             machine_at_m6vci_init(const machine_t *);
 extern int             machine_at_p6bap_init(const machine_t *);
 
 /* VIA Apollo Pro 133A */
