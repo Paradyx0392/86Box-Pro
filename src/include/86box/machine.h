@@ -834,6 +834,9 @@ extern const device_t  abpb4_device;
 extern int             machine_at_abpb4_init(const machine_t *);
 extern int             machine_at_arb1476_init(const machine_t *);
 extern int             machine_at_tf486_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ms4145_device;
+#endif
 extern int             machine_at_ms4145_init(const machine_t *);
 extern int             machine_at_win486pci_init(const machine_t *);
 
