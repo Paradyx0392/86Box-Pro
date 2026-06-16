@@ -1226,6 +1226,10 @@ extern int             machine_at_thunderbolt_init(const machine_t *);
 extern const device_t  ms5156_device;
 #endif
 extern int             machine_at_ms5156_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ms5158_device;
+#endif
+extern int             machine_at_ms5158_init(const machine_t *);
 extern int             machine_at_ma23c_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  mb540n_device;
