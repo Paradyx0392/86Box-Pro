@@ -895,90 +895,16 @@ machine_at_como_init(const machine_t *model)
     return ret;
 }
 
-/* i440EX */
-static const device_config_t ms6122_config[] = {
-    // clang-format off
-    {
-        .name           = "bios",
-        .description    = "BIOS Version",
-        .type           = CONFIG_BIOS,
-        .default_string = "ms6122",
-        .default_int    = 0,
-        .file_filter    = NULL,
-        .spinner        = { 0 },
-        .selection      = { { 0 } },
-        .bios           = {
-            {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.2",
-                .internal_name = "ms6122_ami",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6122/A622MS12.ROM", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v4.51PG - Revision 1.0",
-                .internal_name = "ms6122",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6122/W622MS10.BIN", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v4.51PG - Revision 2.04 (LG IBM Multinet x7F)",
-                .internal_name = "ms6122_lgibm204",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6122/BIOS.BIN", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v4.51PG - Revision 2.0A (LG IBM Multinet x7F)",
-                .internal_name = "ms6122_lgibm",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6122/MS6122.20A", "" }
-            },
-            { .files_no = 0 }
-        }
-    },
-    { .name = "", .description = "", .type = CONFIG_END }
-    // clang-format on
-};
-
-const device_t ms6122_device = {
-    .name          = "MSI MS-6122",
-    .internal_name = "ms6122",
-    .flags         = 0,
-    .local         = 0,
-    .init          = NULL,
-    .close         = NULL,
-    .reset         = NULL,
-    .available     = NULL,
-    .speed_changed = NULL,
-    .force_redraw  = NULL,
-    .config        = ms6122_config
-};
-
 int
 machine_at_ms6122_init(const machine_t *model)
 {
-    int         ret = 0;
-    const char *fn;
+    int ret;
 
-    /* No ROMs available */
-    if (!device_available(model->device))
+    ret = bios_load_linear("roms/machines/ms6122/A622MS12.ROM",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
         return ret;
-
-    device_context(model->device);
-    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
-    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -1687,7 +1613,16 @@ static const device_config_t p3bf_config[] = {
                 .files         = { "roms/machines/p3bf/BX3F1005.AWD", "" }
             },
             {
-                .name          = "Award Medallion BIOS v6.0 - Revision 1006",
+                .name          = "Award Medallion BIOS v6.0 - Revision 1006 (Fujitsu-Siemens OEM)",
+                .internal_name = "p3bf_fsc",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p3bf/P3BF1006.FSC", "" }
+            },
+            {
+                .name          = "Award Medallion BIOS v6.0 - Revision 1006 (retail)",
                 .internal_name = "p3bf",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,

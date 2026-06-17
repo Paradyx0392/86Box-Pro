@@ -21733,13 +21733,13 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = &ms6122_device,
+        .device                   = NULL,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
         .snd_device               = &ymf715_onboard_device,
         .net_device               = NULL,
-        .aliases                  = { "LG IBM Multinet x7F", "" }
+        .aliases                  = { "" }
     },
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
