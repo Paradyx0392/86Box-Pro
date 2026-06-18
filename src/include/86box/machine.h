@@ -1559,6 +1559,7 @@ extern const device_t  cubx_device;
 #endif
 extern int             machine_at_cubx_init(const machine_t *);
 extern int             machine_at_ga6bx7_init(const machine_t *);
+extern int             machine_at_ms6153_init(const machine_t *);
 extern int             machine_at_65eb_init(const machine_t *);
 
 /* i440ZX */

@@ -1001,7 +1001,7 @@ static const device_config_t ms6122_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/ms6122/A622MS12.ROM", "" }
             },
             {
@@ -1010,7 +1010,7 @@ static const device_config_t ms6122_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/ms6122/W622MS10.BIN", "" }
             },
             {
@@ -1019,7 +1019,7 @@ static const device_config_t ms6122_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/ms6122/BIOS.BIN", "" }
             },
             {
@@ -1028,7 +1028,7 @@ static const device_config_t ms6122_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/ms6122/MS6122.20A", "" }
             },
             { .files_no = 0 }
@@ -1064,7 +1064,7 @@ machine_at_ms6122_init(const machine_t *model)
 
     device_context(model->device);
     fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
     device_context_restore();
 
     machine_at_common_init(model);
@@ -1078,9 +1078,9 @@ machine_at_ms6122_init(const machine_t *model)
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&i440ex_device);
-    device_add(&piix4_device);
+    device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
-    device_add(&sst_flash_29ee020_device);
+    device_add(&winbond_flash_w29c011a_device);
     spd_register(SPD_TYPE_SDRAM, 0x3, 256);
 
     if (sound_card_current[0] == SOUND_INTERNAL)
