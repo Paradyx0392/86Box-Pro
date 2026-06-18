@@ -1409,6 +1409,10 @@ extern int             machine_at_ma30d_init(const machine_t *);
 
 /* i440EX */
 extern int             machine_at_brio83xx_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ms6122_device;
+#endif
+extern int             machine_at_ms6122_init(const machine_t *);
 extern int             machine_at_p6i440e2_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  como_device;
@@ -1470,6 +1474,10 @@ extern const device_t  s1846_device;
 extern int             machine_at_s1846_init(const machine_t *);
 
 /* i440ZX */
+#ifdef EMU_DEVICE_H
+extern const device_t  in440zx_device;
+#endif
+extern int             machine_at_in440zx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  med9901_device;
 #endif
