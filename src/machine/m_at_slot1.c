@@ -1064,7 +1064,7 @@ machine_at_ms6122_init(const machine_t *model)
 
     device_context(model->device);
     fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
     device_context_restore();
 
     machine_at_common_init(model);
@@ -1080,7 +1080,7 @@ machine_at_ms6122_init(const machine_t *model)
     device_add(&i440ex_device);
     device_add(&piix4_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
-    device_add(&winbond_flash_w29c020_device);
+    device_add(&sst_flash_29ee020_device);
     spd_register(SPD_TYPE_SDRAM, 0x3, 256);
 
     if (sound_card_current[0] == SOUND_INTERNAL)
@@ -2136,15 +2136,6 @@ static const device_config_t ms6119_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.3 (Simplified Chinese)",
-                .internal_name = "ms6119_chinese",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6119/A619C313.ROM", "" }
-            },
-            {
                 .name          = "AMIBIOS 6 (071595) - Revision 1.61 (Packard Bell-ZDS Tacoma)",
                 .internal_name = "tacoma_161",
                 .bios_type     = BIOS_NORMAL,
@@ -2266,9 +2257,8 @@ machine_at_ms6119_init(const machine_t *model)
         return ret;
 
     device_context(model->device);
-    int is_chinese = !strcmp(device_get_config_bios("bios"), "ms6119_chinese");
-    fn             = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret            = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
     device_context_restore();
 
     machine_at_common_init(model);
@@ -2283,12 +2273,7 @@ machine_at_ms6119_init(const machine_t *model)
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&i440bx_device);
-
-    if (is_chinese)
-        device_add_params(&piix4_device, (void *) PIIX4_NVR_AMI_1995J);
-    else
-        device_add(&piix4e_device);
-
+    device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&winbond_flash_w29c020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
