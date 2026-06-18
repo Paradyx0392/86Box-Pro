@@ -527,11 +527,11 @@ machine_at_optiplexgxa_init(const machine_t *model)
 }
 
 int
-machine_at_686lx_init(const machine_t *model)
+machine_at_686blx_init(const machine_t *model)
 {
     int ret;
 
-    ret = bios_load_linear("roms/machines/686lx/6lx.f2",
+    ret = bios_load_linear("roms/machines/686blx/6BLX.21",
                            0x000c0000, 262144, 0);
 
     if (bios_only || !ret)
@@ -1420,41 +1420,6 @@ const device_t p2bb_device = {
 };
 
 int
-machine_at_p2bae_init(const machine_t *model)
-{
-    int ret;
-
-    ret = bios_load_linear("roms/machines/p2bae/3005u.bin",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
-        return ret;
-
-    machine_at_common_init(model);
-
-    pci_init(PCI_CONFIG_TYPE_1);
-    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
-    pci_register_slot(0x04, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
-    pci_register_slot(0x05, PCI_CARD_NORMAL,      4, 1, 2, 3);
-    pci_register_slot(0x06, PCI_CARD_NORMAL,      3, 4, 1, 2);
-    pci_register_slot(0x0B, PCI_CARD_NORMAL,      2, 3, 4, 1);
-    pci_register_slot(0x0C, PCI_CARD_NORMAL,      1, 2, 3, 4);
-    pci_register_slot(0x09, PCI_CARD_NORMAL,      4, 1, 2, 3);
-    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
-    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
-
-    device_add(&i440bx_device);
-    device_add(&piix4e_device);
-    device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
-    device_add(ics9xxx_get(ICS9150_08)); 
-    device_add(&sst_flash_39sf020_device);
-    spd_register(SPD_TYPE_SDRAM, 0xF, 256);
-    device_add(&as99127f_device);
-
-    return ret;
-}
-
-int
 machine_at_p2bb_init(const machine_t *model)
 {
     int         ret = 0;
@@ -2336,6 +2301,37 @@ machine_at_ms6163_init(const machine_t *model)
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
     device_add(&w83782d_device); /* fans: Chassis, Power, CPU; temperatures: System, CPU, unused */
     hwm_values.temperatures[2] = 0; /* unused */
+
+    return ret;
+}
+
+int
+machine_at_sl67b_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/sl67b/67b-k4.bin",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&intel_flash_bxt_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
 
     return ret;
 }
