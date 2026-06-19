@@ -2015,6 +2015,122 @@ machine_at_ax6bc_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t ax6bcproii_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "ax6bcproii",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R1.15",
+                .internal_name = "ax6bcproii_115",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6bcproii/6bcp2115.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R1.15j (Japanese)",
+                .internal_name = "ax6bcproii_115j",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6bcproii/bcp2115j.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R1.16",
+                .internal_name = "ax6bcproii_116",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6bcproii/6bcp2116.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R1.18",
+                .internal_name = "ax6bcproii_118",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6bcproii/6BCP2118.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R1.19",
+                .internal_name = "ax6bcproii",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6bcproii/6bcp2119.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t ax6bcproii_device = {
+    .name          = "AOpen AX6BC Pro II",
+    .internal_name = "ax6bcproii",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = ax6bcproii_config
+};
+
+int
+machine_at_ax6bcproii_init(const machine_t *model)
+{
+    int         ret = 0;
+    const char *fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x0D, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0E, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
+    device_add(&sst_flash_29ee020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+    device_add(&gl518sm_2d_device); /* fans: System, CPU; temperature: CPU; no reporting in BIOS */
+
+    return ret;
+}
+
 static const device_config_t ga686_config[] = {
     // clang-format off
     {
