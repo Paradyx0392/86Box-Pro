@@ -521,6 +521,15 @@ static const device_config_t ax6lc_config[] = {
                 .size          = 262144,
                 .files         = { "roms/machines/ax6lc/ax6lc200.bin", "" }
             },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.01b",
+                .internal_name = "ax6lc",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6lc/6lc201b.bin", "" }
+            },
             { .files_no = 0 }
         }
     },
@@ -641,7 +650,7 @@ static const device_config_t lx6ap2_config[] = {
               .files_no      = 1,
               .local         = 0,
               .size          = 131072,
-              .files         = { "roms/machines/lx6ap2/65006.bin", "" }
+              .files         = { "roms/machines/lx6ap2/lx6ap2rf.bin", "" }
             },
             { .files_no = 0 }
         },
@@ -691,7 +700,7 @@ machine_at_lx6ap2_init(const machine_t *model)
 
     device_add(&i440lx_device);
     device_add(&piix4_device);
-    device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee010_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
 
