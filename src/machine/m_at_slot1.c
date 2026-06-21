@@ -523,7 +523,7 @@ static const device_config_t ax6lc_config[] = {
             },
             {
                 .name          = "Award Modular BIOS v4.60PGMA - Revision R2.01b",
-                .internal_name = "ax6lc",
+                .internal_name = "ax6lc_beta",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
