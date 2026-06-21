@@ -1455,6 +1455,10 @@ extern const device_t  p3bf_device;
 #endif
 extern int             machine_at_p3bf_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  cb650mbx_device;
+#endif
+extern int             machine_at_cb650mbx_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  ga686_device;
 #endif
 extern int             machine_at_ga686_init(const machine_t *);

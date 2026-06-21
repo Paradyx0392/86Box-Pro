@@ -2131,6 +2131,95 @@ machine_at_ax6bcproii_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t cb650mbx_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Revision",
+        .type           = CONFIG_BIOS,
+        .default_string = "cb650mbx",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .bios           = {
+            {
+              .name          = "Award Modular BIOS v4.51PG - Revision V.650.05E (iDOT Explora)",
+              .internal_name = "idotexplora",
+              .bios_type     = BIOS_NORMAL, 
+              .files_no      = 1,
+              .local         = 0,
+              .size          = 262144,
+              .files         = { "roms/machines/cb650mbx/65005E.bin", "" }
+            },
+            {
+              .name          = "Award Modular BIOS v4.51PG - Revision V.650.06",
+              .internal_name = "cb650mbx",
+              .bios_type     = BIOS_NORMAL, 
+              .files_no      = 1,
+              .local         = 0,
+              .size          = 262144,
+              .files         = { "roms/machines/cb650mbx/65006.bin", "" }
+            },
+            { .files_no = 0 }
+        },
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t cb650mbx_device = {
+    .name          = "Daewoo CB650M-BX",
+    .internal_name = "cb650mbx",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = cb650mbx_config
+};
+
+int
+machine_at_cb650mbx_init(const machine_t *model)
+{
+    int ret = 0;
+    const char* fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn = device_get_bios_file(model->device, device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      3, 4, 1, 2); /* sound */
+    pci_register_slot(0x0F, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x10, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x12, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add(&it8671f_device);
+    device_add(&winbond_flash_w29c020_device);
+    spd_register(SPD_TYPE_SDRAM, 0xF, 256);
+    device_add(&w83781d_device); 
+    hwm_values.voltages[1]     = 3000; /* CPUVTT */
+
+    return ret;
+}
+
 static const device_config_t ga686_config[] = {
     // clang-format off
     {
