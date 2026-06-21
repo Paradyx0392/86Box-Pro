@@ -1063,6 +1063,7 @@ extern int             machine_at_p54tp4xe_init(const machine_t *);
 extern const device_t  exp8551_device;
 #endif
 extern int             machine_at_exp8551_init(const machine_t *);
+extern int             machine_at_pam0054i_init(const machine_t *);
 extern int             machine_at_holly_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t vectra52_device;
@@ -1149,6 +1150,7 @@ extern int             machine_at_p55t2p4_init(const machine_t *);
 extern void            machine_at_p65up5_common_init(const machine_t *, const device_t *northbridge);
 #endif
 extern int             machine_at_p65up5_cp55t2d_init(const machine_t *);
+extern int             machine_at_pam0055i_init(const machine_t *);
 extern int             machine_at_rubyusb_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  cu430hx_device;
@@ -1180,6 +1182,7 @@ extern int             machine_at_bsi430vx_init(const machine_t *);
 extern int             machine_at_presario2240_init(const machine_t *);
 extern int             machine_at_presario4500_init(const machine_t *);
 extern int             machine_at_dellhannibalp_init(const machine_t *);
+extern int             machine_at_pam0056i_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  p5vxb_device;
 #endif
@@ -1215,6 +1218,7 @@ extern const device_t  txp4x_device;
 extern int             machine_at_txp4x_init(const machine_t *);
 extern void            machine_at_optiplex_21152_init(void);
 extern int             machine_at_optiplexgn_init(const machine_t *);
+extern int             machine_at_pam0057i_init(const machine_t *);
 extern int             machine_at_tomahawk_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  an430tx_device;
