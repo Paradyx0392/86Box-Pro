@@ -614,6 +614,90 @@ machine_at_optiplexgxa_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t lx6ap2_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Revision",
+        .type           = CONFIG_BIOS,
+        .default_string = "lx6ap2",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .bios           = {
+            {
+              .name          = "Award Modular BIOS v4.51PG - Revision A1.1",
+              .internal_name = "lx6ap2",
+              .bios_type     = BIOS_NORMAL, 
+              .files_no      = 1,
+              .local         = 0,
+              .size          = 131072,
+              .files         = { "roms/machines/lx6ap2/lx-6ap2.bin", "" }
+            },
+            {
+              .name          = "Award Modular BIOS v4.51PG - Revision LE2.2 (RedFox OEM)",
+              .internal_name = "lx6ap2_rf",
+              .bios_type     = BIOS_NORMAL, 
+              .files_no      = 1,
+              .local         = 0,
+              .size          = 131072,
+              .files         = { "roms/machines/lx6ap2/65006.bin", "" }
+            },
+            { .files_no = 0 }
+        },
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t lx6ap2_device = {
+    .name          = "Ford Lian LX-6AP2",
+    .internal_name = "lx6ap2",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = lx6ap2_config
+};
+
+int
+machine_at_lx6ap2_init(const machine_t *model)
+{
+    int ret = 0;
+    const char* fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn = device_get_bios_file(model->device, device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    device_context_restore();
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&i440lx_device);
+    device_add(&piix4_device);
+    device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
+    device_add(&sst_flash_29ee010_device);
+    spd_register(SPD_TYPE_SDRAM, 0xF, 256);
+
+    return ret;
+}
+
 int
 machine_at_spitfire_init(const machine_t *model)
 {
@@ -2195,9 +2279,6 @@ machine_at_cb650mbx_init(const machine_t *model)
     fn = device_get_bios_file(model->device, device_get_config_bios("bios"), 0);
     ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
     device_context_restore();
-
-    if (bios_only || !ret)
-        return ret;
 
     machine_at_common_init(model);
 
