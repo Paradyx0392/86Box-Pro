@@ -2358,7 +2358,7 @@ static const device_config_t p2xbl_config[] = {
               .bios_type     = BIOS_NORMAL, 
               .files_no      = 1,
               .local         = 0,
-              .size          = 262144,
+              .size          = 131072,
               .files         = { "roms/machines/p2xbl/p2xblak.bin", "" }
             },
             {
@@ -2402,8 +2402,9 @@ machine_at_p2xbl_init(const machine_t *model)
         return ret;
 
     device_context(model->device);
-    fn = device_get_bios_file(model->device, device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    fn       = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    int size = device_get_bios_file_size(machine_get_device(machine), device_get_config_bios("bios"));
+    ret      = bios_load_linear(fn, 0x00100000 - size, size, 0);
     device_context_restore();
 
     if (bios_only || !ret)
@@ -2423,7 +2424,8 @@ machine_at_p2xbl_init(const machine_t *model)
     device_add(&i440bx_device);
     device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
-    device_add(&sst_flash_29ee020_device);
+    device_add((size > 131072) ? &sst_flash_29ee020_device /* assumed */ : &sst_flash_29ee010_device);
+    
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
 
     return ret;
