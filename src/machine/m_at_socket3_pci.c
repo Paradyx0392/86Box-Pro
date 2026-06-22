@@ -1548,6 +1548,15 @@ static const device_config_t zi4d_config[] = {
                 .size          = 131072,
                 .files         = { "roms/machines/4dps/4DPS400A.BIN", "" }
             },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 4.00a (Patched)",
+                .internal_name = "4dps_400ap",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/4dps/4dps400b.bin", "" }
+            },
             { .files_no = 0 }
         }
     },
