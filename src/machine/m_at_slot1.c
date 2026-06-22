@@ -2310,6 +2310,125 @@ machine_at_cb650mbx_init(const machine_t *model)
     return ret;
 }
 
+int
+machine_at_mbx8440_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/mbx8440/MBX8440C.BIN",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&sst_flash_29ee010_device);
+    spd_register(SPD_TYPE_SDRAM, 0xF, 256);
+
+    return ret;
+}
+
+static const device_config_t p2xbl_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Revision",
+        .type           = CONFIG_BIOS,
+        .default_string = "p2xbl",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .bios           = {
+            {
+              .name          = "Award Modular BIOS v4.51PG - Revision 10/26/1999",
+              .internal_name = "p2xbl",
+              .bios_type     = BIOS_NORMAL, 
+              .files_no      = 1,
+              .local         = 0,
+              .size          = 262144,
+              .files         = { "roms/machines/p2xbl/p2xblak.bin", "" }
+            },
+            {
+              .name          = "Phoenix-AwardBIOS v6.00PG - Release 4.3 (by eSupport)",
+              .internal_name = "p2xbl_esupport",
+              .bios_type     = BIOS_NORMAL, 
+              .files_no      = 1,
+              .local         = 0,
+              .size          = 262144,
+              .files         = { "roms/machines/p2xbl/6Z69KD49.BIN", "" }
+            },
+            { .files_no = 0 }
+        },
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t p2xbl_device = {
+    .name          = "DFI P2XBL (rev. AB+)",
+    .internal_name = "p2xbl",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = p2xbl_config
+};
+
+int
+machine_at_p2xbl_init(const machine_t *model)
+{
+    int         ret = 0;
+    const char* fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn = device_get_bios_file(model->device, device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0D, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0F, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&sst_flash_29ee020_device);
+    spd_register(SPD_TYPE_SDRAM, 0xF, 256);
+
+    return ret;
+}
+
 static const device_config_t ga686_config[] = {
     // clang-format off
     {
