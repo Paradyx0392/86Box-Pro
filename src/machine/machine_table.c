@@ -25290,7 +25290,7 @@ const machine_t machines[] = {
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
-        .snd_device               = &alc100p_device,
+        .snd_device               = &alc100_device,
         .net_device               = NULL,
         .aliases                  = { "Matsonic MS-7177C", "" }
     },
