@@ -508,6 +508,37 @@ machine_at_g5x_init(const machine_t *model)
 
 /* VIA MVP3 */
 int
+machine_at_5via77_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/5via77/via77a7.BIN",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&via_mvp3_device);
+    device_add(&via_vt82c586b_device);
+    device_add_params(&w83877_device, (void *) (W83877TF | W83877_250));
+    device_add(&sst_flash_39sf010_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+
+    return ret;
+}
+
+int
 machine_at_ax59pro_init(const machine_t *model)
 {
     int ret;
