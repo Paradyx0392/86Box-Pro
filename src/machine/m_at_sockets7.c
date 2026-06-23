@@ -343,7 +343,7 @@ static const device_config_t g5a_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "AMIBIOS 6 (071595) - Revision F6",
+                .name          = "AMIBIOS 6 (120299) - Revision F6",
                 .internal_name = "5aa_f6",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -352,7 +352,7 @@ static const device_config_t g5a_config[] = {
                 .files         = { "roms/machines/5aa/GA-5AA.F6", "" }
             },
             {
-                .name          = "AMIBIOS 6 (071595) - Revision F7b (Beta)",
+                .name          = "AMIBIOS 6 (120299) - Revision F7b (Beta)",
                 .internal_name = "5aa",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -691,11 +691,43 @@ machine_at_ficva503a_init(const machine_t *model)
 }
 
 int
+machine_at_5ema_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/5ema/5ema1ea1.bin",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&via_mvp3_device);
+    device_add(&via_vt82c586b_device);
+    device_add_params(&fdc37c669_device, (void *) 0);
+    device_add(&sst_flash_39sf010_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+
+    return ret;
+}
+
+int
 machine_at_5emaplus_init(const machine_t *model)
 {
     int ret;
 
-    ret = bios_load_linear("roms/machines/5emaplus/5ema1ea1.bin",
+    ret = bios_load_linear("roms/machines/5emaplus/5EMPVEA1.BIN",
                            0x000e0000, 131072, 0);
 
     if (bios_only || !ret)
@@ -808,6 +840,15 @@ static const device_config_t sl54u5_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/sl54u5/54U5-A10.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision A11b",
+                .internal_name = "sl54u5_a11b",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/sl54u5/54U5-A11B.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision A11.1",
