@@ -127,6 +127,8 @@
         <file alias="cpq_pres_4500.png">qt/assets/systemicons/cpq_pres_4500.png</file>
         <file alias="dell_optiplex_gn.png">qt/assets/systemicons/dell_optiplex_gn.png</file>
         <file alias="dell_optiplex_gxa.png">qt/assets/systemicons/dell_optiplex_gxa.png</file>
+        <file alias="emachines_etower_300k.png">qt/assets/systemicons/emachines_etower_300k.png</file>
+        <file alias="gateway2000_p590.png">qt/assets/systemicons/gateway2000_p590.png</file>
         <file alias="hp_pav_5030.png">qt/assets/systemicons/hp_pav_5030.png</file>
         <file alias="hp_pav_7410p.png">qt/assets/systemicons/hp_pav_7410p.png</file>
         <file alias="hp_vectra_vei8.png">qt/assets/systemicons/hp_vectra_vei8.png</file>
@@ -211,6 +213,7 @@
         <file alias="tandy_1000.png">qt/assets/systemicons/tandy_1000.png</file>
         <file alias="tandy_1000_hx.png">qt/assets/systemicons/tandy_1000_hx.png</file>
         <file alias="tandy_1000_sl2.png">qt/assets/systemicons/tandy_1000_sl2.png</file>
+        <file alias="toshiba_equium3200.png">qt/assets/systemicons/toshiba_equium3200.png</file>
         <file alias="toshiba_t1000.png">qt/assets/systemicons/toshiba_t1000.png</file>
         <file alias="toshiba_t1200.png">qt/assets/systemicons/toshiba_t1200.png</file>
         <file alias="toshiba_t1200_hdd.png">qt/assets/systemicons/toshiba_t1200_hdd.png</file>
