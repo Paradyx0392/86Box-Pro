@@ -725,6 +725,15 @@ static const device_config_t m6vci_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 10/19/2000",
+                .internal_name = "m6vci_10192000",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/m6vci/VCI1019F.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 01/11/2001",
                 .internal_name = "m6vci_01112001",
                 .bios_type     = BIOS_NORMAL,
@@ -892,7 +901,25 @@ static const device_config_t cuv4xcm_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "Award Medallion BIOS v6.0 - Revision 1004",
+                .name          = "Award Medallion BIOS v6.0 - Revision 1001 (ASUS CUV4X-CME)",
+                .internal_name = "cuv4xcme",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/cuv4xcm/cvcme101.awd", "" }
+            },
+            {
+                .name          = "Award Medallion BIOS v6.0 - Revision 1002 Beta 002 (ASUS CUV4X-CME)",
+                .internal_name = "cuv4xcme_beta",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/cuv4xcm/1002.002", "" }
+            },
+            {
+                .name          = "Award Medallion BIOS v6.0 - Revision 1004 (ASUS CUV4X-CM)",
                 .internal_name = "cuv4xcm",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -917,7 +944,7 @@ static const device_config_t cuv4xcm_config[] = {
 };
 
 const device_t cuv4xcm_device = {
-    .name          = "ASUS CUV4X-CM",
+    .name          = "ASUS CUV4X-CM and CUV4X-CME",
     .internal_name = "cuv4xcm",
     .flags         = 0,
     .local         = 0,
@@ -1076,6 +1103,15 @@ static const device_config_t m6vcf_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v6.00PG - Revision 02/10/2001",
+                .internal_name = "m6vcg_0210",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/m6vcg/vcg0210f.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v6.00PG - Revision 08/07/2001 (with logo)",
                 .internal_name = "m6vcf",
                 .bios_type     = BIOS_NORMAL,
@@ -1183,6 +1219,15 @@ static const device_config_t m6vcg_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/m6vcg/94v0515f.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 03/13/2001",
+                .internal_name = "m6vcg_0313",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/m6vcg/vcg0711f.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision 07/11/2001 (with logo)",
