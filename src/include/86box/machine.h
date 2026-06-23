@@ -1637,6 +1637,7 @@ extern int             machine_at_ms6318_init(const machine_t *);
 extern const device_t  ms6323_device;
 #endif
 extern int             machine_at_ms6323_init(const machine_t *);
+extern int             machine_at_p6v694xa10b_init(const machine_t *);
 extern int             machine_at_cairo5_init(const machine_t *);
 extern int             machine_at_sl65kv2_init(const machine_t *);
 
