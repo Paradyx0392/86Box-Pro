@@ -1109,7 +1109,7 @@ static const device_config_t m6vcf_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/m6vcg/vcf0210f.bin", "" }
+                .files         = { "roms/machines/m6vcf/vcf0210f.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision 08/07/2001 (with logo)",
@@ -1227,7 +1227,7 @@ static const device_config_t m6vcg_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/m6vcg/vcg0711f.bin", "" }
+                .files         = { "roms/machines/m6vcg/vcg0313f.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision 07/11/2001 (with logo)",
