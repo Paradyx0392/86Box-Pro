@@ -98,7 +98,7 @@ static const device_config_t p55t2p4_config[] = {
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 0207 (patched)",
-                .internal_name = "p55t2p4",
+                .internal_name = "p55t2p4_98patch",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
