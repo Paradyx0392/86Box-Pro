@@ -582,7 +582,7 @@ static const device_config_t delhi3_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.01",
+                .name          = "AMIBIOS 6 (071595) - Revision 1.01 11/10/98",
                 .internal_name = "delhi3_nonoem",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -591,7 +591,16 @@ static const device_config_t delhi3_config[] = {
                 .files         = { "roms/machines/delhi3/DELHI3_nonoem.ROM", "" }
             },
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.20 (eMachines eTower 3__k)",
+                .name          = "AMIBIOS 6 (071595) - Revision 1.20 04/11/99",
+                .internal_name = "delhi3_1999",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/delhi3/DELHI3_1999.ROM", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 1.20 04/26/99 (eMachines eTower 3__k)",
                 .internal_name = "delhi3",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,

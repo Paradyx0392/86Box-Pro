@@ -1054,7 +1054,7 @@ static const device_config_t como_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.08 (Olivetti OEM)",
+                .name          = "AMIBIOS 6 (071595) - Revision 1.08 06/05/99 (Olivetti OEM)",
                 .internal_name = "como_olivetti",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -1063,7 +1063,7 @@ static const device_config_t como_config[] = {
                 .files         = { "roms/machines/como/COMO_Olivetti_OEM.ROM", "" }
             },
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.12 (eMachines OEM)",
+                .name          = "AMIBIOS 6 (071595) - Revision 1.12 01/18/99 (eMachines OEM)",
                 .internal_name = "como",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -1072,7 +1072,7 @@ static const device_config_t como_config[] = {
                 .files         = { "roms/machines/como/COMO.ROM", "" }
             },
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 01/23/1999 (Xoceco-TriGem OEM)",
+                .name          = "AMIBIOS 6 (071595) - Revision 01/23/99 (Xoceco-TriGem OEM)",
                 .internal_name = "como_xoceco",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,

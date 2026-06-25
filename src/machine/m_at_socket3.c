@@ -462,7 +462,7 @@ static const device_config_t vi15g_config[] = {
                 .files         = { "roms/machines/vi15g/VI15GR23.ROM", "" }
             },
             {
-                .name          = "MR BIOS 3.21 - Revision 11/16/95",
+                .name          = "MR BIOS 3.21",
                 .internal_name = "vi15g_mr",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -608,16 +608,79 @@ machine_at_dvent4xx_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t dtk486_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "dtk486",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.50G - Revision 07/11/94",
+                .internal_name = "dtk486",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 65536,
+                .files         = { "roms/machines/dtk486/4siw005.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.50G - Revision 11/28/95",
+                .internal_name = "dtk486_1995",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 65536,
+                .files         = { "roms/machines/dtk486/4WSPG306.BIN", "" }
+            },
+            {
+                .name          = "MR BIOS 3.21",
+                .internal_name = "dtk486_mr",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 65536,
+                .files         = { "roms/machines/dtk486/MRBIOS-SIS471-V3-21.BIN", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t dtk486_device = {
+    .name          = "DTK PKM-0038S E-2",
+    .internal_name = "dtk486",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = dtk486_config
+};
+
 int
 machine_at_dtk486_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/dtk486/4siw005.bin",
-                           0x000f0000, 65536, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000f0000, 65536, 0);
 
     machine_at_sis_85c471_common_init(model);
 
@@ -626,13 +689,72 @@ machine_at_dtk486_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t ami471_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "ami471",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "AMIBIOS 080893",
+                .internal_name = "ami471",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 65536,
+                .files         = { "roms/machines/ami471/SIS471BE.AMI", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.50G",
+                .internal_name = "gxa486sg",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 65536,
+                .files         = { "roms/machines/ami471/2C4I9PA0.BIN", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t ami471_device = {
+    .name          = "Epox GXA486SG",
+    .internal_name = "ami471",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = ami471_config
+};
+
 int
 machine_at_ami471_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/ami471/SIS471BE.AMI",
-                           0x000f0000, 65536, 0);
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000f0000, 65536, 0);
+
+    machine_at_sis_85c471_common_init(model);
 
     if (bios_only || !ret)
         return ret;

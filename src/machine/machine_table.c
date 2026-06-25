@@ -10464,13 +10464,13 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x000004f0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &dtk486_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Gemlight GMB-486SG", "" }
     },
     /* Has a Lance LT38C41L with AMIKey F keyboard BIOS. */
     {
@@ -10512,7 +10512,7 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x000004f0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &ami471_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
