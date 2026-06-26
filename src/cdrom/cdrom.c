@@ -1270,7 +1270,7 @@ cdrom_generate_name_mke(const int type, char *name)
 void
 cdrom_get_identify_model(const int type, char *name, const int id)
 {
-    char  elements[2][512] = { 0 };
+    char  elements[3][512] = { 0 };
 
     memcpy(elements[0], cdrom_drive_types[type].vendor,
            strlen(cdrom_drive_types[type].vendor) + 1);
@@ -1278,21 +1278,28 @@ cdrom_get_identify_model(const int type, char *name, const int id)
     memcpy(elements[1], cdrom_drive_types[type].model,
            strlen(cdrom_drive_types[type].model) + 1);
 
+    memcpy(elements[2], cdrom_drive_types[type].bios_name,
+           strlen(cdrom_drive_types[type].bios_name) + 1);
+
     char *s = strstr(elements[1], "  ");
 
     if (s != NULL)
         s[0] = 0x00;
 
-    if (!strcmp(cdrom_drive_types[type].vendor, EMU_NAME))
-        sprintf(name, "%s%02i", elements[1], id);
-    else if (!strcmp(cdrom_drive_types[type].vendor, "ASUS"))
-        sprintf(name, "%s    %s", elements[0], elements[1]);
-    else if (!strcmp(cdrom_drive_types[type].vendor, "NEC"))
-        sprintf(name, "%s                 %s", elements[0], elements[1]);
-    else if (!strcmp(cdrom_drive_types[type].vendor, "LITE-ON"))
-        sprintf(name, "%s", elements[1]);
+    else if (!strcmp(cdrom_drive_types[type].bios_name, ""))
+        if (!strcmp(cdrom_drive_types[type].vendor, EMU_NAME))
+             sprintf(name, "%s%02i", elements[1], id);
+        else if (!strcmp(cdrom_drive_types[type].vendor, "ASUS"))
+            sprintf(name, "%s    %s", elements[0], elements[1]);
+        else if (!strcmp(cdrom_drive_types[type].vendor, "NEC"))
+            sprintf(name, "%s                 %s", elements[0], elements[1]);
+        else if (!strcmp(cdrom_drive_types[type].vendor, "LITEON"))
+            sprintf(name, "%s", elements[1]);
+        else
+            sprintf(name, "%s %s", elements[0], elements[1]);
     else
-        sprintf(name, "%s %s", elements[0], elements[1]);
+        sprintf(name, "%s", elements[2]);
+
 }
 
 void
@@ -2350,7 +2357,7 @@ cdrom_read_disc_info_toc(cdrom_t *dev, uint8_t *b,
                 b[1] = bin2bcd(trti[t].ps);
                 b[2] = bin2bcd(trti[t].pf);
                 b[3] = trti[t].adr_ctl;
- 
+
                 cdrom_log(dev->log, "Returned Toshiba/NEC disc information (type 2) at "
                           "%02i:%02i.%02i, track=%d, attr=%02x.\n", b[0], b[1],
                           b[2], bcd2bin(track), b[3]);
@@ -3088,7 +3095,8 @@ cdrom_hard_reset(void)
             const char *vendor = cdrom_drive_types[dev->type].vendor;
 
             dev->is_early   = cdrom_is_early(dev->type);
-            dev->is_bcd     = !strcmp(vendor, "NEC");
+            dev->is_bcd     = (dev->bus_type == CDROM_BUS_ATAPI) &&
+                              !strcmp(vendor, "NEC");
             dev->is_nec     = (dev->bus_type == CDROM_BUS_SCSI) &&
                               !strcmp(vendor, "NEC");
             dev->is_chinon  = !strcmp(vendor, "CHINON");
