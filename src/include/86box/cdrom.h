@@ -199,7 +199,7 @@ static const struct cdrom_drive_types_s {
     /* TODO: Find an IDENTIFY and/or INQUIRY dump. */
     { "MITSUMI",  "CRMC-FX810T4",      "a01 ", "",                  "mitsumi_810t4",       BUS_TYPE_IDE,  0,  8, 36, 0, 0, {  4,  2,  2, -1 } },
     { "MITSUMI",  "CRMC-FX120T",       "w02 ", "",                  "mitsumi_120t",        BUS_TYPE_IDE,  0, 12, 36, 0, 0, {  4,  2,  2, -1 } },
-    { "MITSUMI",  "CRMC-FX240S",       "g05 ", "",                  "mitsumi_240s",        BUS_TYPE_IDE,  0, 25, 36, 0, 0, {  4,  2,  2, -1 } },
+    { "MITSUMI",  "CRMC-FX240S",       "g05 ", "",                  "mitsumi_240s",        BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2, -1 } },
     { "MITSUMI",  "CRMC-FX322M",       "p01 ", "",                  "mitsumi_322m",        BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2, -1 } },
     { "MITSUMI",  "CR-480ATE",         "1.0E", "",                  "mitsumi_480ate",      BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2,  1 } },
     { "MITSUMI",  "CRMC-FX4820T",      "D02A", "",                  "mitsumi_4820t",       BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } },
