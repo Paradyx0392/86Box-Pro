@@ -928,6 +928,24 @@ static const device_config_t cuv4xcm_config[] = {
                 .files         = { "roms/machines/cuv4xcm/CUCM1004.AWD", "" }
             },
             {
+                .name          = "Award Medallion BIOS v6.0 - Revision 1004 (Medion MED 2001)",
+                .internal_name = "med2001_1004",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/cuv4xcm/1004MED.MED", "" }
+            },
+            {
+                .name          = "Award Medallion BIOS v6.0 - Revision 1006A (Medion MED 2001)",
+                .internal_name = "med2001_1006a",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/cuv4xcm/1006A.MED", "" }
+            },
+            {
                 .name          = "Award Medallion BIOS v6.0 - Revision 1009 (Medion MED 2001)",
                 .internal_name = "cuv4xcm_med2001",
                 .bios_type     = BIOS_NORMAL,
@@ -1103,6 +1121,15 @@ static const device_config_t m6vcf_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v6.00PG - Revision 08/28/2000",
+                .internal_name = "m6vcf_0828",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/m6vcf/vcf0828f.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v6.00PG - Revision 02/10/2001",
                 .internal_name = "m6vcf_0210",
                 .bios_type     = BIOS_NORMAL,
@@ -1212,15 +1239,6 @@ static const device_config_t m6vcg_config[] = {
                 .files         = { "roms/machines/m6vcg/vcg01103.bin", "" }
             },
             {
-                .name          = "Award Modular BIOS v6.00PG - Revision 05/15/2001 (Amptron Vega V6941)",
-                .internal_name = "m6vcg_vegav6941",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/m6vcg/94v0515f.bin", "" }
-            },
-            {
                 .name          = "Award Modular BIOS v6.00PG - Revision 03/13/2001",
                 .internal_name = "m6vcg_0313",
                 .bios_type     = BIOS_NORMAL,
@@ -1228,6 +1246,15 @@ static const device_config_t m6vcg_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/m6vcg/vcg0313f.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 05/15/2001 (Amptron Vega V6941)",
+                .internal_name = "m6vcg_vegav6941",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/m6vcg/94v0515f.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision 07/11/2001 (with logo)",
