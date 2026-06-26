@@ -1955,6 +1955,15 @@ static const device_config_t p3bf_config[] = {
                 .size          = 262144,
                 .files         = { "roms/machines/p3bf/1008f.004", "" }
             },
+            {
+                .name          = "Award Medallion BIOS v6.0 - Revision 1008 Beta 004 (patched by Noa)",
+                .internal_name = "p3bf_1008b004pn",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p3bf/1008f004.noa", "" }
+            },
             { .files_no = 0 }
         }
     },
