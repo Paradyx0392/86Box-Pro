@@ -85,6 +85,7 @@
 #define ROM_NUMBER9_9FX_771            "roms/video/s3/no9motionfx771.BIN"
 #define ROM_PHOENIX_VISION968          "roms/video/s3/1-DSV3968P.BIN"
 #define ROM_DIAMOND_STEALTH64_968      "roms/video/s3/vv_303.rom"
+#define ROM_ASUS_TRIO64V2              "roms/video/s3/ASUS PCI-V775V2C (S3 Trio64V2 PCI).bin"
 
 enum {
     S3_NUMBER9_9FX,
@@ -132,6 +133,7 @@ enum {
     S3_86C805_ONBOARD,
     S3_DIAMOND_STEALTH64_968,
     S3_WINNER1000_805,
+    S3_ASUS_TRIO64V2,
     S3_USE_CONFIG_BIOS
 };
 
@@ -10761,6 +10763,11 @@ s3_init(const device_t *info)
             chip    = S3_TRIO64V2;
             video_inform(VIDEO_FLAG_TYPE_SPECIAL, &timing_s3_trio64_pci);
             break;
+        case S3_ASUS_TRIO64V2:
+            bios_fn = ROM_ASUS_TRIO64V2;
+            chip    = S3_TRIO64V2;
+            video_inform(VIDEO_FLAG_TYPE_SPECIAL, &timing_s3_trio64_pci);
+            break;
         case S3_TRIO64V2_DX_ONBOARD:
             bios_fn = NULL;
             chip    = S3_TRIO64V2;
@@ -11326,6 +11333,7 @@ s3_init(const device_t *info)
             break;
 
         case S3_TRIO64V2_DX:
+        case S3_ASUS_TRIO64V2:
         case S3_TRIO64V2_DX_ONBOARD:
             svga->decode_mask = (4 << 20) - 1;
             s3->id            = 0xe1; /*Trio64V2*/
@@ -12800,7 +12808,17 @@ static const device_config_t s3_trio64v2dx_pci_config[] = {
         .spinner        = { 0 },
         .bios           = {
             {
-                .name          = "Phoenix",
+                .name          = "ASUS PCI-V775V2C",
+                .internal_name = "asus_trio64v2dx_pci",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = S3_ASUS_TRIO64V2,
+                .size          = 32768,
+                .flags         = BIOS_LIMIT_MAX_MEMORY | (2 << 16),
+                .files         = { ROM_ASUS_TRIO64V2, "" }
+            },
+            {
+                .name          = "Generic",
                 .internal_name = "trio64v2dx_pci",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
