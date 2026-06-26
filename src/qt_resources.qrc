@@ -132,6 +132,7 @@
         <file alias="hp_pav_5030.png">qt/assets/systemicons/hp_pav_5030.png</file>
         <file alias="hp_pav_7410p.png">qt/assets/systemicons/hp_pav_7410p.png</file>
         <file alias="hp_vectra_vei8.png">qt/assets/systemicons/hp_vectra_vei8.png</file>
+        <file alias="hp_vectra_vl_series_4.png">qt/assets/systemicons/hp_vectra_vl_series_4.png</file>
         <file alias="ibm330.png">qt/assets/systemicons/ibm330.png</file>
         <file alias="ibm_at.png">qt/assets/systemicons/ibm_at.png</file>
         <file alias="ibm_pc_81.png">qt/assets/systemicons/ibm_pc_81.png</file>
@@ -198,8 +199,11 @@
         <file alias="os_winxp_x2.png">qt/assets/systemicons/os_winxp_x2.png</file>
         <file alias="os_xandros_x2.png">qt/assets/systemicons/os_xandros_x2.png</file>
         <file alias="pb_bora_pro.png">qt/assets/systemicons/pb_bora_pro.png</file>
+        <file alias="pb_club.png">qt/assets/systemicons/pb_club.png</file>
+        <file alias="pb_corner_computer.png">qt/assets/systemicons/pb_corner_computer.png</file>
         <file alias="pb_d160.png">qt/assets/systemicons/pb_d160.png</file>
         <file alias="pb_gulliver.png">qt/assets/systemicons/pb_gulliver.png</file>
+        <file alias="pb_legend_300sx.png">qt/assets/systemicons/pb_legend_300sx.png</file>
         <file alias="pb_milano.png">qt/assets/systemicons/pb_milano.png</file>
         <file alias="pb_pb410.png">qt/assets/systemicons/pb_pb410.png</file>
         <file alias="pb_pb640.png">qt/assets/systemicons/pb_pb640.png</file>
@@ -210,6 +214,7 @@
         <file alias="pb_squariuseurope.png">qt/assets/systemicons/pb_squariuseurope.png</file>
         <file alias="pb_squariuseurope2.png">qt/assets/systemicons/pb_squariuseurope2.png</file>
         <file alias="pb_squariususa.png">qt/assets/systemicons/pb_squariususa.png</file>
+        <file alias="sony_vaio_pcv90.png">qt/assets/systemicons/sony_vaio_pcv90.png</file>
         <file alias="tandy_1000.png">qt/assets/systemicons/tandy_1000.png</file>
         <file alias="tandy_1000_hx.png">qt/assets/systemicons/tandy_1000_hx.png</file>
         <file alias="tandy_1000_sl2.png">qt/assets/systemicons/tandy_1000_sl2.png</file>
