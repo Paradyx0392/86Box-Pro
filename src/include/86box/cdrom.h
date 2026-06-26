@@ -183,7 +183,7 @@ static const struct cdrom_drive_types_s {
     { "LITEON",   "CD-ROM LTN48125S",  "1S07", "LTN48125S",         "liteon_48125s",       BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } },
     /* Confirmed to be 52x, was the basis for deducing the other one's speed. */
     { "LITEON",   "DVD-ROM LTN526D",   "YSR5", "LTN586D",           "liteon_526d",         BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  2 } },
-TODO: to find the real dump of this CD-ROM model. */
+    /* TODO: to find the real dump of this CD-ROM model. */
     { "MATSHITA", "CR-571",            "1.0e", "",                  "matshita_571",        BUS_TYPE_IDE,  0,  2, 36, 0, 0, {  0, -1, -1, -1 } },
     { "MATSHITA", "CR-572",            "1.0j", "",                  "matshita_572",        BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  0, -1, -1, -1 } },
     { "MATSHITA", "CR-574",            "P.11", "",                  "matshita_574",        BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  2, -1, -1, -1 } },
@@ -192,8 +192,8 @@ TODO: to find the real dump of this CD-ROM model. */
     { "MATSHITA", "CD-ROM CR-587",     "7S13", "",                  "matshita_587",        BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2,  2 } },
     { "MATSHITA", "CD-ROM CR-588",     "LS15", "",                  "matshita_588",        BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2,  2 } },
     { "MATSHITA", "CD-ROM CR-594-C",   "PA05", "",                  "matshita_594",        BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } },
-    { "MATSHITA", "DVD-ROM SR-8587",   "CA5B", "",                  "matshita_8587",       BUS_TYPE_IDE,  0, 48, 36, 0, 1, {  4,  2,  2,  4 } },
     { "MATSHITA", "DVD-ROM SR-8584",   "e15C", "",                  "matshita_8584",       BUS_TYPE_IDE,  0, 52, 36, 0, 1, {  4,  2,  2,  4 } },
+    { "MATSHITA", "DVD-ROM SR-8587",   "CA5B", "",                  "matshita_8587",       BUS_TYPE_IDE,  0, 48, 36, 0, 1, {  4,  2,  2,  4 } },
     { "MITSUMI",  "CRMC-FX400G",       "l07 ", "",                  "mitsumi_400c",        BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  4,  2,  2, -1 } },
     { "MITSUMI",  "CRMC-FX600S",       "p07 ", "",                  "mitsumi_600s",        BUS_TYPE_IDE,  0,  6, 36, 0, 0, {  4,  2,  2, -1 } },
     /* TODO: Find an IDENTIFY and/or INQUIRY dump. */
@@ -214,6 +214,7 @@ TODO: to find the real dump of this CD-ROM model. */
     { "NEC",      "CDR-1801A",         "J111", "",                  "nec_1801a",           BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2,  1 } },
     { "NEC",      "CDR-1900A",         "1.00", "",                  "nec_1900a",           BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2,  1 } },
     { "NEC",      "CDR-3002A",         "C000", "",                  "nec_3002a",           BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  4 } },
+    { "NEC",      "DV-5700A",          "1.42", "",                  "nec_dv5700a",         BUS_TYPE_IDE,  0, 40, 36, 0, 1, {  4,  2,  2,  5 } },
     { "NEC",      "ND-1300A",          "1.0B", "",                  "nec_d1300a",          BUS_TYPE_IDE,  0, 40, 36, 0, 1, {  4,  2,  2,  5 } },
     { "NEC",      "ND-3500A",          "2.1A", "",                  "nec_d3500a",          BUS_TYPE_IDE,  0, 48, 36, 0, 1, {  4,  2,  2,  5 } }, /* 48x version of ND-1300A */
     { "PHILIPS",  "CD-ROM PCA403CD",   "U31P", "",                  "philips_403",         BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2, -1 } },
