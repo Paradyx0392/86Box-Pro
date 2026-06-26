@@ -5868,7 +5868,7 @@ static const device_config_t s3_virge_vx_pci_config[] = {
                 .files         = { ROM_DIAMOND_STEALTH3D_3000, "" }
             },
             {
-                .name          = "(STB Velocity 3D",
+                .name          = "STB Velocity 3D",
                 .internal_name = "stb_velocity3d_pci",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
