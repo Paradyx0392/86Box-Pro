@@ -904,7 +904,10 @@ extern int             machine_at_zi4d_init(const machine_t *);
 
 /* UMC 8881 */
 extern int             machine_at_atc1415_init(const machine_t *);
-extern int             machine_at_84xxuuda_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  b84xxuud_device;
+#endif
+extern int             machine_at_b84xxuud_init(const machine_t *);
 extern int             machine_at_pl4600c_init(const machine_t *);
 extern int             machine_at_ecs486_init(const machine_t *);
 extern int             machine_at_actionpc2600_init(const machine_t *);
