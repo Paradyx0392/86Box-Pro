@@ -1655,7 +1655,7 @@ static const device_config_t b84xxuud_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "Award Modular BIOS v4.50PG - Revision 03/26/96",
+                .name          = "Award Modular BIOS v4.50PG - Revision 03/26/96 S",
                 .internal_name = "84xxuuda_450pg",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -1664,7 +1664,7 @@ static const device_config_t b84xxuud_config[] = {
                 .files         = { "roms/machines/84xxuuda/uud0326s.bin", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 05/20/96",
+                .name          = "Award Modular BIOS v4.51PG - Revision 05/20/96 S",
                 .internal_name = "84xxuuda",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,

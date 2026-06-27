@@ -1355,16 +1355,80 @@ machine_at_fmb_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t acerv35n_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "acerv35n",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Acer BIOS v2.1 - Release 1.0 C0 R3",
+                .internal_name = "acerv35n_c0r3",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/acerv35n/v35nc0r3.bin", "" }
+            },
+            {
+                .name          = "Acer BIOS v2.1 - Release 1.0 D1",
+                .internal_name = "acerv35n_d1",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/acerv35n/v35n_d1.bin", "" }
+            },
+            {
+                .name          = "Acer BIOS v2.1 - Release 1.0 D1 Service bios 1",
+                .internal_name = "acerv35n",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/acerv35n/v35nd1s1.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t acerv35n_device = {
+    .name          = "Acer V35N",
+    .internal_name = "acerv35n",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = acerv35n_config
+};
+
 int
 machine_at_acerv35n_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/acerv35n/v35nd1s1.bin",
-                           0x000e0000, 131072, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -1472,16 +1536,80 @@ machine_at_ap53_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t bmb8500_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "8500tuc",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision February 21 B",
+                .internal_name = "8500tuc",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/8500tuc/tuc0221b.rom", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision May 30 B",
+                .internal_name = "8500tuc_may30",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/8500tuc/tuc0530b.rom", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (062300) - Revision September 30 D (Quantex OEM)",
+                .internal_name = "8500tuc_quantex",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/8500tuc/tuc0530b.rom", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t bmb8500_device = {
+    .name          = "Biostar MB-8500TUC",
+    .internal_name = "8500tuc",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = bmb8500_config
+};
+
 int
-machine_at_8500tuc_init(const machine_t *model)
+machine_at_bmb8500_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/8500tuc/Tuc0221b.rom",
-                           0x000e0000, 131072, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 

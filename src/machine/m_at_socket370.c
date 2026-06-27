@@ -894,7 +894,7 @@ static const device_config_t cuv4xcm_config[] = {
         .name           = "bios",
         .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
-        .default_string = "cuv4xcm",
+        .default_string = "cuv4xcme",
         .default_int    = 0,
         .file_filter    = NULL,
         .spinner        = { 0 },
@@ -947,7 +947,7 @@ static const device_config_t cuv4xcm_config[] = {
             },
             {
                 .name          = "Award Medallion BIOS v6.0 - Revision 1009 (Medion MED 2001)",
-                .internal_name = "cuv4xcm_med2001",
+                .internal_name = "med2001",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
@@ -1128,6 +1128,15 @@ static const device_config_t m6vcf_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/m6vcf/vcf0828f.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 12/04/2000 (Fujitsu-Siemens OEM)",
+                .internal_name = "m6vcf_fsc",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/m6vcf/vcf1204a.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision 02/10/2001",
@@ -1554,6 +1563,15 @@ static const device_config_t ms6318_config[] = {
                 .files         = { "roms/machines/ms6318/w6318vms.120", "" }
             },
             {
+                .name          = "Award Modular BIOS v6.00PG - Revision 1.3 (Medion MED 2000)",
+                .internal_name = "ms6318_130",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6318/ms6318.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v6.00PG - Revision 1.8 (HP Pavilion A7xx)",
                 .internal_name = "ms6318_180",
                 .bios_type     = BIOS_NORMAL,
@@ -1579,15 +1597,6 @@ static const device_config_t ms6318_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/ms6318/ms6318hp.bin", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v6.00PG - Revision 1.3 (Medion MED 2000)",
-                .internal_name = "ms6318_130",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6318/ms6318.bin", "" }
             },
             { .files_no = 0 }
         }

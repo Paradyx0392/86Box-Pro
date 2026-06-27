@@ -1110,6 +1110,9 @@ extern const device_t  fmb_device;
 extern int             machine_at_fmb_init(const machine_t *);
 
 /* i430HX */
+#ifdef EMU_DEVICE_H
+extern const device_t  acerv35n_device;
+#endif
 extern int             machine_at_acerv35n_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ap53_device;
