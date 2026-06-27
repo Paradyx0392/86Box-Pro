@@ -1118,7 +1118,10 @@ extern int             machine_at_acerv35n_init(const machine_t *);
 extern const device_t  ap53_device;
 #endif
 extern int             machine_at_ap53_init(const machine_t *);
-extern int             machine_at_8500tuc_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  bmb8500_device;
+#endif
+extern int             machine_at_bmb8500_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  d943_device;
 #endif
