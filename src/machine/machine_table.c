@@ -14693,7 +14693,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SOCKET5_7,
-        CPU_BLOCK(CPU_PENTIUMMMX),
+            .block       = CPU_BLOCK(CPU_PENTIUMMMX),
             .min_bus     = 50000000,
             .max_bus     = 66666667,
             .min_voltage = 3520,
@@ -14741,7 +14741,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SOCKET5_7,
-        CPU_BLOCK(CPU_PENTIUMMMX),
+            .block       = CPU_BLOCK(CPU_PENTIUMMMX),
             .min_bus     = 50000000,
             .max_bus     = 66666667,
             .min_voltage = 3520,
@@ -14790,7 +14790,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SOCKET5_7,
-        CPU_BLOCK(CPU_PENTIUMMMX),
+            .block       = CPU_BLOCK(CPU_PENTIUMMMX),
             .min_bus     = 50000000,
             .max_bus     = 66666667,
             .min_voltage = 3520,
@@ -16028,7 +16028,7 @@ const machine_t machines[] = {
         .internal_name     = "8500tuc",
         .type              = MACHINE_TYPE_SOCKET7_3V,
         .chipset           = MACHINE_CHIPSET_INTEL_430HX,
-        .init              = machine_at_8500tuc_init,
+        .init              = machine_at_bmb8500_init,
         .p1_handler        = machine_generic_p1_handler,
         .gpio_handler      = NULL,
         .available_flag    = MACHINE_AVAILABLE,
