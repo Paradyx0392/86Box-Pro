@@ -25684,7 +25684,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = &alc100_device,
         .net_device               = NULL,
-        .aliases                  = { "Jetway VM4", "" }
+        .aliases                  = { "" }
     },
     /* Has the VIA VT82C686B southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
