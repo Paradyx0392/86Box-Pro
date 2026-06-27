@@ -1652,6 +1652,9 @@ extern int             machine_at_m6vcg_init(const machine_t *);
 extern int             machine_at_ca64en_init(const machine_t *);
 extern int             machine_at_p6vap_init(const machine_t *);
 extern int             machine_at_p6vxa_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  j694as_device;
+#endif
 extern int             machine_at_j694as_init(const machine_t *);
 extern int             machine_at_j694cs_init(const machine_t *);
 #ifdef EMU_DEVICE_H
