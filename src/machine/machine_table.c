@@ -13301,7 +13301,7 @@ const machine_t machines[] = {
         .vid_device               = &gd5434_onboard_pci_device,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Packard Bell Robin LC", "Intel Robin LC", "Zenith Data Systems (ZDS) Z-Select PT", "" }
+        .aliases                  = { "Packard Bell Robin LC", "Intel Robin LC", "Zenith Data Systems Z-Select PT", "" }
     },
     /* The M5Pi appears to have a Phoenix MultiKey KBC firmware according to photos. */
     {
