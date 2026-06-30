@@ -112,7 +112,7 @@ static const device_config_t plato_config[] = {
                 .files         = { "roms/machines/plato/1002AX1P.BIO", "roms/machines/plato/1002AX1P.BI1", "" }
             },
             {
-                .name          = "Intel AMIBIOS - Revision 1.00.13.AX1T (Gateway 2000 OEM)",
+                .name          = "Intel AMIBIOS - Revision 1.00.13.AX1T (Gateway 2000)",
                 .internal_name = "platogw2k",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 2,
@@ -455,15 +455,6 @@ static const device_config_t pt2000_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/ficpt2000/PT2000_v1.01.BIN", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v4.50PG - Revision 3.06C800",
-                .internal_name = "pt2000_450pg",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 131072,
-                .files         = { "roms/machines/ficpt2000/306C800.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 3.072C806",

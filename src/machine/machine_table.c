@@ -13893,7 +13893,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Intel Plato", "Dell Dimension XPS P___", "Ambra DP90 PCI", "" }
+        .aliases                  = { "Intel Plato", "Dell Dimension XPS P___", "Ambra DP90 PCI", "Gateway 2000 Plato", "" }
     },
     /* Has unknown KBC firmware. */
     {
@@ -17550,7 +17550,7 @@ const machine_t machines[] = {
         .vid_device               = &s3_trio64v2dx_onboard_pci_device,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "MiTAC/Trigon SNIPER", "" }
+        .aliases                  = { "MiTAC/Trigon SNIPER", "MiTAC/Trigon PWA-TITAN-R", "" }
     },
     /* Has a SM(S)C FDC37C932FR Super I/O chip with on-chip KBC with AMI
        MegaKey (revision '5') KBC firmware. */

@@ -115,6 +115,7 @@
     </qresource>
     <qresource prefix="/systemicons">
         <file alias="aopen_qf50.png">qt/assets/systemicons/aopen_qf50.png</file>
+        <file alias="ast_adv_486sx33.png">qt/assets/systemicons/ast_adv_486sx33.png</file>
         <file alias="ast_adv_4050d.png">qt/assets/systemicons/ast_adv_4050d.png</file>
         <file alias="ast_bravo_ms.png">qt/assets/systemicons/ast_bravo_ms.png</file>
         <file alias="ast_bravo_mst.png">qt/assets/systemicons/ast_bravo_mst.png</file>
@@ -131,6 +132,7 @@
         <file alias="gateway2000_p590.png">qt/assets/systemicons/gateway2000_p590.png</file>
         <file alias="hp_pav_5030.png">qt/assets/systemicons/hp_pav_5030.png</file>
         <file alias="hp_pav_7410p.png">qt/assets/systemicons/hp_pav_7410p.png</file>
+        <file alias="hp_netserver_e200.png">qt/assets/systemicons/hp_netserver_e200.png</file>
         <file alias="hp_vectra_vei8.png">qt/assets/systemicons/hp_vectra_vei8.png</file>
         <file alias="hp_vectra_vl_series_4.png">qt/assets/systemicons/hp_vectra_vl_series_4.png</file>
         <file alias="ibm330.png">qt/assets/systemicons/ibm330.png</file>
@@ -146,6 +148,7 @@
         <file alias="ibm_xt_86.png">qt/assets/systemicons/ibm_xt_86.png</file>
         <file alias="medion_med2000.png">qt/assets/systemicons/medion_med2000.png</file>
         <file alias="medion_med2001.png">qt/assets/systemicons/medion_med2001.png</file>
+        <file alias="nec_ready_7022.png">qt/assets/systemicons/nec_ready_7022.png</file>
         <file alias="olivetti_m19.png">qt/assets/systemicons/olivetti_m19.png</file>
         <file alias="olivetti_m21.png">qt/assets/systemicons/olivetti_m21.png</file>
         <file alias="olivetti_m24.png">qt/assets/systemicons/olivetti_m24.png</file>
