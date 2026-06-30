@@ -463,7 +463,7 @@ static const device_config_t pt2000_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 131072,
-                .files         = { "roms/machines/ficpt2000/PT2000_v1.01.BIN", "" }
+                .files         = { "roms/machines/ficpt2000/306C800.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 3.072C806",
