@@ -453,6 +453,7 @@ load_machine(void)
         { .old = "gw2kvenus", .new = "vs440fx", .new_bios = "gw2kvenus" },
         { .old = "lgibmx7g", .new = "ms6119", .new_bios = "lgibmx7g" },
         { .old = "apas3", .new = "vim863s", .new_bios = NULL },
+        { .old = "pb520r", .new = "robinlc", .new_bios = "pb520r" },
         { 0 }
     };
 

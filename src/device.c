@@ -189,6 +189,7 @@ device_set_context(device_context_t *ctx, const device_t *dev, int inst)
         { .old = "Packard Bell PB410/PB410A/PB420/PB420T", .new = "Packard Bell PB410A" }, /* 6.0 pre-release */
         { .old = "Intel Premiere/PCI (Batman)", .new = "Intel Premiere/PCI" },
         { .old = "Intel Premiere/PCI II (Plato)", .new = "Intel Premiere/PCI II" },
+        { .old = "Packard Bell PB520R", .new = "Intel Premiere/PCI LC" },
         { .old = "HP Pavilion 50x0/70xx", .new = "Intel Advanced/MN" },
         { .old = "Intel Advanced/ZP (Zappa)", .new = "Intel Advanced/ZP" },
         { .old = "MSI MS-5119", .new = "MSI MS-5119 and MS-5120" },

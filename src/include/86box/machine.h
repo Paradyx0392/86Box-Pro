@@ -965,8 +965,8 @@ extern const device_t  batman_device;
 extern int             machine_at_batman_init(const machine_t *);
 extern void            machine_at_premiere_common_init(const machine_t *, int);
 extern int             machine_at_revenge_init(const machine_t *);
+extern int             machine_at_robinlc_init(const machine_t *);
 extern int             machine_at_m5pi_init(const machine_t *);
-extern int             machine_at_pb520r_init(const machine_t *);
 
 /* OPTi 597 */
 extern int             machine_at_excalibur_init(const machine_t *);
