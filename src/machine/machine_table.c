@@ -13088,7 +13088,7 @@ const machine_t machines[] = {
         .flags     = MACHINE_FLAGS_NONE,
         .ram       = {
             .min  = 2048,
-            .max  = 131072,
+            .max  = 196608,
             .step = 2048
         },
         .nvrmask                  = 127,
@@ -13109,7 +13109,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Gigabyte GA-5IS", "" }
     },
     /* Has IBM PS/2 Type 1 KBC firmware. */
     {
