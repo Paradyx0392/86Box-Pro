@@ -11251,7 +11251,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Intel Ninja", "" }
+        .aliases                  = { "Intel Ninja", "Intel Classic/PCI Expandable Desktop", "" }
     },
     /* According to another string seen on the UH19 website, this has AMI 'H' KBC. */
     {
@@ -13205,7 +13205,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Intel Batman", "Dell Dimension XPS P60", "AMBRA DP60 PCI", "" }
+        .aliases                  = { "Intel Batman", "Intel Premiere/PCI Expandable Desktop", "Dell Dimension XPS P60", "AMBRA DP60 PCI", "" }
     },
     /* This has the Phoenix MultiKey KBC firmware. */
     {
@@ -13380,7 +13380,7 @@ const machine_t machines[] = {
         .flags     = MACHINE_IDE,
         .ram       = {
             .min  = 2048,
-            .max  = 65536,
+            .max  = 131072,
             .step = 2048
         },
         .nvrmask                  = 127,
@@ -24344,7 +24344,7 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &s370slm_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
