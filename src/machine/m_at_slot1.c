@@ -3481,7 +3481,7 @@ static const device_config_t ms6156zx_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 1.3 (Fujitsu OEM)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.3 (Fujitsu T-Bird GS160X PIII450 V16)",
                 .internal_name = "ms6156zx_fujitsu",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
