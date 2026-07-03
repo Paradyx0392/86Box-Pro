@@ -23303,7 +23303,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "GVC DR738", "Toshiba Equium 3200", "" }
+        .aliases                  = { "GVC DR738", "Toshiba Equium 3200M", "" }
     },
     /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC firmware. */
     {

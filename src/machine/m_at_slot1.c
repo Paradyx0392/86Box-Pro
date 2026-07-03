@@ -2695,6 +2695,15 @@ static const device_config_t ms6119_config[] = {
                 .files         = { "roms/machines/ms6119/vig69m.212", "" }
             },
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.20 (LG IBM Multinet x7G)",
+                .internal_name = "lgibmx7g_220",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/6119V220.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 3.20 (LG IBM Multinet x7G)",
                 .internal_name = "lgibmx7g_320",
                 .bios_type     = BIOS_NORMAL,
@@ -2824,6 +2833,15 @@ static const device_config_t ms6147_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/ms6147/w647p221.pbc", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest) [Patched for larger drives]",
+                .internal_name = "pbtempestp",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/in440zx/w647p221.pcd", "" }
             },
             { .files_no = 0 }
         }
@@ -3193,13 +3211,22 @@ static const device_config_t in440zx_config[] = {
                 .files         = { "roms/machines/in440zx/20861102.BIN", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 2.05.07 (Toshiba Equium 3200)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.05.07 (Toshiba Equium 3200M)",
                 .internal_name = "equium3200",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/in440zx/738257L.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.05.07 (Toshiba Equium 3200M) [Patched for larger drives]",
+                .internal_name = "equium3200p",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/in440zx/738257Lx.bin", "" }
             },
             { .files_no = 0 }
         }
