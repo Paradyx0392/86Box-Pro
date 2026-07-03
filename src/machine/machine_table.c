@@ -7605,7 +7605,7 @@ const machine_t machines[] = {
         but the BIOS sends commands C9 without a parameter and D5, both of which are
         Phoenix MultiKey commands. */
     {
-        .name              = "[OPTi 495SLC] U-Board OPTi 495SLC",
+        .name              = "[OPTi 495SLC] U-Board unknown",
         .internal_name     = "award495",
         .type              = MACHINE_TYPE_386DX,
         .chipset           = MACHINE_CHIPSET_OPTI_495SLC,
@@ -7797,9 +7797,9 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
-    /* Has IBM PS/55 5551-Sxx, Txx stage 2 firmware. */
+    /* Has IBM PS/55 5551-Txx stage 2 firmware. */
     {
-        .name              = "[MCA] IBM PS/55 model 5550-S/T Stage II",
+        .name              = "[MCA] IBM PS/55 model 5550-T Stage II",
         .internal_name     = "ibmps55_m50t",
         .type              = MACHINE_TYPE_386DX,
         .chipset           = MACHINE_CHIPSET_PROPRIETARY,
@@ -14725,7 +14725,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "DTK PKM-0035S", "" }
     },
     /* This has an AMIKey-2, which is type 'H'. */
     {
