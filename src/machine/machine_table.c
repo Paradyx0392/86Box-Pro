@@ -13204,7 +13204,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Intel Batman", "Intel Premiere/PCI Expandable Desktop", "Dell Dimension XPS P60", "AMBRA DP60 PCI", "" }
+        .aliases                  = { "Intel Batman", "Dell Dimension XPS P60", "AMBRA DP60 PCI", "" }
     },
     /* This has the Phoenix MultiKey KBC firmware. */
     {
@@ -13252,7 +13252,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Intel Batman's Revenge", "" }
+        .aliases                  = { "Intel Batman's Revenge", "Intel Premiere/PCI Expandable Desktop", "" }
     },
     /* This has the Phoenix MultiKey KBC firmware. */
     {
