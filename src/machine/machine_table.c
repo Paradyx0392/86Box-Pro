@@ -14725,7 +14725,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "DTK PKM-0035S", "" }
+        .aliases                  = { "DTK PAM-0035S", "" }
     },
     /* This has an AMIKey-2, which is type 'H'. */
     {
