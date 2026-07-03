@@ -186,10 +186,16 @@ device_set_context(device_context_t *ctx, const device_t *dev, int inst)
         { .old = "Packard Bell Legend 300SX", .new = "Packard Bell PB300" },
         { .old = "Packard Bell PB300/PB320", .new = "Packard Bell PB300" }, /* 6.0 pre-release */
         { .old = "DataExpert SX495", .new = "DataExpert OPTI-495SX" },
+        { .old = "IBM PS/55 model 5550-S/T Stage II", .new = "IBM PS/55 model 5550-T Stage II" },
+        { .old = "U-Board OPTi 495SLC", .new = "U-Board unknown" },
         { .old = "Packard Bell PB410/PB410A/PB420/PB420T", .new = "Packard Bell PB410A" }, /* 6.0 pre-release */
         { .old = "Intel Premiere/PCI (Batman)", .new = "Intel Premiere/PCI" },
         { .old = "Intel Premiere/PCI II (Plato)", .new = "Intel Premiere/PCI II" },
         { .old = "Packard Bell PB520R", .new = "Intel Premiere/PCI LC" },
+        { .old = "Protech ProX-1332", .new = "Protech ProX-1330" },
+        { .old = "Micronics 09-00021 (Phoenix BIOS)", .new = "Micronics 386 I-CACHE (Phoenix BIOS)" },
+        { .old = "Micronics 09-00021 (Tandon BIOS)", .new = "Micronics 386 I-CACHE (Tandon BIOS)" },
+        { .old = "Siemens Nixdorf D824", .new = "Siemens-Nixdorf D824" },
         { .old = "HP Pavilion 50x0/70xx", .new = "Intel Advanced/MN" },
         { .old = "Intel Advanced/ZP (Zappa)", .new = "Intel Advanced/ZP" },
         { .old = "MSI MS-5119", .new = "MSI MS-5119 and MS-5120" },
