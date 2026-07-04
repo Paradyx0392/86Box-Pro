@@ -1081,11 +1081,11 @@ machine_at_dellhannibalp_init(const machine_t *model)
 }
 
 int
-machine_at_pam0056i_init(const machine_t *model)
+machine_at_pam0070i_init(const machine_t *model)
 {
     int ret;
 
-    ret = bios_load_linear("roms/machines/pam0056i/56i112.bin",
+    ret = bios_load_linear("roms/machines/pam0070i/70I112.BIN",
                            0x000e0000, 131072, 0);
 
     if (bios_only || !ret)
