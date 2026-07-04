@@ -1602,6 +1602,7 @@ extern int             machine_at_s370slm_init(const machine_t *);
 
 /* i440BX */
 extern int             machine_at_bm6_init(const machine_t *);
+extern int             machine_at_awc661r_init(const machine_t *);
 extern int             machine_at_awo671r_init(const machine_t *);
 extern int             machine_at_ambx133_init(const machine_t *);
 #ifdef EMU_DEVICE_H
