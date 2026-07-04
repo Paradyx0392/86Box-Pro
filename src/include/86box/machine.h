@@ -1510,6 +1510,7 @@ extern const device_t  hot661_device;
 #endif
 extern int             machine_at_hot661_init(const machine_t *);
 extern int             machine_at_sl67b_init(const machine_t *);
+extern int             machine_at_67eb_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  p6sba_device;
 #endif
