@@ -1105,7 +1105,7 @@ machine_at_pam0070i_init(const machine_t *model)
     device_add(&piix3_device);
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
     device_add_params(&w83877_device, (void *) (W83877F | W83877_3F0));
-    device_add(&sst_flash_29ee010_device);
+    device_add(&intel_flash_bxt_device);
 
     return ret;
 }
