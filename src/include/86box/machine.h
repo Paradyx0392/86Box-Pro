@@ -1508,6 +1508,7 @@ extern const device_t  ms6147_device;
 extern int             machine_at_ms6147_init(const machine_t *);
 extern int             machine_at_ms6156_init(const machine_t *);
 extern int             machine_at_ms6163_init(const machine_t *);
+extern int             machine_at_sl62b_init(const machine_t *);
 extern int             machine_at_sl67b_init(const machine_t *);
 extern int             machine_at_67eb_init(const machine_t *);
 #ifdef EMU_DEVICE_H
