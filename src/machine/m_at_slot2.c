@@ -169,7 +169,7 @@ static const device_config_t s2dge_config[] = {
 };
 
 const device_t s2dge_device = {
-    .name          = "Supermicro S2DGE",
+    .name          = "Supermicro S2DGE and S2DGU",
     .internal_name = "s2dge",
     .flags         = 0,
     .local         = 0,

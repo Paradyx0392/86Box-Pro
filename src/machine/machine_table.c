@@ -17256,7 +17256,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Supermicro P5STE", "Megatrends HX83", "" }
     },
 
     /* 430VX */
@@ -18980,7 +18980,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Supermicro P5MMS2", "" }
     },
     /* [TEST] Has AMIKey 'H' KBC firmware. */
     {
@@ -19126,7 +19126,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Premio 219G", "Premio 219H", "" }
     },
     /* Has the SiS 5571 chipset with on-chip KBC. */
     {
