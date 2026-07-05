@@ -2503,6 +2503,43 @@ machine_at_prm0080i_init(const machine_t *model)
     return ret;
 }
 
+int
+machine_at_p6bxap_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/p6bxap/BXAP56.BIN",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0D, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&winbond_flash_w29c020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+    device_add(&gl520sm_2d_device);  /* fans: CPU, Chassis; temperature: System */
+    hwm_values.temperatures[0] += 2; /* System offset */
+    hwm_values.temperatures[1] += 2; /* CPU offset */
+    hwm_values.voltages[0] = 3300;   /* Vcore and 3.3V are swapped */
+    hwm_values.voltages[2] = hwm_get_vcore();
+
+    return ret;
+}
+
 static const device_config_t ga686_config[] = {
     // clang-format off
     {

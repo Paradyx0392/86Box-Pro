@@ -1491,6 +1491,7 @@ extern const device_t  p2xbl_device;
 #endif
 extern int             machine_at_p2xbl_init(const machine_t *);
 extern int             machine_at_prm0080i_init(const machine_t *);
+extern int             machine_at_p6bxap_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ga686_device;
 #endif
