@@ -2474,9 +2474,9 @@ const machine_t machines[] = {
         .bus_flags = MACHINE_PC,
         .flags     = MACHINE_FLAGS_NONE,
         .ram       = {
-            .min  = 64,
+            .min  = 640,
             .max  = 640,
-            .step = 64
+            .step = 640
         },
         .nvrmask                  = 63,
         .jumpered_ecp_dma         = 0,
@@ -13823,7 +13823,7 @@ const machine_t machines[] = {
         .flags     = MACHINE_FLAGS_NONE,
         .ram       = {
             .min  = 2048,
-            .max  = 262144,
+            .max  = 524288,
             .step = 2048
         },
         .nvrmask                  = 127,
@@ -13844,7 +13844,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Gigabyte GA-5IP", "" }
     },
     /* This has the Phoenix MultiKey KBC firmware. */
     {
