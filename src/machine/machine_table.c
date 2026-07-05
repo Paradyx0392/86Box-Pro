@@ -7263,7 +7263,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "[ISA] Micronics 09-00021 (Tandon BIOS)", "" }
+        .aliases                  = { "Micronics 09-00021 (Tandon BIOS)", "" }
     },
     /* Has IBM AT KBC firmware. */
     {
@@ -7311,7 +7311,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "[ISA] Micronics 09-00021 (Phoenix BIOS)", "" }
+        .aliases                  = { "Micronics 09-00021 (Phoenix BIOS)", "" }
     },
     /* Has a Jetkey V3, which we currently lack a probe of, but an
        old test by Carlos showed it as being 'F'. */
@@ -10373,7 +10373,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "ASUS VL/I-486SV2G", "" }
     },
     /* Has an Intel 82C42PE with Phoenix MultiKey/C42 KBC firmware, copyrighted 1993. */
     {
@@ -11888,7 +11888,7 @@ const machine_t machines[] = {
     /* Revision 1 has a Lance LT38C41L, revision 2 has a Holtek HT6542B.
        Another variant with a Bestkey KBC might exist as well. */
     {
-        .name              = "[SiS 496] Rise Computer R418",
+        .name              = "[SiS 496] Rise R418",
         .internal_name     = "r418",
         .type              = MACHINE_TYPE_486_S3_PCI,
         .chipset           = MACHINE_CHIPSET_SIS_496,
@@ -11981,7 +11981,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Soyo SY-4SAW5", "Soyo SY-4SAW", "" }
     },
     /* According to MrKsoft, his real 4DPS has an AMIKey-2, which is an updated version
        of type 'H'. There are other variants of the board with Holtek HT6542B KBCs. */
