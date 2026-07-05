@@ -198,6 +198,7 @@ device_set_context(device_context_t *ctx, const device_t *dev, int inst)
         { .old = "Siemens Nixdorf D824", .new = "Siemens-Nixdorf D824" },
         { .old = "HP Pavilion 50x0/70xx", .new = "Intel Advanced/MN" },
         { .old = "Intel Advanced/ZP (Zappa)", .new = "Intel Advanced/ZP" },
+        { .old = "Rise Computer R418", .new = "Rise R418" },
         { .old = "MSI MS-5119", .new = "MSI MS-5119 and MS-5120" },
         { .old = "AST Bravo MS P/90", .new = "AST Bravo MS" },
         { .old = "AST Bravo MS/MS-T/MS-L (Rattler)", .new = "AST Bravo MS" }, /* 6.0 pre-release */
