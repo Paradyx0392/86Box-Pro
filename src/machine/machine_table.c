@@ -24303,7 +24303,7 @@ const machine_t machines[] = {
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
     {
-        .name              = "[i440GX] Supermicro S2DGE",
+        .name              = "[i440GX] Supermicro S2DGE and S2DGU",
         .internal_name     = "s2dge",
         .type              = MACHINE_TYPE_SLOT2,
         .chipset           = MACHINE_CHIPSET_INTEL_440GX,
@@ -24347,7 +24347,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Supermicro S2DGE", "Supermicro S2DGU", "" }
     },
 
     /* PGA370 machines */
@@ -24451,7 +24451,7 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
-    /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC
+    /* Has two Winbond W83977EF Super I/O chips with on-chip KBC with AMIKey-2 KBC
        firmware. */
     {
         .name              = "[i440BX] AEWIN AW-C661R",
@@ -24475,7 +24475,7 @@ const machine_t machines[] = {
         },
         .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB, /* Machine has EISA, possibly for a riser? */
                                                         /* Yes, that's a rise slot, not EISA. */
-        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB | MACHINE_VIDEO, /* Machine has internal video: C&T B69000, sound: ESS ES1938S and NIC: Realtek RTL8139C */
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB | MACHINE_VIDEO, /* Machine has internal video: SMI Lynx3DM, sound: ESS ES1938S and NIC: Realtek RTL8139C */
         .ram       = {
             .min  = 8192,
             .max  = 524288,
@@ -24496,12 +24496,12 @@ const machine_t machines[] = {
         .device                   = NULL,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
-        .vid_device               = &chips_69000_onboard_device,
+        .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
         .aliases                  = { "AEWIN AW-C661I", "" }
     },
-    /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC
+    /* Has two Winbond W83977EF Super I/O chips with on-chip KBC with AMIKey-2 KBC
        firmware. */
     {
         .name              = "[i440BX] AEWIN AW-O671R",
