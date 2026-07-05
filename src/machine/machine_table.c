@@ -24475,7 +24475,7 @@ const machine_t machines[] = {
         },
         .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB, /* Machine has EISA, possibly for a riser? */
                                                         /* Yes, that's a rise slot, not EISA. */
-        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB | MACHINE_VIDEO, /* Machine has internal video: SMI Lynx3DM, sound: ESS ES1938S and NIC: Realtek RTL8139C */
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB, /* Machine has internal video: SMI Lynx3DM, sound: ESS ES1938S and NIC: Realtek RTL8139C */
         .ram       = {
             .min  = 8192,
             .max  = 524288,
