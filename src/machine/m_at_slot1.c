@@ -2531,11 +2531,6 @@ machine_at_p6bxap_init(const machine_t *model)
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&winbond_flash_w29c020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
-    device_add(&gl520sm_2d_device);  /* fans: CPU, Chassis; temperature: System */
-    hwm_values.temperatures[0] += 2; /* System offset */
-    hwm_values.temperatures[1] += 2; /* CPU offset */
-    hwm_values.voltages[0] = 3300;   /* Vcore and 3.3V are swapped */
-    hwm_values.voltages[2] = hwm_get_vcore();
 
     return ret;
 }
