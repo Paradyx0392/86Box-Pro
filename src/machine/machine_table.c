@@ -10740,7 +10740,7 @@ const machine_t machines[] = {
         .flags     = MACHINE_IDE_DUAL | MACHINE_VIDEO | MACHINE_APM,
         .ram       = {
             .min  = 1024,
-            .max  = 65536,
+            .max  = 131072,
             .step = 1024
         },
         .nvrmask                  = 255,
@@ -14633,7 +14633,7 @@ const machine_t machines[] = {
     },
     /* This has an AMIKey-2, which is type 'H'. */
     {
-        .name              = "[SiS 501] BCM SQ-588",
+        .name              = "[SiS 501] BCM SQ588",
         .internal_name     = "sq588",
         .type              = MACHINE_TYPE_SOCKET5,
         .chipset           = MACHINE_CHIPSET_SIS_501,
@@ -18089,7 +18089,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Aristo AM-433VX", "" }
     },
     /* This has a Holtek KBC and the BIOS does not send a single non-standard KBC command, so it
        must be an ASIC that clones the standard IBM PS/2 KBC. */
@@ -19276,7 +19276,7 @@ const machine_t machines[] = {
     },
     /* Has the SiS 5581 chipset with on-chip KBC. */
     {
-        .name              = "[SiS 5581] BCM SQ-578",
+        .name              = "[SiS 5581] BCM SQ578",
         .internal_name     = "sq578",
         .type              = MACHINE_TYPE_SOCKET7,
         .chipset           = MACHINE_CHIPSET_SIS_5581,
@@ -22864,7 +22864,7 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "Gemlight GMB-P6BIAK", "" }
     },
-    /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC firmware.*/
+    /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC firmware.*/
     {
         .name              = "[i440BX] ECS P6BX-A+",
         .internal_name     = "p6bxap",
