@@ -2025,6 +2025,120 @@ machine_at_p3bf_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t ax6b_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "ax6b",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PGM - Revision R1.20",
+                .internal_name = "ax6b_451pg",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b120.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.00",
+                .internal_name = "ax6b_200",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b200.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.33",
+                .internal_name = "ax6b_233",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b233.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.35",
+                .internal_name = "ax6b",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b235.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.35a",
+                .internal_name = "ax6b_235a",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b235a.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t ax6b_device = {
+    .name          = "AOpen AX6B",
+    .internal_name = "ax6b",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = ax6b_config
+};
+
+int
+machine_at_ax6b_init(const machine_t *model)
+{
+    int         ret = 0;
+    const char *fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&sst_flash_29ee020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+    device_add(&gl518sm_2d_device); /* fans: System, CPU; temperature: CPU; no reporting in BIOS */
+
+    return ret;
+}
+
 static const device_config_t ax6bc_config[] = {
     // clang-format off
     {
@@ -2258,7 +2372,7 @@ machine_at_ax6bcproii_init(const machine_t *model)
     device_add(&i440bx_device);
     device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
-    device_add(&sst_flash_29ee020_device);
+    device_add(&sst_flash_39sf020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
     device_add(&gl518sm_2d_device); /* fans: System, CPU; temperature: CPU; no reporting in BIOS */
 
@@ -2497,38 +2611,6 @@ machine_at_prm0080i_init(const machine_t *model)
     device_add(&i440bx_device);
     device_add(&piix4e_device);
     device_add_params(&fdc37c67x_device, (void *) (FDC37XXX2 | FDC37XXXX_370));
-    device_add(&winbond_flash_w29c020_device);
-    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
-
-    return ret;
-}
-
-int
-machine_at_p6bxap_init(const machine_t *model)
-{
-    int ret;
-
-    ret = bios_load_linear("roms/machines/p6bxap/BXAP56.BIN",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
-        return ret;
-
-    machine_at_common_init(model);
-
-    pci_init(PCI_CONFIG_TYPE_1);
-    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
-    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
-    pci_register_slot(0x09, PCI_CARD_NORMAL,      1, 2, 3, 4);
-    pci_register_slot(0x0A, PCI_CARD_NORMAL,      2, 3, 4, 1);
-    pci_register_slot(0x0B, PCI_CARD_NORMAL,      3, 4, 1, 2);
-    pci_register_slot(0x0C, PCI_CARD_NORMAL,      4, 1, 2, 3);
-    pci_register_slot(0x0D, PCI_CARD_NORMAL,      4, 1, 2, 3);
-    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
-
-    device_add(&i440bx_device);
-    device_add(&piix4e_device);
-    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&winbond_flash_w29c020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
 
