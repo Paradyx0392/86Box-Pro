@@ -1199,6 +1199,7 @@ extern int             machine_at_bsi430vx_init(const machine_t *);
 extern int             machine_at_presario2240_init(const machine_t *);
 extern int             machine_at_presario4500_init(const machine_t *);
 extern int             machine_at_dellhannibalp_init(const machine_t *);
+extern int             machine_at_pam0056i_init(const machine_t *);
 extern int             machine_at_pam0070i_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  p5vxb_device;

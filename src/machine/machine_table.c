@@ -17603,6 +17603,54 @@ const machine_t machines[] = {
     },
     /* Has VIA KBC firmware. Includes W83877F */
     {
+        .name              = "[i430VX] DTK PAM-0056I",
+        .internal_name     = "pam0056i",
+        .type              = MACHINE_TYPE_SOCKET7,
+        .chipset           = MACHINE_CHIPSET_INTEL_430VX,
+        .init              = machine_at_pam0056i_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SOCKET5_7,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 50000000,
+            .max_bus     = 66666667,
+            .min_voltage = 2500,
+            .max_voltage = 3520,
+            .min_multi   = 1.5,
+            .max_multi   = 3.0
+        },
+        .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_USB,
+        .ram       = {
+            .min  = 4096,
+            .max  = 131072,
+            .step = 4096
+        },
+        .nvrmask                  = 127,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = &kbc_at_device,
+        .kbc_params               = KBC_VEN_VIA | 0x00424600,
+        .nvr_device               = &nvr_at_device,
+        .nvr_params               = NVR_AT,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = NULL,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "Gemlight GMB-P56IPS", "" }
+    },
+    /* Has VIA KBC firmware. Includes W83877F */
+    {
         .name              = "[i430VX] DTK PAM-0070I",
         .internal_name     = "pam0070i",
         .type              = MACHINE_TYPE_SOCKET7,
@@ -17626,7 +17674,7 @@ const machine_t machines[] = {
         .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_USB,
         .ram       = {
             .min  = 4096,
-            .max  = 262144,
+            .max  = 131072,
             .step = 4096
         },
         .nvrmask                  = 127,
