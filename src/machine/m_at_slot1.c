@@ -504,6 +504,15 @@ static const device_config_t ax6lc_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PGM - Revision R1.10",
+                .internal_name = "ax6lc_451pg110",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6lc/ax6lc110.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PGM - Revision R1.20",
                 .internal_name = "ax6lc_451pg",
                 .bios_type     = BIOS_NORMAL,

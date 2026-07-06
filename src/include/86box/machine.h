@@ -1222,8 +1222,14 @@ extern int             machine_at_i430vx_init(const machine_t *);
 extern int             machine_at_55a5_init(const machine_t *);
 
 /* i430TX */
+#ifdef EMU_DEVICE_H
+extern const device_t  tx5_device;
+#endif
 extern int             machine_at_tx5_init(const machine_t *);
 extern int             machine_at_nupro592_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ax5tc_device;
+#endif
 extern int             machine_at_ax5tc_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  tx97_device;
@@ -1256,7 +1262,10 @@ extern int             machine_at_ma23c_init(const machine_t *);
 extern const device_t  mb540n_device;
 #endif
 extern int             machine_at_mb540n_init(const machine_t *);
-extern int             machine_at_56a5_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  s56a_device;
+#endif
+extern int             machine_at_s56a_init(const machine_t *);
 extern int             machine_at_p5mms98_init(const machine_t *);
 extern int             machine_at_richmond_init(const machine_t *);
 
