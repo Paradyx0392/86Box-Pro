@@ -3334,6 +3334,15 @@ static const device_config_t ms5146_config[] = {
                 .files         = { "roms/machines/ms5146/A546MS11.ROM", "" }
             },
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.5",
+                .internal_name = "ms5146_451pg15",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5146/W546MS15.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 2.1",
                 .internal_name = "ms5146_451pg",
                 .bios_type     = BIOS_NORMAL,
