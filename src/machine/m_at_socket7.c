@@ -97,7 +97,7 @@ static const device_config_t p55t2p4_config[] = {
                 .files         = { "roms/machines/p55t2p4/T25I0207.AWD", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 0207 (patched)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 0207 (Patched)",
                 .internal_name = "p55t2p4_98patch",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -835,7 +835,7 @@ static const device_config_t p55tvp4_config[] = {
                 .files         = { "roms/machines/p55tvp4/TV5I0204.AWD", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 0204 (Patch)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 0204 (Patched)",
                 .internal_name = "p55tvp4_128gb",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -2824,7 +2824,7 @@ static const device_config_t ficva502_config[] = {
                 .files         = { "roms/machines/ficva502/ajw1393dc4.awd", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 1.13AJ139 (patch)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.13AJ139 (Patched)",
                 .internal_name = "ficva502_patch",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -2910,7 +2910,7 @@ static const device_config_t ficpa2012_config[] = {
                 .files         = { "roms/machines/ficpa2012/jb4154.bin", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 1.13JB154 (patched)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.13JB154 (Patched)",
                 .internal_name = "ficpa2012_jb154p",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -3419,7 +3419,7 @@ static const device_config_t sp97xv_config[] = {
                 .files         = { "roms/machines/sp97xv/SPXV0109.AWD", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 0109xv-5 (patched)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 0109xv-5 (Patched)",
                 .internal_name = "sp97xv_patch5",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -3531,7 +3531,7 @@ static const device_config_t sp98agpx_config[] = {
                 .files         = { "roms/machines/sp98agpx/S91XL103.AWD", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 0104xl-1 (patched)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 0104xl-1 (Patched)",
                 .internal_name = "sp98agpx_patch",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
