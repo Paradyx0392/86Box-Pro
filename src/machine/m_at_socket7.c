@@ -2840,7 +2840,7 @@ static const device_config_t s56a_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/56a5/54p-b5.bin", "" }
             },
             {
@@ -2849,7 +2849,7 @@ static const device_config_t s56a_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/56a5/54p5b6b.bin", "" }
             },
             { .files_no = 0 }
@@ -2885,7 +2885,7 @@ machine_at_s56a_init(const machine_t *model)
 
     device_context(model->device);
     fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
     device_context_restore();
 
     machine_at_common_init(model);
