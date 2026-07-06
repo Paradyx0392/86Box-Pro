@@ -198,12 +198,9 @@ machine_at_exp8551_init(const machine_t *model)
         return ret;
 
     device_context(model->device);
-    int is_mr = !strcmp(device_get_config_bios("bios"), "exp8551_mr");
-    fn        = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    if (is_mr)
-        ret = bios_load_linear(fn, 0x000e9000, 94208, 0);
-    else
-        ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    int size = device_get_bios_file_size(machine_get_device(machine), device_get_config_bios("bios"));
+    ret = bios_load_linear(fn, 0x00100000 - size, size, 0);
     device_context_restore();
 
     machine_at_common_init(model);
