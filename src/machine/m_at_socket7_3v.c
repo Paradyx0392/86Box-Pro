@@ -158,13 +158,13 @@ static const device_config_t exp8551_config[] = {
                 .files         = { "roms/machines/exp8551/8551UNI2.ROM", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 1.2A",
-                .internal_name = "exp8551_451pg",
+                .name          = "MR BIOS V3.30 - Revision V097B5WR",
+                .internal_name = "exp8551_mr",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 131072,
-                .files         = { "roms/machines/exp8551/8551UNI2.ROM", "" }
+                .size          = 94208,
+                .files         = { "roms/machines/exp8551/mr_xprtw.bio", "" }
             },
             { .files_no = 0 }
         }
