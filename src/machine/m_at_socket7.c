@@ -436,6 +436,17 @@ static const device_config_t tc430hx_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Intel AMIBIOS - Revision 1.00.02.DH05 (Micron Millennia LXA/ClientPro MTA)",
+                .internal_name = "millennialxa",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 5,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/tc430hx/1002DH05.BIO", "roms/machines/tc430hx/1002DH05.BI1",
+                                   "roms/machines/tc430hx/1002DH05.BI2", "roms/machines/tc430hx/1002DH05.BI3",
+                                   "roms/machines/tc430hx/1002DH05.RCV", "" }
+            },
+            {
                 .name          = "Intel AMIBIOS - Revision 1.00.07.DH0",
                 .internal_name = "tc430hx",
                 .bios_type     = BIOS_NORMAL,
@@ -547,6 +558,35 @@ machine_at_tc430hx_init(const machine_t *model)
     device_add(&piix3_device);
     device_add_params(&pc87306_device, (void *) PCX730X_AMI);
     device_add(&intel_flash_bxt_ami_device);
+
+    return ret;
+}
+
+int
+machine_at_tc430hxmr_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/tc430hxmr/V098B5NT.BIO",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x0D, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x0E, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0F, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x10, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
+
+    device_add(&i430hx_device);
+    device_add(&piix3_device);
+    device_add_params(&pc87306_device, (void *) PCX730X_AMI);
+    device_add(&intel_flash_bxt_device);
 
     return ret;
 }
@@ -1451,6 +1491,34 @@ machine_at_pb680_init(const machine_t *model)
     device_add(&piix3_device);
     device_add_params(&pc87306_device, (void *) PCX730X_AMI);
     device_add(&intel_flash_bxt_ami_device);
+
+    return ret;
+}
+
+int
+machine_at_pb680mr_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/pb680mr/V09AB5NI.BIO",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x11, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x13, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
+
+    device_add(&i430vx_device);
+    device_add(&piix3_device);
+    device_add_params(&pc87306_device, (void *) PCX730X_AMI);
+    device_add(&intel_flash_bxt_device);
 
     return ret;
 }
