@@ -23934,7 +23934,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Amptron PII-3747", "" }
     },
 
     /* SMSC VictoryBX-66 */

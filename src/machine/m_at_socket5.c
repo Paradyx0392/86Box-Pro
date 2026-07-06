@@ -851,7 +851,7 @@ static const device_config_t zappa_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 131072,
+                .size          = 94208,
                 .files         = { "roms/machines/zappa/MR_ZAPPA.BIO", "" }
             },
             { .files_no = 0 }
@@ -890,7 +890,7 @@ machine_at_zappa_init(const machine_t *model)
     int is_mr     = !strcmp(device_get_config_bios("bios"), "zappa_mr");
     fn            = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
     if (is_mr)
-        ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+        ret = bios_load_linear(fn, 0x000e9000, 94208, 0);
     else {
         fn2 = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 1);
         ret = bios_load_linear_combined(fn, fn2, 0x20000, 128);

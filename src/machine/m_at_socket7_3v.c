@@ -157,6 +157,15 @@ static const device_config_t exp8551_config[] = {
                 .size          = 131072,
                 .files         = { "roms/machines/exp8551/8551UNI2.ROM", "" }
             },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.2A",
+                .internal_name = "exp8551_451pg",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/exp8551/8551UNI2.ROM", "" }
+            },
             { .files_no = 0 }
         }
     },
@@ -189,8 +198,12 @@ machine_at_exp8551_init(const machine_t *model)
         return ret;
 
     device_context(model->device);
-    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    int is_mr = !strcmp(device_get_config_bios("bios"), "exp8551_mr");
+    fn        = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    if (is_mr)
+        ret = bios_load_linear(fn, 0x000e9000, 94208, 0);
+    else
+        ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
     device_context_restore();
 
     machine_at_common_init(model);
@@ -809,7 +822,7 @@ static const device_config_t endeavor_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 131072,
+                .size          = 94208,
                 .files         = { "roms/machines/endeavor/mr_endvr.bio", "" }
             },
             { .files_no = 0 }
@@ -936,7 +949,7 @@ machine_at_endeavor_init(const machine_t *model)
     int has_video = !strcmp(device_get_config_bios("bios"), "endeavor");
     fn            = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
     if (is_mr)
-        ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+        ret = bios_load_linear(fn, 0x000e9000, 94208, 0);
     else {
         fn2 = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 1);
         ret = bios_load_linear_combined(fn, fn2, 0x1d000, 128);
