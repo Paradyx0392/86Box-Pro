@@ -148,6 +148,7 @@
         <file alias="ibm_psvp_p60.png">qt/assets/systemicons/ibm_psvp_p60.png</file>
         <file alias="ibm_xt_82.png">qt/assets/systemicons/ibm_xt_82.png</file>
         <file alias="ibm_xt_86.png">qt/assets/systemicons/ibm_xt_86.png</file>
+        <file alias="idot_explora.png">qt/assets/systemicons/idot_explora.png</file>
         <file alias="medion_med2000.png">qt/assets/systemicons/medion_med2000.png</file>
         <file alias="medion_med2001.png">qt/assets/systemicons/medion_med2001.png</file>
         <file alias="nec_ready_7022.png">qt/assets/systemicons/nec_ready_7022.png</file>
@@ -203,6 +204,7 @@
         <file alias="os_winvista_x2.png">qt/assets/systemicons/os_winvista_x2.png</file>
         <file alias="os_winxp_x2.png">qt/assets/systemicons/os_winxp_x2.png</file>
         <file alias="os_xandros_x2.png">qt/assets/systemicons/os_xandros_x2.png</file>
+        <file alias="pb_286.png">qt/assets/systemicons/pb_286.png</file>
         <file alias="pb_bora_pro.png">qt/assets/systemicons/pb_bora_pro.png</file>
         <file alias="pb_club.png">qt/assets/systemicons/pb_club.png</file>
         <file alias="pb_corner_computer.png">qt/assets/systemicons/pb_corner_computer.png</file>
@@ -211,6 +213,7 @@
         <file alias="pb_legend_300sx.png">qt/assets/systemicons/pb_legend_300sx.png</file>
         <file alias="pb_milano.png">qt/assets/systemicons/pb_milano.png</file>
         <file alias="pb_pb410.png">qt/assets/systemicons/pb_pb410.png</file>
+        <file alias="pb_pb500.png">qt/assets/systemicons/pb_pb500.png</file>
         <file alias="pb_pb640.png">qt/assets/systemicons/pb_pb640.png</file>
         <file alias="pb_pb680.png">qt/assets/systemicons/pb_pb680.png</file>
         <file alias="pb_spheris2.png">qt/assets/systemicons/pb_spheris2.png</file>
