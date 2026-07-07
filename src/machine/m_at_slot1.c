@@ -3100,7 +3100,7 @@ static const device_config_t ms6147_config[] = {
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 1.4 (Packard Bell Tempest)",
-                .internal_name = "pbtempest_14",
+                .internal_name = "pbtempest",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
@@ -3108,40 +3108,22 @@ static const device_config_t ms6147_config[] = {
                 .files         = { "roms/machines/ms6147/W647P214.PBC", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 1.7",
-                .internal_name = "ms6147_17",
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.6",
+                .internal_name = "ms6147_16",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/ms6147/W647MS17.BIN", "" }
+                .files         = { "roms/machines/ms6147/W647MS16.BIN", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 1.8",
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.7",
                 .internal_name = "ms6147",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/ms6147/W647MS18.BIN", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest)",
-                .internal_name = "pbtempest",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6147/w647p221.pbc", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest) [Patched for larger drives]",
-                .internal_name = "pbtempestp",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6147/w647p221.pcd", "" }
+                .files         = { "roms/machines/ms6147/W647MS17.BIN", "" }
             },
             { .files_no = 0 }
         }
@@ -3151,7 +3133,7 @@ static const device_config_t ms6147_config[] = {
 };
 
 const device_t ms6147_device = {
-    .name          = "MSI MS-6147",
+    .name          = "MSI MS-6147 first edition",
     .internal_name = "ms6147",
     .flags         = 0,
     .local         = 0,
@@ -3198,6 +3180,105 @@ machine_at_ms6147_init(const machine_t *model)
     if (sound_card_current[0] == SOUND_INTERNAL) {
         device_add(machine_get_snd_device(machine));
         device_add(&ct1297_device);
+    }
+
+    return ret;
+}
+
+static const device_config_t ms6147se_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "ms6147se",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.8",
+                .internal_name = "ms6147se",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6147se/W647MS18.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest v2)",
+                .internal_name = "pbtempestse",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6147se/w647p221.pbc", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest v2) [Patched for larger drives]",
+                .internal_name = "pbtempestsep",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6147se/w647p221.pcd", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t ms6147se_device = {
+    .name          = "MSI MS-6147 second edition",
+    .internal_name = "ms6147se",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = ms6147se_config
+};
+
+int
+machine_at_ms6147se_init(const machine_t *model)
+{
+    int         ret = 0;
+    const char *fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x14, PCI_CARD_SOUND,       3, 4, 1, 2);
+    pci_register_slot(0x0E, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x10, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x12, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&winbond_flash_w29c020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+
+    if (sound_card_current[0] == SOUND_INTERNAL) {
+        device_add(machine_get_snd_device(machine));
+        device_add(&cs4297_device);
     }
 
     return ret;
