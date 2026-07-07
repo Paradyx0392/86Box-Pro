@@ -3027,7 +3027,7 @@ static const device_config_t ms6147_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/in440zx/w647p221.pcd", "" }
+                .files         = { "roms/machines/ms6147/w647p221.pcd", "" }
             },
             { .files_no = 0 }
         }
@@ -3196,11 +3196,6 @@ machine_at_bxmaster_init(const machine_t *model)
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
     device_add(&w83782d_device); /* fans: Chassis, Power, CPU; temperatures: System, CPU, unused */
     hwm_values.temperatures[2] = 0; /* unused */
-
-    if (sound_card_current[0] == SOUND_INTERNAL) {
-        device_add(machine_get_snd_device(machine));
-        device_add(&cs4297_device);
-    }
 
     return ret;
 }
