@@ -3979,7 +3979,7 @@ machine_at_ms6147zx_init(const machine_t *model)
     device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&winbond_flash_w29c020_device);
-    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+    spd_register(SPD_TYPE_SDRAM, 0x3, 256);
 
     if (sound_card_current[0] == SOUND_INTERNAL) {
         device_add(machine_get_snd_device(machine));
