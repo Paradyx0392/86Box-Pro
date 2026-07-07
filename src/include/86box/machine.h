@@ -1555,6 +1555,7 @@ extern int             machine_at_med9901_init(const machine_t *);
 extern const device_t  vei8_device;
 #endif
 extern int             machine_at_vei8_init(const machine_t *);
+extern int             machine_at_ms6147zx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6156zx_device;
 #endif

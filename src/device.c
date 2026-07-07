@@ -214,6 +214,7 @@ device_set_context(device_context_t *ctx, const device_t *dev, int inst)
         { .old = "Intel VS440FX (Venus)", .new = "Intel VS440FX" },
         { .old = "Advanced Integration Research (AIR) P6KDI", .new = "AIR P6KDI" }, /* 6.0 pre-release */
         { .old = "ABIT AB-BX6", .new = "ABIT AB-BX6 first edition" },
+        { .old = "MSI MS-6147", .new = "MSI MS-6147 first edition" },
         { .old = "Supermicro S2DGE", .new = "Supermicro S2DGE and S2DGU" },
         { .old = "ASUS CUV4X-CM", .new = "ASUS CUV4X-CM and CUV4X-CME" },
         { .old = "DTK PII-151B (MiniMicro) Floppy Drive Controller", .new = "DTK PII-151B (MiniMicro) FDC" },
