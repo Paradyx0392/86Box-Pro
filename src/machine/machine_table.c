@@ -23984,7 +23984,7 @@ const machine_t machines[] = {
     },
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC firmware. */
     {
-        .name              = "[i440BX] MSI MS-6147ZX",
+        .name              = "[i440ZX] MSI MS-6147ZX",
         .internal_name     = "ms6147zx",
         .type              = MACHINE_TYPE_SLOT1,
         .chipset           = MACHINE_CHIPSET_INTEL_440ZX,
