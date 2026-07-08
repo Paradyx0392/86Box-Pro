@@ -689,7 +689,7 @@ machine_at_prm0076i_init(const machine_t *model)
     device_add(&i440lx_device);
     device_add(&piix4e_device);
     device_add_params(&fdc37c67x_device, (void *) (FDC37XXX2 | FDC37XXXX_370));
-    device_add(&sst_flash_29ee010_device);
+    device_add(&winbond_flash_w29c011a_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
 
     return ret;
@@ -713,8 +713,17 @@ static const device_config_t epox61lxam_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/epox61lxam/lx0312.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 12/18/1998",
+                .internal_name = "epox61lxam_1998",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/epox61lxam/lx008c17.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 12/22/1999",
@@ -722,7 +731,7 @@ static const device_config_t epox61lxam_config[] = {
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
-                .size          = 262144,
+                .size          = 131072,
                 .files         = { "roms/machines/epox61lxam/lx009c22.bin", "" }
             },
             { .files_no = 0 }
@@ -758,7 +767,7 @@ machine_at_epox61lxam_init(const machine_t *model)
 
     device_context(model->device);
     fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
     device_context_restore();
 
     machine_at_common_init(model);
@@ -775,7 +784,7 @@ machine_at_epox61lxam_init(const machine_t *model)
     device_add(&i440lx_device);
     device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
-    device_add(&sst_flash_29ee020_device);
+    device_add(&winbond_flash_w29c011a_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
     device_add(&lm78_device); /* no reporting in BIOS */
 
