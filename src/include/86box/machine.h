@@ -1242,8 +1242,6 @@ extern const device_t  txp4x_device;
 extern int             machine_at_txp4x_init(const machine_t *);
 extern void            machine_at_optiplex_21152_init(void);
 extern int             machine_at_optiplexgn_init(const machine_t *);
-extern int             machine_at_p5txbpro_init(const machine_t *);
-extern int             machine_at_p55tx2_init(const machine_t *);
 extern int             machine_at_tomahawk_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  an430tx_device;
