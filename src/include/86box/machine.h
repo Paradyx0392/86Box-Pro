@@ -1309,6 +1309,7 @@ extern int             machine_at_sp97xv_init(const machine_t *);
 extern int             machine_at_sq578_init(const machine_t *);
 
 /* SiS 5591 */
+extern int             machine_at_ap58s_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  sp98agpx_device;
 #endif
