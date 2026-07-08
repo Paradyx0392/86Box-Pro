@@ -1292,7 +1292,6 @@ extern int             machine_at_cb52xsi_init(const machine_t *);
 extern const device_t  p5svb_device;
 #endif
 extern int             machine_at_p5svb_init(const machine_t *);
-extern int             machine_at_ga586s_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms5146_device;
 #endif
@@ -1324,6 +1323,7 @@ extern int             machine_at_sp98agpx_init(const machine_t *);
 extern const device_t  ms5172_device;
 #endif
 extern int             machine_at_ms5172_init(const machine_t *);
+extern int             machine_at_r581a_init(const machine_t *);
 
 /* ALi ALADDiN IV+ */
 #ifdef EMU_DEVICE_H
