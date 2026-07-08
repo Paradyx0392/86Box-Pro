@@ -1443,6 +1443,10 @@ extern int             machine_at_ax6lclite_init(const machine_t *);
 extern int             machine_at_optiplexgxa_init(const machine_t *);
 extern int             machine_at_prm0076i_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  epox61lxam_device;
+#endif
+extern int             machine_at_epox61lxam_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  lx6ap2_device;
 #endif
 extern int             machine_at_lx6ap2_init(const machine_t *);
