@@ -451,7 +451,7 @@ machine_at_lx6_init(const machine_t *model)
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&i440lx_device);
-    device_add(&piix4_device);
+    device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee010_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
@@ -483,7 +483,7 @@ machine_at_p6lxi_init(const machine_t *model)
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&i440lx_device);
-    device_add(&piix4_device);
+    device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee020_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
@@ -773,7 +773,7 @@ machine_at_epox61lxam_init(const machine_t *model)
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&i440lx_device);
-    device_add(&piix4_device);
+    device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee020_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
@@ -1120,7 +1120,7 @@ machine_at_sl66f_init(const machine_t *model)
     pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
     device_add(&i440lx_device);
-    device_add(&piix4_device);
+    device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee010_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
