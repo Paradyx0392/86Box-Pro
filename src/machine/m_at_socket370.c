@@ -1776,6 +1776,15 @@ static const device_config_t j694as_config[] = {
                 .files         = { "roms/machines/j694as/694ASA06.BIN", "" }
             },
             {
+                .name          = "Award Modular BIOS v6.00PG - Revision A13",
+                .internal_name = "j694as_a13",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/j694as/694ASA13.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v6.00PG - Revision A15",
                 .internal_name = "j694as",
                 .bios_type     = BIOS_NORMAL,
@@ -1876,6 +1885,15 @@ static const device_config_t j694cs_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/j694cs/694CSA06.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision A09",
+                .internal_name = "j694cs_a09",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/j694cs/694CSA09.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision A11",
