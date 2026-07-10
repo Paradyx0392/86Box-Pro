@@ -1715,6 +1715,14 @@ extern const device_t  j694cs_device;
 #endif
 extern int             machine_at_j694cs_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  jetwayva4_device;
+#endif
+extern int             machine_at_jetwayva4_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  jetwayvm4_device;
+#endif
+extern int             machine_at_jetwayvm4_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  ms6318_device;
 #endif
 extern int             machine_at_ms6318_init(const machine_t *);
