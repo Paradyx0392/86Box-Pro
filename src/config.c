@@ -454,6 +454,8 @@ load_machine(void)
         { .old = "lgibmx7g", .new = "ms6119", .new_bios = "lgibmx7g" },
         { .old = "apas3", .new = "vim863s", .new_bios = NULL },
         { .old = "pb520r", .new = "robinlc", .new_bios = "pb520r" },
+        { .old = "bx6se", .new = "bx6v20", .new_bios = NULL },
+        { .old = "ms6147se", .new = "ms6147v11", .new_bios = NULL },
         { 0 }
     };
 

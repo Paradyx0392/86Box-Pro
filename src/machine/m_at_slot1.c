@@ -1652,7 +1652,7 @@ static const device_config_t bx6_config[] = {
 };
 
 const device_t bx6_device = {
-    .name          = "ABIT AB-BX6 first edition",
+    .name          = "ABIT AB-BX6 (ver. 1.0)",
     .internal_name = "bx6",
     .flags         = 0,
     .local         = 0,
@@ -1700,13 +1700,13 @@ machine_at_bx6_init(const machine_t *model)
     return ret;
 }
 
-static const device_config_t bx6se_config[] = {
+static const device_config_t bx6v20_config[] = {
     // clang-format off
     {
         .name           = "bios",
         .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
-        .default_string = "bx6se",
+        .default_string = "bx6v20",
         .default_int    = 0,
         .file_filter    = NULL,
         .spinner        = { 0 },
@@ -1714,48 +1714,48 @@ static const device_config_t bx6se_config[] = {
         .bios           = {
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision KH",
-                .internal_name = "bx6se_KH",
+                .internal_name = "bx6v20_KH",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/bx6se/BXR_KH.BIN", "" }
+                .files         = { "roms/machines/bx6v20/BXR_KH.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision MN",
-                .internal_name = "bx6se_MN",
+                .internal_name = "bx6v20_MN",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/bx6se/BXR_MN.BIN", "" }
+                .files         = { "roms/machines/bx6v20/BXR_MN.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision MW",
-                .internal_name = "bx6se_MW",
+                .internal_name = "bx6v20_MW",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/bx6se/BXR_MW.bin", "" }
+                .files         = { "roms/machines/bx6v20/BXR_MW.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision NW",
-                .internal_name = "bx6se_NW",
+                .internal_name = "bx6v20_NW",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/bx6se/BXR_NW.bin", "" }
+                .files         = { "roms/machines/bx6v20/BXR_NW.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision QR",
-                .internal_name = "bx6se",
+                .internal_name = "bx6v20",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/bx6se/BXR_QR.bin", "" }
+                .files         = { "roms/machines/bx6v20/BXR_QR.bin", "" }
             },
             { .files_no = 0 }
         }
@@ -1764,9 +1764,9 @@ static const device_config_t bx6se_config[] = {
     // clang-format on
 };
 
-const device_t bx6se_device = {
-    .name          = "ABIT AB-BX6 second edition",
-    .internal_name = "bx6se",
+const device_t bx6v20_device = {
+    .name          = "ABIT AB-BX6 (ver. 2.0)",
+    .internal_name = "bx6v20",
     .flags         = 0,
     .local         = 0,
     .init          = NULL,
@@ -1775,11 +1775,11 @@ const device_t bx6se_device = {
     .available     = NULL,
     .speed_changed = NULL,
     .force_redraw  = NULL,
-    .config        = bx6se_config
+    .config        = bx6v20_config
 };
 
 int
-machine_at_bx6se_init(const machine_t *model)
+machine_at_bx6v20_init(const machine_t *model)
 {
     int         ret = 0;
     const char *fn;
@@ -3291,7 +3291,7 @@ static const device_config_t ms6147_config[] = {
 };
 
 const device_t ms6147_device = {
-    .name          = "MSI MS-6147 first edition",
+    .name          = "MSI MS-6147 (ver. 1.0)",
     .internal_name = "ms6147",
     .flags         = 0,
     .local         = 0,
@@ -3343,13 +3343,13 @@ machine_at_ms6147_init(const machine_t *model)
     return ret;
 }
 
-static const device_config_t ms6147se_config[] = {
+static const device_config_t ms6147v11_config[] = {
     // clang-format off
     {
         .name           = "bios",
         .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
-        .default_string = "ms6147se",
+        .default_string = "ms6147v11",
         .default_int    = 0,
         .file_filter    = NULL,
         .spinner        = { 0 },
@@ -3357,12 +3357,12 @@ static const device_config_t ms6147se_config[] = {
         .bios           = {
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 1.8",
-                .internal_name = "ms6147se",
+                .internal_name = "ms6147v11",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/ms6147se/W647MS18.BIN", "" }
+                .files         = { "roms/machines/ms6147v11/W647MS18.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest v2)",
@@ -3371,7 +3371,7 @@ static const device_config_t ms6147se_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/ms6147se/w647p221.pbc", "" }
+                .files         = { "roms/machines/ms6147v11/w647p221.pbc", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest v2) [Patched for larger drives]",
@@ -3380,7 +3380,7 @@ static const device_config_t ms6147se_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/ms6147se/w647p221.pcd", "" }
+                .files         = { "roms/machines/ms6147v11/w647p221.pcd", "" }
             },
             { .files_no = 0 }
         }
@@ -3389,9 +3389,9 @@ static const device_config_t ms6147se_config[] = {
     // clang-format on
 };
 
-const device_t ms6147se_device = {
-    .name          = "MSI MS-6147 second edition",
-    .internal_name = "ms6147se",
+const device_t ms6147v11_device = {
+    .name          = "MSI MS-6147 (ver. 1.1)",
+    .internal_name = "ms6147v11",
     .flags         = 0,
     .local         = 0,
     .init          = NULL,
@@ -3400,11 +3400,11 @@ const device_t ms6147se_device = {
     .available     = NULL,
     .speed_changed = NULL,
     .force_redraw  = NULL,
-    .config        = ms6147se_config
+    .config        = ms6147v11_config
 };
 
 int
-machine_at_ms6147se_init(const machine_t *model)
+machine_at_ms6147v11_init(const machine_t *model)
 {
     int         ret = 0;
     const char *fn;

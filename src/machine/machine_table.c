@@ -6386,7 +6386,7 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
-    /* Has AMI KBC firmware of uknown revision, maybe '8'. */
+    /* Has AMI KBC firmware of unknown revision, maybe '8'. */
     {
         .name              = "[OPTi 283] Silicon Valley Computer SVC386SX/P1",
         .internal_name     = "svc386sxp1",
@@ -22858,7 +22858,7 @@ const machine_t machines[] = {
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
     {
-        .name              = "[i440BX] ABIT AB-BX6 first edition",
+        .name              = "[i440BX] ABIT AB-BX6 (ver. 1.0)",
         .internal_name     = "bx6",
         .type              = MACHINE_TYPE_SLOT1,
         .chipset           = MACHINE_CHIPSET_INTEL_440BX,
@@ -22907,11 +22907,11 @@ const machine_t machines[] = {
     /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
     {
-        .name              = "[i440BX] ABIT AB-BX6 second edition",
-        .internal_name     = "bx6se",
+        .name              = "[i440BX] ABIT AB-BX6 (ver. 2.0)",
+        .internal_name     = "bx6v20",
         .type              = MACHINE_TYPE_SLOT1,
         .chipset           = MACHINE_CHIPSET_INTEL_440BX,
-        .init              = machine_at_bx6se_init,
+        .init              = machine_at_bx6v20_init,
         .p1_handler        = machine_generic_p1_handler,
         .gpio_handler      = NULL,
         .available_flag    = MACHINE_AVAILABLE,
@@ -22945,7 +22945,7 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = &bx6se_device,
+        .device                   = &bx6v20_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
@@ -23736,7 +23736,7 @@ const machine_t machines[] = {
     },
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC firmware. */
     {
-        .name              = "[i440BX] MSI MS-6147 first edition",
+        .name              = "[i440BX] MSI MS-6147 (ver. 1.0)",
         .internal_name     = "ms6147",
         .type              = MACHINE_TYPE_SLOT1,
         .chipset           = MACHINE_CHIPSET_INTEL_440BX,
@@ -23784,11 +23784,11 @@ const machine_t machines[] = {
     },
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC firmware. */
     {
-        .name              = "[i440BX] MSI MS-6147 second edition",
-        .internal_name     = "ms6147se",
+        .name              = "[i440BX] MSI MS-6147 (ver. 1.1)",
+        .internal_name     = "ms6147v11",
         .type              = MACHINE_TYPE_SLOT1,
         .chipset           = MACHINE_CHIPSET_INTEL_440BX,
-        .init              = machine_at_ms6147se_init,
+        .init              = machine_at_ms6147v11_init,
         .p1_handler        = machine_generic_p1_handler,
         .gpio_handler      = NULL,
         .available_flag    = MACHINE_AVAILABLE,
@@ -23822,7 +23822,7 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = &ms6147se_device,
+        .device                   = &ms6147v11_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,

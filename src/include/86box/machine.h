@@ -1481,9 +1481,9 @@ extern const device_t  bx6_device;
 #endif
 extern int             machine_at_bx6_init(const machine_t *);
 #ifdef EMU_DEVICE_H
-extern const device_t  bx6se_device;
+extern const device_t  bx6v20_device;
 #endif
-extern int             machine_at_bx6se_init(const machine_t *);
+extern int             machine_at_bx6v20_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ax6b_device;
 #endif
@@ -1538,9 +1538,9 @@ extern const device_t  ms6147_device;
 #endif
 extern int             machine_at_ms6147_init(const machine_t *);
 #ifdef EMU_DEVICE_H
-extern const device_t  ms6147se_device;
+extern const device_t  ms6147v11_device;
 #endif
-extern int             machine_at_ms6147se_init(const machine_t *);
+extern int             machine_at_ms6147v11_init(const machine_t *);
 extern int             machine_at_ms6156_init(const machine_t *);
 extern int             machine_at_ms6163_init(const machine_t *);
 extern int             machine_at_sl62b_init(const machine_t *);
