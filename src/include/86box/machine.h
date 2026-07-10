@@ -1591,6 +1591,7 @@ extern int             machine_at_p3v133_init(const machine_t *);
 extern const device_t  ms6199va_device;
 #endif
 extern int             machine_at_ms6199va_init(const machine_t *);
+extern int             machine_at_sl67ev1_init(const machine_t *);
 
 /* VIA Apollo Pro 133A */
 #ifdef EMU_DEVICE_H
@@ -1598,6 +1599,7 @@ extern const device_t  p3v4x_device;
 #endif
 extern int             machine_at_p3v4x_init(const machine_t *);
 extern int             machine_at_gt694va_init(const machine_t *);
+extern int             machine_at_sl67jv_init(const machine_t *);
 
 /* SiS 5600 */
 extern int             machine_at_p6f99_init(const machine_t *);
