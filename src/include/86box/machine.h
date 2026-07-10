@@ -1684,6 +1684,7 @@ extern const device_t  m6vci_device;
 #endif
 extern int             machine_at_m6vci_init(const machine_t *);
 extern int             machine_at_p6bap_init(const machine_t *);
+extern int             machine_at_p6vaa_init(const machine_t *);
 
 /* VIA Apollo Pro 133A */
 extern int             machine_at_6via90ap_init(const machine_t *);
