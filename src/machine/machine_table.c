@@ -26360,7 +26360,7 @@ const machine_t machines[] = {
     /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
     {
-        .name              = "[VIA Apollo Pro 133A] ECS P6VAA",
+        .name              = "[VIA Apollo Pro 133] ECS P6VAA",
         .internal_name     = "p6vaa",
         .type              = MACHINE_TYPE_SOCKET370,
         .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO_133,
@@ -26409,7 +26409,7 @@ const machine_t machines[] = {
     /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
     {
-        .name              = "[VIA Apollo Pro 133A] Soltek SL-63AV+",
+        .name              = "[VIA Apollo Pro 133] Soltek SL-63AV+",
         .internal_name     = "sl63avp",
         .type              = MACHINE_TYPE_SOCKET370,
         .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO_133,
@@ -26458,7 +26458,7 @@ const machine_t machines[] = {
     /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
     {
-        .name              = "[VIA Apollo Pro 133A] Soltek SL-65FVB",
+        .name              = "[VIA Apollo Pro 133] Soltek SL-65FVB",
         .internal_name     = "sl65fvb",
         .type              = MACHINE_TYPE_SOCKET370,
         .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO_133,
@@ -26502,7 +26502,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Formosa Industrial CV60520", "" }
     },
     /* Has the VIA VT82C686B southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
