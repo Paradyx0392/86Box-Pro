@@ -1878,13 +1878,13 @@ static const device_config_t j694cs_config[] = {
                 .files         = { "roms/machines/j694cs/694CSA06.BIN", "" }
             },
             {
-                .name          = "Award Modular BIOS v6.00PG - Revision A09",
+                .name          = "Award Modular BIOS v6.00PG - Revision A11",
                 .internal_name = "j694cs",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/j694cs/694CSA09.BIN", "" }
+                .files         = { "roms/machines/j694cs/694CSA11.BIN", "" }
             },
             { .files_no = 0 }
         }
