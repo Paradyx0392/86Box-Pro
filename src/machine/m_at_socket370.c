@@ -69,9 +69,6 @@ machine_at_6000abx_init(const machine_t *model)
     device_add(&winbond_flash_w29c020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 512);
 
-    if (sound_card_current[0] == SOUND_INTERNAL)
-        device_add(machine_get_snd_device(machine));
-
     return ret;
 }
 
