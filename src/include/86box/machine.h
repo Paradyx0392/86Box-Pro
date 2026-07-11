@@ -1330,6 +1330,7 @@ extern int             machine_at_r581a_init(const machine_t *);
 extern const device_t  m5ata_device;
 #endif
 extern int             machine_at_m5ata_init(const machine_t *);
+extern int             machine_at_5atxb_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms5164_device;
 #endif
