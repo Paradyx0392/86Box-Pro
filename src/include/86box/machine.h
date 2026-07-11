@@ -1219,6 +1219,7 @@ extern const device_t  pb810_device;
 extern int             machine_at_pb810_init(const machine_t *);
 extern int             machine_at_mb520n_init(const machine_t *);
 extern int             machine_at_i430vx_init(const machine_t *);
+extern int             machine_at_hot559_init(const machine_t *);
 extern int             machine_at_55a5_init(const machine_t *);
 
 /* i430TX */
