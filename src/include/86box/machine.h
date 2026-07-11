@@ -1636,6 +1636,9 @@ extern const device_t  s2dge_device;
 extern int             machine_at_s2dge_init(const machine_t *);
 
 /* m_at_socket370.c */
+/* ALi ALADDiN-PRO II */
+extern int             machine_at_6000abx_init(const machine_t *);
+
 /* i440LX */
 #ifdef EMU_DEVICE_H
 extern const device_t  s370slm_device;

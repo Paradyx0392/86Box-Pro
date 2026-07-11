@@ -38,6 +38,43 @@
 #include <86box/sound.h>
 #include <86box/snd_ac97.h>
 
+/* ALi ALADDiN-PRO II */
+int
+machine_at_6000abx_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/6000abx/56000928.bin",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE,     0, 0, 0, 0);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,       1, 2, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE,     1, 2, 3, 4);
+    pci_register_slot(0x0F, PCI_CARD_SOUTHBRIDGE_IDE, 1, 2, 3, 4);
+    pci_register_slot(0x03, PCI_CARD_SOUTHBRIDGE_PMU, 1, 2, 3, 4);
+    pci_register_slot(0x02, PCI_CARD_SOUTHBRIDGE_USB, 1, 2, 3, 4);
+    pci_register_slot(0x12, PCI_CARD_NORMAL,          2, 3, 4, 1);
+    pci_register_slot(0x10, PCI_CARD_NORMAL,          3, 4, 1, 2);
+    pci_register_slot(0x0E, PCI_CARD_NORMAL,          4, 1, 2, 3);
+    pci_register_slot(0x0D, PCI_CARD_SOUND,           3, 4, 1, 2);
+
+    device_add(&ali1621_device);
+    device_add(&ali1543c_device); /* +0 */
+    device_add(&winbond_flash_w29c020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 512);
+
+    if (sound_card_current[0] == SOUND_INTERNAL)
+        device_add(machine_get_snd_device(machine));
+
+    return ret;
+}
+
 /* i440LX */
 static const device_config_t s370slm_config[] = {
     // clang-format off
@@ -1776,6 +1813,15 @@ static const device_config_t j694as_config[] = {
                 .files         = { "roms/machines/j694as/694ASA06.BIN", "" }
             },
             {
+                .name          = "Award Modular BIOS v6.00PG - Revision A13",
+                .internal_name = "j694as_a13",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/j694as/694ASA13.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v6.00PG - Revision A15",
                 .internal_name = "j694as",
                 .bios_type     = BIOS_NORMAL,
@@ -1879,12 +1925,21 @@ static const device_config_t j694cs_config[] = {
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision A09",
-                .internal_name = "j694cs",
+                .internal_name = "j694cs_a09",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/j694cs/694CSA09.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision A11",
+                .internal_name = "j694cs",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/j694cs/694CSA11.BIN", "" }
             },
             { .files_no = 0 }
         }
