@@ -1776,15 +1776,6 @@ static const device_config_t j694as_config[] = {
                 .files         = { "roms/machines/j694as/694ASA06.BIN", "" }
             },
             {
-                .name          = "Award Modular BIOS v6.00PG - Revision A13",
-                .internal_name = "j694as_a13",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/j694as/694ASA13.BIN", "" }
-            },
-            {
                 .name          = "Award Modular BIOS v6.00PG - Revision A15",
                 .internal_name = "j694as",
                 .bios_type     = BIOS_NORMAL,
@@ -1888,21 +1879,12 @@ static const device_config_t j694cs_config[] = {
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision A09",
-                .internal_name = "j694cs_a09",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/j694cs/694CSA09.BIN", "" }
-            },
-            {
-                .name          = "Award Modular BIOS v6.00PG - Revision A11",
                 .internal_name = "j694cs",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/j694cs/694CSA11.BIN", "" }
+                .files         = { "roms/machines/j694cs/694CSA09.BIN", "" }
             },
             { .files_no = 0 }
         }
@@ -2459,6 +2441,38 @@ machine_at_cairo5_init(const machine_t *model)
     device_add(&via_apro133a_device);
     device_add(&via_vt82c686b_device);
     device_add(&winbond_flash_w29c020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
+
+    return ret;
+}
+
+int
+machine_at_sl65jvb_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/sl65jvb/65jvb-p1.bin",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&via_apro133a_device);
+    device_add(&via_vt82c596b_device);
+    device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
+    device_add(&sst_flash_39sf020_device); /* assumed */
     spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
 
     return ret;

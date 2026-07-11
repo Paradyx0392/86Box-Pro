@@ -26376,8 +26376,8 @@ const machine_t machines[] = {
             .max_bus     = 150000000,
             .min_voltage = 1300,
             .max_voltage = 3300,
-            .min_multi   = MACHINE_MULTIPLIER_FIXED,
-            .max_multi   = MACHINE_MULTIPLIER_FIXED
+            .min_multi   = 1.5,
+            .max_multi   = 8.0
         },
         .bus_flags = MACHINE_PS2_AGP | MACHINE_BUS_USB,
         .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB,
@@ -26406,8 +26406,8 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
-    /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
-       VT82C42N. */
+    /* Has the VIA VT82C596B southbridge with on-chip KBC
+       identical to the VIA VT82C42N. */
     {
         .name              = "[VIA Apollo Pro 133] Soltek SL-63AV+",
         .internal_name     = "sl63avp",
@@ -26425,8 +26425,8 @@ const machine_t machines[] = {
             .max_bus     = 112121212,
             .min_voltage = 1300,
             .max_voltage = 3300,
-            .min_multi   = MACHINE_MULTIPLIER_FIXED,
-            .max_multi   = MACHINE_MULTIPLIER_FIXED
+            .min_multi   = 1.5,
+            .max_multi   = 8.0
         },
         .bus_flags = MACHINE_PS2_AGP | MACHINE_BUS_USB,
         .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB,
@@ -26455,8 +26455,8 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
-    /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
-       VT82C42N. */
+    /* Has the VIA VT82C596B southbridge with on-chip KBC
+       identical to the VIA VT82C42N. */
     {
         .name              = "[VIA Apollo Pro 133] Soltek SL-65FVB",
         .internal_name     = "sl65fvb",
@@ -26474,8 +26474,8 @@ const machine_t machines[] = {
             .max_bus     = 150000000,
             .min_voltage = 1300,
             .max_voltage = 3300,
-            .min_multi   = MACHINE_MULTIPLIER_FIXED,
-            .max_multi   = MACHINE_MULTIPLIER_FIXED
+            .min_multi   = 1.5,
+            .max_multi   = 8.0
         },
         .bus_flags = MACHINE_PS2_AGP | MACHINE_BUS_USB,
         .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB,
@@ -26669,7 +26669,7 @@ const machine_t machines[] = {
             .min_bus     = 66666667,
             .max_bus     = 150000000,
             .min_voltage = 1300,
-            .max_voltage = 3300,
+            .max_voltage = 3500,
             .min_multi   = MACHINE_MULTIPLIER_FIXED,
             .max_multi   = MACHINE_MULTIPLIER_FIXED
         },
@@ -26718,7 +26718,7 @@ const machine_t machines[] = {
             .min_bus     = 66666667,
             .max_bus     = 150000000,
             .min_voltage = 1300,
-            .max_voltage = 3300,
+            .max_voltage = 3500,
             .min_multi   = MACHINE_MULTIPLIER_FIXED,
             .max_multi   = MACHINE_MULTIPLIER_FIXED
         },
@@ -26767,7 +26767,7 @@ const machine_t machines[] = {
             .min_bus     = 66666667,
             .max_bus     = 150000000,
             .min_voltage = 1300,
-            .max_voltage = 3300,
+            .max_voltage = 3500,
             .min_multi   = MACHINE_MULTIPLIER_FIXED,
             .max_multi   = MACHINE_MULTIPLIER_FIXED
         },
@@ -26817,8 +26817,8 @@ const machine_t machines[] = {
             .max_bus     = 150000000,
             .min_voltage = 1300,
             .max_voltage = 3500,
-            .min_multi   = 1.5,
-            .max_multi   = 8.0
+            .min_multi   = MACHINE_MULTIPLIER_FIXED,
+            .max_multi   = MACHINE_MULTIPLIER_FIXED
         },
         .bus_flags = MACHINE_PS2_A97 | MACHINE_BUS_USB,
         .flags     = MACHINE_IDE_DUAL | MACHINE_AG | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB,
@@ -26865,7 +26865,7 @@ const machine_t machines[] = {
             .min_bus     = 66666667,
             .max_bus     = 150000000,
             .min_voltage = 1300,
-            .max_voltage = 3300,
+            .max_voltage = 3500,
             .min_multi   = MACHINE_MULTIPLIER_FIXED,
             .max_multi   = MACHINE_MULTIPLIER_FIXED
         },
@@ -27208,7 +27208,7 @@ const machine_t machines[] = {
             .min_bus     = 66666667,
             .max_bus     = 150000000,
             .min_voltage = 1300,
-            .max_voltage = 3300,
+            .max_voltage = 3500,
             .min_multi   = MACHINE_MULTIPLIER_FIXED,
             .max_multi   = MACHINE_MULTIPLIER_FIXED
         },
@@ -27287,6 +27287,55 @@ const machine_t machines[] = {
         .snd_device               = NULL,
         .net_device               = NULL,
         .aliases                  = { "MSI MS-6309", "" }
+    },
+    /* Has the VIA VT82C596B southbridge with on-chip KBC
+       identical to the VIA VT82C42N. */
+    {
+        .name              = "[VIA Apollo Pro 133A] Soltek SL-65JVB",
+        .internal_name     = "sl65jvb",
+        .type              = MACHINE_TYPE_SOCKET370,
+        .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO_133A,
+        .init              = machine_at_sl65jvb_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SOCKET370,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 66666667,
+            .max_bus     = 150000000,
+            .min_voltage = 1300,
+            .max_voltage = 3500,
+            .min_multi   = MACHINE_MULTIPLIER_FIXED,
+            .max_multi   = MACHINE_MULTIPLIER_FIXED
+        },
+        .bus_flags = MACHINE_PS2_A97 | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB,
+        .ram       = {
+            .min  = 8192,
+            .max  = 3145728,
+            .step = 8192
+        },
+        .nvrmask                  = 255,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = NULL,
+        .kbc_params               = 0x00000000,
+        .nvr_device               = NULL,
+        .nvr_params               = 0x00000000,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = NULL,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "Formosa Industrial CA133G4", "" }
     },
     /* Has the VIA VT82C686B southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
