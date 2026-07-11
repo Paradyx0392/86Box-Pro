@@ -1610,6 +1610,7 @@ extern int             machine_at_sl67jv_init(const machine_t *);
 /* SiS 5600 */
 extern int             machine_at_p6f99_init(const machine_t *);
 extern int             machine_at_m747_init(const machine_t *);
+extern int             machine_at_r658_init(const machine_t *);
 
 /* m_at_slot1_2.c */
 /* i440GX */
