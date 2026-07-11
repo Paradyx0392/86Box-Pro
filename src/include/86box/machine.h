@@ -1495,6 +1495,10 @@ extern const device_t  ax6bc_device;
 #endif
 extern int             machine_at_ax6bc_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  ax6bcpro_device;
+#endif
+extern int             machine_at_ax6bcpro_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  ax6bcproii_device;
 #endif
 extern int             machine_at_ax6bcproii_init(const machine_t *);
