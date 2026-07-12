@@ -1157,6 +1157,7 @@ extern int             machine_at_zeoswildcat_init(const machine_t *);
 /* m_at_socket7.c */
 /* i430HX */
 extern int             machine_at_acerm3a_init(const machine_t *);
+extern int             machine_at_hx97_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  p55t2p4_device;
 #endif
@@ -1189,6 +1190,10 @@ extern int             machine_at_ap5vm_init(const machine_t *);
 extern const device_t  p55tvp4_device;
 #endif
 extern int             machine_at_p55tvp4_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  vx97_device;
+#endif
+extern int             machine_at_vx97_init(const machine_t *);
 extern int             machine_at_5ivg_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  bsi430vx_device;
