@@ -1189,10 +1189,6 @@ extern int             machine_at_ap5vm_init(const machine_t *);
 extern const device_t  p55tvp4_device;
 #endif
 extern int             machine_at_p55tvp4_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  vx97_device;
-#endif
-extern int             machine_at_vx97_init(const machine_t *);
 extern int             machine_at_5ivg_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  bsi430vx_device;
@@ -1566,6 +1562,7 @@ extern const device_t  ms6147v11_device;
 extern int             machine_at_ms6147v11_init(const machine_t *);
 extern int             machine_at_ms6156_init(const machine_t *);
 extern int             machine_at_ms6163_init(const machine_t *);
+extern int             machine_at_sl62a_init(const machine_t *);
 extern int             machine_at_sl62b_init(const machine_t *);
 extern int             machine_at_sl67b_init(const machine_t *);
 extern int             machine_at_67eb_init(const machine_t *);
