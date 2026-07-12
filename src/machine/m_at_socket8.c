@@ -544,16 +544,72 @@ machine_at_m6mi_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t mb600n_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "mb600n",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 09/15/96",
+                .internal_name = "mb600n",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/mb600n/60915cs.rom", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 03/01/97 (Aristo AM-600FX)",
+                .internal_name = "am600fx",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/mb600n/AM600FX.BIN", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t mb600n_device = {
+    .name          = "PC Partner MB600N",
+    .internal_name = "mb600n",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = mb600n_config
+};
+
 int
 machine_at_mb600n_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/mb600n/60915cs.rom",
-                           0x000e0000, 131072, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    int is_aristo = !strcmp(device_get_config_bios("bios"), "am600fx");
+    fn            = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -568,7 +624,12 @@ machine_at_mb600n_init(const machine_t *model)
     device_add(&i440fx_device);
     device_add(&piix3_device);
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
-    device_add_params(&fdc37c669_device, (void *) 0);
+
+    if (is_aristo)
+        device_add_params(&um8669f_device, (void *) 0);
+    else
+        device_add_params(&fdc37c669_device, (void *) 0);
+
     device_add(&intel_flash_bxt_device);
 
     return ret;
