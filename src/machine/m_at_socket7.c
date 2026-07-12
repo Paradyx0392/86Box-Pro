@@ -2418,7 +2418,7 @@ machine_at_txp4_init(const machine_t *model)
     device_add(&i430tx_device);
     device_add(&piix4_device);
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
-    device_add_params(&w83877_device, (void *) (W83877F | W83877_3F0));
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&intel_flash_bxt_device);
     spd_register(SPD_TYPE_SDRAM, 0x3, 128);
 
