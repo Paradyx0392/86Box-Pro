@@ -596,20 +596,15 @@ const device_t mb600n_device = {
 };
 
 int
-machine_at_mb600n_init(const machine_t *model)
+machine_at_mb600nd_init(const machine_t *model)
 {
-    int         ret = 0;
-    const char *fn;
+    int ret;
 
-    /* No ROMs available */
-    if (!device_available(model->device))
+    ret = bios_load_linear("roms/machines/mb600nd/FX_903u.bin",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
         return ret;
-
-    device_context(model->device);
-    int is_aristo = !strcmp(device_get_config_bios("bios"), "am600fx");
-    fn            = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
-    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -622,14 +617,9 @@ machine_at_mb600n_init(const machine_t *model)
     pci_register_slot(0x14, PCI_CARD_NORMAL,      4, 1, 2, 3);
 
     device_add(&i440fx_device);
-    device_add(&piix3_device);
+    device_add(&piix3_ioapic_device);
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
-
-    if (is_aristo)
-        device_add_params(&um8669f_device, (void *) 0);
-    else
-        device_add_params(&fdc37c669_device, (void *) 0);
-
+    device_add_params(&um8669f_device, (void *) 0);
     device_add(&intel_flash_bxt_device);
 
     return ret;
