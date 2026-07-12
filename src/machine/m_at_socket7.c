@@ -2836,10 +2836,10 @@ machine_at_mb540n_init(const machine_t *model)
 
     pci_init(PCI_CONFIG_TYPE_1);
     pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
-    pci_register_slot(0x11, PCI_CARD_NORMAL,      4, 1, 2, 3);
-    pci_register_slot(0x12, PCI_CARD_NORMAL,      3, 4, 1, 2);
-    pci_register_slot(0x13, PCI_CARD_NORMAL,      2, 3, 4, 1);
     pci_register_slot(0x14, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x13, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x12, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x11, PCI_CARD_NORMAL,      4, 1, 2, 3);
     pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4); /* PIIX4 */
 
     device_add(&i430tx_device);
@@ -3113,6 +3113,15 @@ static const device_config_t ficpa2012_config[] = {
         .spinner        = { 0 },
         .selection      = { { 0 } },
         .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.13JB15",
+                .internal_name = "ficpa2012_jb15",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ficpa2012/113jb15.awd", "" }
+            },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 1.13JB154",
                 .internal_name = "ficpa2012_jb154",
