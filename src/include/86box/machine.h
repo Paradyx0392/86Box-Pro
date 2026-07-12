@@ -1286,6 +1286,7 @@ extern int             machine_at_5avp3_init(const machine_t *);
 extern const device_t  via809ds_device;
 #endif
 extern int             machine_at_via809ds_init(const machine_t *);
+extern int             machine_at_vib806ds_init(const machine_t *);
 
 /* SiS 5571 */
 extern int             machine_at_cb52xsi_init(const machine_t *);
