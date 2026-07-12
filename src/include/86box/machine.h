@@ -1244,7 +1244,7 @@ extern int             machine_at_tx97_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  tx97x_device;
 #endif
-extern int             machine_at_tx97_init(const machine_t *);
+extern int             machine_at_tx97x_init(const machine_t *);
 extern int             machine_at_tx97xv_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  txp4_device;
