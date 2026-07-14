@@ -1553,6 +1553,7 @@ extern const device_t  ga686_device;
 #endif
 extern int             machine_at_ga686_init(const machine_t *);
 extern int             machine_at_6ba_init(const machine_t *);
+extern int             machine_at_ga6bxa_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ga6bxc_device;
 #endif
