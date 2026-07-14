@@ -4008,7 +4008,7 @@ machine_at_sl67a_init(const machine_t *model)
     int ret;
 
     ret = bios_load_linear("roms/machines/sl67a/67a-f3.bin",
-                           0x000c0000, 262144, 0);
+                           0x000e0000, 131072, 0);
 
     if (bios_only || !ret)
         return ret;
@@ -4027,7 +4027,7 @@ machine_at_sl67a_init(const machine_t *model)
     device_add(&i440bx_device);
     device_add(&piix4e_device);
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
-    device_add(&sst_flash_29ee020_device);
+    device_add(&sst_flash_29ee010_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
 
     return ret;
