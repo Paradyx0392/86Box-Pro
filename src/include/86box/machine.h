@@ -1338,6 +1338,10 @@ extern const device_t  sp98agpx_device;
 #endif
 extern int             machine_at_sp98agpx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  ms5168_device;
+#endif
+extern int             machine_at_ms5168_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  ms5172_device;
 #endif
 extern int             machine_at_ms5172_init(const machine_t *);
