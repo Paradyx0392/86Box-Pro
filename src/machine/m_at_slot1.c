@@ -4746,6 +4746,15 @@ static const device_config_t ms6168_config[] = {
                 .size          = 262144,
                 .files         = { "roms/machines/ms6168/W6168IMS.130", "" }
             },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 04/03/2000 (Fujitsu-Siemens OEM)",
+                .internal_name = "ms6168fsc",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6168/referenz.bin", "" }
+            },
             { .files_no = 0 }
         }
     },
