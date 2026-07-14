@@ -16717,6 +16717,54 @@ const machine_t machines[] = {
     },
     /* Has the ALi M1543 southbridge with on-chip KBC. */
     {
+        .name              = "[ALi ALADDiN IV+] MSI MS-5163",
+        .internal_name     = "ms5163",
+        .type              = MACHINE_TYPE_SOCKET7,
+        .chipset           = MACHINE_CHIPSET_ALI_ALADDIN_IV_PLUS,
+        .init              = machine_at_ms5163_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SOCKET5_7,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 60000000,
+            .max_bus     = 66666667,
+            .min_voltage = 2100,
+            .max_voltage = 3520,
+            .min_multi   = 1.5,
+            .max_multi   = 3.0
+        },
+        .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB,
+        .ram       = {
+            .min  = 8192,
+            .max  = 1048576,
+            .step = 8192
+        },
+        .nvrmask                  = 255,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = NULL,
+        .kbc_params               = 0x00000000,
+        .nvr_device               = NULL,
+        .nvr_params               = 0x00000000,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = NULL,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "Premio 201A", "" }
+    },
+    /* Has the ALi M1543 southbridge with on-chip KBC. */
+    {
         .name              = "[ALi ALADDiN IV+] MSI MS-5164",
         .internal_name     = "ms5164",
         .type              = MACHINE_TYPE_SOCKET7,
@@ -18432,54 +18480,6 @@ const machine_t machines[] = {
     /* 430TX */
     /* This has the AMIKey KBC firmware. Featuring W83977TF */
     {
-        .name              = "[i430TX] ABIT AB-AX5",
-        .internal_name     = "ax5",
-        .type              = MACHINE_TYPE_SOCKET7,
-        .chipset           = MACHINE_CHIPSET_INTEL_430TX,
-        .init              = machine_at_ax5_init,
-        .p1_handler        = machine_generic_p1_handler,
-        .gpio_handler      = NULL,
-        .available_flag    = MACHINE_AVAILABLE,
-        .gpio_acpi_handler = NULL,
-        .cpu               = {
-            .package     = CPU_PKG_SOCKET5_7,
-            .block       = CPU_BLOCK_NONE,
-            .min_bus     = 50000000,
-            .max_bus     = 83333333,
-            .min_voltage = 2100,
-            .max_voltage = 3520,
-            .min_multi   = 1.5,
-            .max_multi   = 3.5
-        },
-        .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB,
-        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB,
-        .ram       = {
-            .min  = 8192,
-            .max  = 262144,
-            .step = 8192
-        },
-        .nvrmask                  = 255,
-        .jumpered_ecp_dma         = 0,
-        .default_jumpered_ecp_dma = -1,
-        .kbc_device               = &kbc_at_device,
-        .kbc_params               = KBC_VEN_AMI | 0x00004600,
-        .nvr_device               = NULL,
-        .nvr_params               = 0x00000000,
-        .sio_device               = NULL,
-        .sio_params               = 0x00000000,
-        .kbc_p1                   = 0x00000cf0,
-        .gpio                     = 0xffffffff,
-        .gpio_acpi                = 0xffffffff,
-        .device                   = &ax5_device,
-        .kbd_device               = NULL,
-        .fdc_device               = NULL,
-        .vid_device               = NULL,
-        .snd_device               = NULL,
-        .net_device               = NULL,
-        .aliases                  = { "" }
-    },
-    /* This has the AMIKey KBC firmware. Featuring W83977TF */
-    {
         .name              = "[i430TX] ABIT AB-TX5",
         .internal_name     = "tx5",
         .type              = MACHINE_TYPE_SOCKET7,
@@ -18573,54 +18573,6 @@ const machine_t machines[] = {
         .snd_device               = NULL,
         .net_device               = NULL,
         .aliases                  = { "ADLink NuPRO-590", "" }
-    },
-    /* This has the AMIKey KBC firmware. Featuring SMC FDC37C932 */
-    {
-        .name              = "[i430TX] AOpen AX5T",
-        .internal_name     = "ax5t",
-        .type              = MACHINE_TYPE_SOCKET7,
-        .chipset           = MACHINE_CHIPSET_INTEL_430TX,
-        .init              = machine_at_ax5t_init,
-        .p1_handler        = machine_generic_p1_handler,
-        .gpio_handler      = NULL,
-        .available_flag    = MACHINE_AVAILABLE,
-        .gpio_acpi_handler = NULL,
-        .cpu               = {
-            .package     = CPU_PKG_SOCKET5_7,
-            .block       = CPU_BLOCK_NONE,
-            .min_bus     = 50000000,
-            .max_bus     = 83333333,
-            .min_voltage = 2100,
-            .max_voltage = 3520,
-            .min_multi   = 1.5,
-            .max_multi   = 3.5
-        },
-        .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB,
-        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB,
-        .ram       = {
-            .min  = 8192,
-            .max  = 262144,
-            .step = 8192
-        },
-        .nvrmask                  = 255,
-        .jumpered_ecp_dma         = 0,
-        .default_jumpered_ecp_dma = -1,
-        .kbc_device               = &kbc_at_device,
-        .kbc_params               = KBC_VEN_AMI | 0x00004600,
-        .nvr_device               = NULL,
-        .nvr_params               = 0x00000000,
-        .sio_device               = NULL,
-        .sio_params               = 0x00000000,
-        .kbc_p1                   = 0x00000cf0,
-        .gpio                     = 0xffffffff,
-        .gpio_acpi                = 0xffffffff,
-        .device                   = &ax5t_device,
-        .kbd_device               = NULL,
-        .fdc_device               = NULL,
-        .vid_device               = NULL,
-        .snd_device               = NULL,
-        .net_device               = NULL,
-        .aliases                  = { "" }
     },
     /* This has the AMIKey KBC firmware. Featuring W83977TF */
     {
@@ -19315,6 +19267,55 @@ const machine_t machines[] = {
         .snd_device               = NULL,
         .net_device               = NULL,
         .aliases                  = { "Premio 200F", "" }
+    },
+    /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
+       firmware. */
+    {
+        .name              = "[i430TX] MSI MS-5170",
+        .internal_name     = "ms5170",
+        .type              = MACHINE_TYPE_SOCKET7,
+        .chipset           = MACHINE_CHIPSET_INTEL_430TX,
+        .init              = machine_at_ms5170_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SOCKET5_7,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 55000000,
+            .max_bus     = 75000000,
+            .min_voltage = 2700,
+            .max_voltage = 3520,
+            .min_multi   = 1.5,
+            .max_multi   = 3.5
+        },
+        .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB,
+        .ram       = {
+            .min  = 4096,
+            .max  = 262144,
+            .step = 4096
+        },
+        .nvrmask                  = 255,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = NULL,
+        .kbc_params               = 0x00000000,
+        .nvr_device               = NULL,
+        .nvr_params               = 0x00000000,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = &ms5170_device,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "" }
     },
     /* Has a SM(S)C FDC37C67x Super I/O chip with on-chip KBC with Phoenix or
        AMI MEGAKEY '5' KBC firmware. */

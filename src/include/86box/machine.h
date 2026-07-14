@@ -1224,18 +1224,10 @@ extern int             machine_at_55a5_init(const machine_t *);
 
 /* i430TX */
 #ifdef EMU_DEVICE_H
-extern const device_t  ax5_device;
-#endif
-extern int             machine_at_ax5_init(const machine_t *);
-#ifdef EMU_DEVICE_H
 extern const device_t  tx5_device;
 #endif
 extern int             machine_at_tx5_init(const machine_t *);
 extern int             machine_at_nupro592_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  ax5t_device;
-#endif
-extern int             machine_at_ax5t_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ax5tc_device;
 #endif
@@ -1278,6 +1270,10 @@ extern int             machine_at_ms5156_init(const machine_t *);
 extern const device_t  ms5158_device;
 #endif
 extern int             machine_at_ms5158_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ms5170_device;
+#endif
+extern int             machine_at_ms5170_init(const machine_t *);
 extern int             machine_at_ma23c_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  mb540n_device;
@@ -1362,6 +1358,7 @@ extern const device_t  m5ata_device;
 #endif
 extern int             machine_at_m5ata_init(const machine_t *);
 extern int             machine_at_5atxb_init(const machine_t *);
+extern int             machine_at_ms5163_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms5164_device;
 #endif
