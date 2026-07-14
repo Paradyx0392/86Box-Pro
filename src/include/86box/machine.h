@@ -1224,6 +1224,10 @@ extern int             machine_at_55a5_init(const machine_t *);
 
 /* i430TX */
 #ifdef EMU_DEVICE_H
+extern const device_t  ax5_device;
+#endif
+extern int             machine_at_ax5_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  tx5_device;
 #endif
 extern int             machine_at_tx5_init(const machine_t *);
