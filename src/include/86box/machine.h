@@ -1233,6 +1233,10 @@ extern const device_t  tx5_device;
 extern int             machine_at_tx5_init(const machine_t *);
 extern int             machine_at_nupro592_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  ax5t_device;
+#endif
+extern int             machine_at_ax5t_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  ax5tc_device;
 #endif
 extern int             machine_at_ax5tc_init(const machine_t *);
