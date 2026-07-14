@@ -3254,7 +3254,7 @@ static const device_config_t ga6bxc_config[] = {
         .bios           = {
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision F3",
-                .internal_name = "ga6bxc_f1",
+                .internal_name = "ga6bxc_f3",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
