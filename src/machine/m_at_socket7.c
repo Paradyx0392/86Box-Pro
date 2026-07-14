@@ -2593,7 +2593,7 @@ machine_at_tx98xv_init(const machine_t *model)
 
     device_add(&i430tx_device);
     device_add(&piix4_device);
-    device_add_params(&pc87307_device, (void *) (PCX730X_AMI | PCX7307_PC87307 | PCX730X_02E));
+    device_add_params(&pc87309_device, (void *) (PCX730X_AMI | PC87309_PC87309));
     device_add(&intel_flash_bxt_device);
     spd_register(SPD_TYPE_SDRAM, 0x3, 128);
 
