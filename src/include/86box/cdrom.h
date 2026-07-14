@@ -151,7 +151,9 @@ static const struct cdrom_drive_types_s {
     { "GOLDSTAR", "CRD-8240B",         "1.24", "",                  "goldstar_8240b",      BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2, -1 } },
     { "GOLDSTAR", "CRD-8320B",         "1.10", "",                  "goldstar_8320b",      BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2, -1 } },
     { "GOLDSTAR", "CRD-8322B",         "1.02", "",                  "goldstar_8322b",      BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2, -1 } },
-    { "GOLDSTAR", "CRD-8400B",         "1.03", "",                  "goldstar_8400b",      BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2, -1 } },
+    { "GOLDSTAR", "CRD-8400B",         "1.03", "",                  "gs_8400b_103",        BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2, -1 } },
+    { "GOLDSTAR", "CRD-8400B",         "1.12", "",                  "goldstar_8400b",      BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2, -1 } },
+    { "GOLDSTAR", "CRD-8484B",         "1.03", "",                  "goldstar_8484b",      BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } },
     { "GOLDSTAR", "GCD-R542B",         "1.20", "",                  "goldstar_r542b",      BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  3,  2,  1, -1 } },
     { "GOLDSTAR", "GCD-R560B",         "1.00", "",                  "goldstar_r560b",      BUS_TYPE_IDE,  0,  6, 36, 0, 0, {  4,  2,  2, -1 } }, /* TODO: Find an IDENTIFY and/or INQUIRY dump. */
     { "GOLDSTAR", "GCD-R580B",         "1.05", "",                  "goldstar_r580b",      BUS_TYPE_IDE,  0,  8, 36, 0, 0, {  4,  2,  2, -1 } },
@@ -173,14 +175,15 @@ static const struct cdrom_drive_types_s {
        This is a laptop/notebook drive, as is also evident from the name:
            CRN = Notebook, CRD/DRD = Desktop.
      */
-    { "LG",       "CD-ROM CRD-8160B",  "1.15", "",                  "lg_8160b",            BUS_TYPE_IDE,  0, 16, 36, 0, 0, {  4,  2,  1, -1 } }, /* Later version of GoldStar CRD-8160B */
-    { "LG",       "CD-ROM CRD-8240B",  "1.19", "",                  "lg_8240b",            BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  1, -1 } }, /* Later version of GoldStar CRD-8240B */
+    { "LG",       "CD-ROM CRD-8160B",  "1.15", "",                  "lg_8160b",            BUS_TYPE_IDE,  0, 16, 36, 0, 0, {  4,  2,  1, -1 } }, /* Later version of Goldstar CRD-8160B */
+    { "LG",       "CD-ROM CRD-8240B",  "1.19", "",                  "lg_8240b",            BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  1, -1 } }, /* Later version of Goldstar CRD-8240B */
     { "LG",       "CD-ROM CRN-8245B",  "1.30", "",                  "lg_8245b",            BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2, -1 } }, /* Notebook version of CRD-8240B */
     { "LG",       "CD-ROM CRD-8322B",  "1.06", "",                  "lg_8322b",            BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2, -1 } },
     { "LG",       "CD-ROM CRD-8360B",  "1.01", "",                  "lg_8360b",            BUS_TYPE_IDE,  0, 36, 36, 0, 0, {  4,  2,  2, -1 } },
     { "LG",       "CD-ROM CRD-8400B",  "1.12", "",                  "lg_8400b",            BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2, -1 } },
     { "LG",       "CD-ROM CRD-8400C",  "1.02", "",                  "lg_8400c",            BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2,  2 } },
     { "LG",       "CD-ROM CRD-8482B",  "1.00", "",                  "lg_8482b",            BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } },
+    { "LG",       "CD-ROM CRD-8484B",  "1.05", "",                  "lg_8484b",            BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } }, /* Later version of Goldstar CRD-8484B */
     { "LG",       "CD-ROM CRD-8522B",  "1.02", "",                  "lg_8522b",            BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  2 } },
     { "LG",       "CD-ROM CRD-8522B",  "2.03", "",                  "lg_8522b_203",        BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  2 } },
     { "LG",       "DVD-ROM DRD-8020B", "1.04", "",                  "lg_drd8020b",         BUS_TYPE_IDE,  0, 24, 36, 0, 1, {  4,  2,  2,  2 } },
