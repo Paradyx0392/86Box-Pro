@@ -2571,36 +2571,6 @@ machine_at_tx97xv_init(const machine_t *model)
 }
 
 int
-machine_at_tx98xv_init(const machine_t *model)
-{
-    int ret;
-
-    ret = bios_load_linear("roms/machines/tx98xv/Bios.rom",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
-        return ret;
-
-    machine_at_common_init(model);
-
-    pci_init(PCI_CONFIG_TYPE_1);
-    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 1, 2, 3, 4);
-    pci_register_slot(0x01, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4); /* PIIX4 */
-    pci_register_slot(0x09, PCI_CARD_NORMAL,      4, 1, 2, 3);
-    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
-    pci_register_slot(0x0B, PCI_CARD_NORMAL,      2, 3, 4, 1);
-    pci_register_slot(0x0D, PCI_CARD_VIDEO,       1, 0, 0, 0);
-
-    device_add(&i430tx_device);
-    device_add(&piix4_device);
-    device_add_params(&pc87309_device, (void *) (PCX730X_AMI | PC87309_PC87309));
-    device_add(&intel_flash_bxt_device);
-    spd_register(SPD_TYPE_SDRAM, 0x3, 128);
-
-    return ret;
-}
-
-int
 machine_at_thunderbolt_init(const machine_t *model)
 {
     int ret;
@@ -2630,6 +2600,111 @@ machine_at_thunderbolt_init(const machine_t *model)
 
     if (sound_card_current[0] == SOUND_INTERNAL)
         machine_snd = device_add(machine_get_snd_device(machine));
+
+    return ret;
+}
+
+static const device_config_t ms5148_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "ms5148w",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 1.0",
+                .internal_name = "ms5148a",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5148/A548MS10.ROM", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.0",
+                .internal_name = "ms5148w10",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5148/W548MS10.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.3",
+                .internal_name = "ms5148w",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5148/W548MS23.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.6 (Viglen Vig48M)",
+                .internal_name = "ms5148wvi",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5148/Vig48261.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t ms5148_device = {
+    .name          = "MSI MS-5148",
+    .internal_name = "ms5148",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = ms5148_config
+};
+
+int
+machine_at_ms5148_init(const machine_t *model)
+{
+    int ret;
+    const char *fn;
+
+    device_context(model->device);
+    int is_amibios = !strcmp(device_get_config_bios("bios"), "ms5148a");
+    fn             = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000e0000, 131072, 0);
+    device_context_restore();
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x0D, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x0E, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0F, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x10, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 4); /* PIIX4 */
+
+    device_add(&i430tx_device);
+
+    if (is_amibios)
+        device_add(&piix4_device);
+    else
+        device_add_params(&piix4_device, (void *) PIIX4_NVR_AMI_1995);
+
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&sst_flash_29ee010_device); /* assumed */
+    spd_register(SPD_TYPE_SDRAM, 0x3, 128);
 
     return ret;
 }
