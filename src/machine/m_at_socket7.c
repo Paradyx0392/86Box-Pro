@@ -2040,7 +2040,7 @@ machine_at_ax5t_init(const machine_t *model)
 
     device_add(&i430tx_device);
     device_add(&piix4_device);
-    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add_params(&fdc37c67x_device, (void *) (FDC37XXX2 | FDC37XXXX_370));
     device_add(&sst_flash_29ee020_device);
     spd_register(SPD_TYPE_SDRAM, 0x3, 128);
 
