@@ -1330,6 +1330,7 @@ extern const device_t  sp97xv_device;
 extern int             machine_at_sp97xv_init(const machine_t *);
 extern int             machine_at_sq578_init(const machine_t *);
 extern int             machine_at_r547_init(const machine_t *);
+extern int             machine_at_r548_init(const machine_t *);
 
 /* SiS 5591 */
 extern int             machine_at_ap59s_init(const machine_t *);
