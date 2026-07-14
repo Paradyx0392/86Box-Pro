@@ -1582,6 +1582,7 @@ extern int             machine_at_ms6156_init(const machine_t *);
 extern int             machine_at_ms6163_init(const machine_t *);
 extern int             machine_at_sl62a_init(const machine_t *);
 extern int             machine_at_sl62b_init(const machine_t *);
+extern int             machine_at_sl67a_init(const machine_t *);
 extern int             machine_at_sl67b_init(const machine_t *);
 extern int             machine_at_67eb_init(const machine_t *);
 #ifdef EMU_DEVICE_H
@@ -1611,7 +1612,13 @@ extern int             machine_at_ms6147zx_init(const machine_t *);
 extern const device_t  ms6156zx_device;
 #endif
 extern int             machine_at_ms6156zx_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ms6168_device;
+#endif
 extern int             machine_at_ms6168_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  borapro_device;
+#endif
 extern int             machine_at_borapro_init(const machine_t *);
 
 /* SMSC VictoryBX-66 */
