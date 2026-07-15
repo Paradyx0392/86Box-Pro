@@ -1406,7 +1406,6 @@ extern int             machine_at_5ema_init(const machine_t *);
 extern int             machine_at_5emaplus_init(const machine_t *);
 extern int             machine_at_5emapro_init(const machine_t *);
 extern int             machine_at_k6bv3p_a_init(const machine_t *);
-extern int             machine_at_k6xv3p_a_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  sl54u5_device;
 #endif
@@ -1762,6 +1761,7 @@ extern int             machine_at_sl65fvb_init(const machine_t *);
 extern int             machine_at_sy7vba133_init(const machine_t *);
 
 /* VIA Apollo Pro 133A */
+extern int             machine_at_6via89_init(const machine_t *);
 extern int             machine_at_6via90ap_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  cuv4xcm_device;
