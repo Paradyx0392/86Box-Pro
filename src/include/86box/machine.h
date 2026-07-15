@@ -1190,6 +1190,7 @@ extern const device_t  p55tvp4_device;
 #endif
 extern int             machine_at_p55tvp4_init(const machine_t *);
 extern int             machine_at_5ivg_init(const machine_t *);
+extern int             machine_at_mb8500tax_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  bsi430vx_device;
 #endif
