@@ -1742,6 +1742,7 @@ extern int             machine_at_m773_init(const machine_t *);
 extern int             machine_at_vim863s_init(const machine_t *);
 
 /* VIA Apollo Pro 133 */
+extern int             machine_at_acorp693ap_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  m6vch_device;
 #endif
