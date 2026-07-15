@@ -4796,71 +4796,16 @@ machine_at_ms6168_init(const machine_t *model)
     return ret;
 }
 
-static const device_config_t borapro_config[] = {
-    // clang-format off
-    {
-        .name           = "bios",
-        .description    = "BIOS Version",
-        .type           = CONFIG_BIOS,
-        .default_string = "borapro",
-        .default_int    = 0,
-        .file_filter    = NULL,
-        .spinner        = { 0 },
-        .selection      = { { 0 } },
-        .bios           = {
-            {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.2 (Packard Bell Bora)",
-                .internal_name = "bora",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/borapro/a668p212.rom", "" }
-            },
-            {
-                .name          = "AMIBIOS 6 (071595) - Revision 5.00 (Packard Bell Bora Pro)",
-                .internal_name = "borapro",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/borapro/MS6168V2.50", "" }
-            },
-            { .files_no = 0 }
-        }
-    },
-    { .name = "", .description = "", .type = CONFIG_END }
-    // clang-format on
-};
-
-const device_t borapro_device = {
-    .name          = "Packard Bell Bora Pro",
-    .internal_name = "borapro",
-    .flags         = 0,
-    .local         = 0,
-    .init          = NULL,
-    .close         = NULL,
-    .reset         = NULL,
-    .available     = NULL,
-    .speed_changed = NULL,
-    .force_redraw  = NULL,
-    .config        = borapro_config
-};
-
 int
 machine_at_borapro_init(const machine_t *model)
 {
-    int         ret = 0;
-    const char *fn;
+    int ret;
 
-    /* No ROMs available */
-    if (!device_available(model->device))
+    ret = bios_load_linear("roms/machines/borapro/MS6168V2.50",
+                           0x000c0000, 262144, 0);
+
+    if (bios_only || !ret)
         return ret;
-
-    device_context(model->device);
-    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
-    device_context_restore();
 
     machine_at_ms6168_common_init(model);
 

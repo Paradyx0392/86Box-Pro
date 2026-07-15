@@ -1406,6 +1406,7 @@ extern int             machine_at_5ema_init(const machine_t *);
 extern int             machine_at_5emaplus_init(const machine_t *);
 extern int             machine_at_5emapro_init(const machine_t *);
 extern int             machine_at_k6bv3p_a_init(const machine_t *);
+extern int             machine_at_k6xv3p_a_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  sl54u5_device;
 #endif
@@ -1632,9 +1633,6 @@ extern int             machine_at_ms6156zx_init(const machine_t *);
 extern const device_t  ms6168_device;
 #endif
 extern int             machine_at_ms6168_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  borapro_device;
-#endif
 extern int             machine_at_borapro_init(const machine_t *);
 
 /* SMSC VictoryBX-66 */
@@ -1681,6 +1679,10 @@ extern int             machine_at_fw6400gx_init(const machine_t *);
 extern const device_t  prosignias31x_device;
 #endif
 extern int             machine_at_prosignias31x_bx_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  pb1408_device;
+#endif
+extern int             machine_at_pb1408_init(const machine_t *);
 extern int             machine_at_s1857_init(const machine_t *);
 
 /* VIA Apollo Pro 133 */
