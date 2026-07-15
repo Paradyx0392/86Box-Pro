@@ -1204,6 +1204,7 @@ extern const device_t  p5vxb_device;
 #endif
 extern int             machine_at_p5vxb_init(const machine_t *);
 extern int             machine_at_p55va_init(const machine_t *);
+extern int             machine_at_p55vx_init(const machine_t *);
 extern int             machine_at_gw2kte_init(const machine_t *);
 extern int             machine_at_brio80xx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
@@ -1372,10 +1373,6 @@ extern int             machine_at_m560_init(const machine_t *);
 extern const device_t  p5a_device;
 #endif
 extern int             machine_at_p5a_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  p5ab_device;
-#endif
-extern int             machine_at_p5ab_init(const machine_t *);
 extern int             machine_at_vp1541_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  m5ala_device;
