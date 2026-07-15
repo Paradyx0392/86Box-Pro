@@ -2698,9 +2698,9 @@ machine_at_ms5148_init(const machine_t *model)
     device_add(&i430tx_device);
 
     if (is_amibios)
-        device_add(&piix4_device);
-    else
         device_add_params(&piix4_device, (void *) PIIX4_NVR_AMI_1995);
+    else
+        device_add(&piix4_device);
 
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee010_device); /* assumed */
