@@ -132,6 +132,7 @@ static const struct cdrom_drive_types_s {
     { EMU_NAME,   "86B_CD",            CDV,    "",                  "86cd",                BUS_TYPE_BOTH, 2, -1, 36, 0, 0, {  4,  2,  2,  5 } },
     { EMU_NAME,   "86B_CD",            "1.00", "",                  "86cd100",             BUS_TYPE_BOTH, 1, -1, 36, 1, 0, {  0, -1, -1, -1 } }, /* SCSI-1 / early ATAPI generic - second on purpose so the later variant is the default. */
     { EMU_NAME,   "86B_DVD",           "5.00", "",                  "86dvd",               BUS_TYPE_BOTH, 2, -1, 36, 0, 1, {  4,  2,  2,  5 } }, /* No difference from 86BOX CD-ROM, other than name - but enough people have requested such a name to warrant it. */
+    { "ACER",     "656A",              "8.4D", "656A 043",          "acer_656a",           BUS_TYPE_IDE,  0,  8, 36, 0, 0, {  3,  2,  2, -1 } },
     { "AOpen",    "CD-948E",           "4.02", "",                  "aopen_948e",          BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } },
     { "AOpen",    "CD-952E",           "2.01", "",                  "aopen_952e",          BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  4 } },
     { "AOpen",    "DVD-9632",          "1.15", "",                  "aopen_9632",          BUS_TYPE_IDE,  0, 32, 36, 0, 1, {  4,  2,  2,  2 } },
@@ -140,12 +141,14 @@ static const struct cdrom_drive_types_s {
     { "ASUS",     "CD-S520/A4",        "1.6K", "",                  "asus_520",            BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  4 } },
     { "ASUS",     "DVD-E616P2",        "1.08", "",                  "asus_e616",           BUS_TYPE_IDE,  0, 48, 36, 0, 1, {  4,  2,  2,  4 } },
     { "AZT",      "CDA46802I",         "1.15", "",                  "azt_cda",             BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  3,  0,  0,  0 } },
+    { "BENQ",     "CD-656A",           "56AI", "",                  "benq_656a",           BUS_TYPE_IDE,  0, 56, 36, 0, 0, {  4,  2,  2,  2 } },
     { "BTC",      "CD-ROM BCD16XA",    "U2.2", "",                  "btc_16xa",            BUS_TYPE_IDE,  0, 16, 36, 0, 0, {  4,  2,  2, -1 } },
     { "BTC",      "CD-ROM BCD24X",     "U2.0", "",                  "btc_24x",             BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2,  0 } },
     { "BTC",      "CD-ROM BCD24XHM",   "V1.0", "",                  "btc_24xhm",           BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2,  1 } }, /* Later version of BCD24X */
     { "CREATIVE", "CD2422E",           "MC10", "",                  "creative_2422",       BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2,  2 } },
     { "CREATIVE", "CD3621E",           "ZC10", "",                  "creative_3621",       BUS_TYPE_IDE,  0, 36, 36, 0, 0, {  4,  2,  2,  2 } },
     { "CREATIVE", "CD5220E",           "2.02", "",                  "creative_5220",       BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  4 } },
+    { "ECS",      "600ESD",            "V300", "",                  "ecs_600",             BUS_TYPE_IDE,  0,  6, 36, 0, 0, {  3, -1, -1, -1 } },
     { "GOLDSTAR", "CRD-8160B",         "1.04", "",                  "goldstar_104",        BUS_TYPE_IDE,  0, 16, 36, 0, 0, {  4,  2,  2, -1 } },
     { "GOLDSTAR", "CRD-8160B",         "3.14", "",                  "goldstar",            BUS_TYPE_IDE,  0, 16, 36, 0, 0, {  4,  2,  2, -1 } },
     { "GOLDSTAR", "CRD-8240B",         "1.24", "",                  "goldstar_8240b",      BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2, -1 } },
@@ -179,6 +182,7 @@ static const struct cdrom_drive_types_s {
     { "LG",       "CD-ROM CRD-8240B",  "1.19", "",                  "lg_8240b",            BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  1, -1 } }, /* Later version of Goldstar CRD-8240B */
     { "LG",       "CD-ROM CRN-8245B",  "1.30", "",                  "lg_8245b",            BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2, -1 } }, /* Notebook version of CRD-8240B */
     { "LG",       "CD-ROM CRD-8322B",  "1.06", "",                  "lg_8322b",            BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2, -1 } },
+    { "LG",       "CD-ROM CRD-8322B",  "1.24", "",                  "lg_8322b_124",        BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2,  0 } },
     { "LG",       "CD-ROM CRD-8360B",  "1.01", "",                  "lg_8360b",            BUS_TYPE_IDE,  0, 36, 36, 0, 0, {  4,  2,  2, -1 } },
     { "LG",       "CD-ROM CRD-8400B",  "1.12", "",                  "lg_8400b",            BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2, -1 } },
     { "LG",       "CD-ROM CRD-8400C",  "1.02", "",                  "lg_8400c",            BUS_TYPE_IDE,  0, 40, 36, 0, 0, {  4,  2,  2,  2 } },
@@ -194,7 +198,8 @@ static const struct cdrom_drive_types_s {
     { "LITEON",   "CD-ROM LTN301",     "MP12", "LTN301",            "liteon_301",          BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2,  2 } },
     { "LITEON",   "CD-ROM LTN486S",    "YDS4", "LTN486S",           "liteon_486s",         BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } },
     { "LITEON",   "CD-ROM LTN48125S",  "1S07", "LTN48125S",         "liteon_48125s",       BUS_TYPE_IDE,  0, 48, 36, 0, 0, {  4,  2,  2,  2 } }, /* Nothing on Google, deduced 48x from the name. */
-    { "LITEON",   "DVD-ROM LTN526D",   "YSR5", "LTN586D",           "liteon_526d",         BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  2 } }, /* Confirmed to be 52x, was the basis for deducing the other one's speed. */
+    { "LITEON",   "CD-ROM LTN526D",    "YSR5", "LTN526D",           "liteon_526d",         BUS_TYPE_IDE,  0, 52, 36, 0, 0, {  4,  2,  2,  2 } }, /* Confirmed to be 52x, was the basis for deducing the other one's speed. */
+    { "LITEON",   "CD-ROM LTD166",     "9S14", "LTD166",            "liteon_166d",         BUS_TYPE_IDE,  0, 48, 36, 0, 1, {  4,  2,  2,  4 } },
     { "MATSHITA", "CR-571",            "1.0e", "",                  "matshita_571",        BUS_TYPE_IDE,  0,  2, 36, 0, 0, {  0, -1, -1, -1 } }, /* TODO: to find the real dump of this CD-ROM model. */
     { "MATSHITA", "CR-572",            "1.0j", "",                  "matshita_572",        BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  0, -1, -1, -1 } },
     { "MATSHITA", "CR-574",            "P.11", "",                  "matshita_574",        BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  2, -1, -1, -1 } },
@@ -220,6 +225,7 @@ static const struct cdrom_drive_types_s {
     { "NEC",      "CD-ROM DRIVE:273",  "4.25", "",                  "nec_273",             BUS_TYPE_IDE,  0,  4, 36, 0, 0, {  3, -1, -1, -1 } },
     { "NEC",      "CD-ROM DRIVE:280",  "1.05", "",                  "nec_280_early",       BUS_TYPE_IDE,  0,  6, 36, 1, 0, {  3,  2,  2, -1 } },
     { "NEC",      "CD-ROM DRIVE:280",  "3.08", "",                  "nec_280",             BUS_TYPE_IDE,  0,  8, 36, 1, 0, {  4,  2,  1, -1 } },
+    { "NEC",      "CD-ROM DRIVE:289",  "1.00", "",                  "nec_289",             BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2,  0 } },
     { "NEC",      "CDR-1300A",         "1.05", "",                  "nec_1300a",           BUS_TYPE_IDE,  0,  6, 36, 0, 0, {  4,  2,  2, -1 } },
     { "NEC",      "CDR-1801A",         "J111", "",                  "nec_1801a",           BUS_TYPE_IDE,  0, 24, 36, 0, 0, {  4,  2,  2,  1 } },
     { "NEC",      "CDR-1900A",         "1.00", "",                  "nec_1900a",           BUS_TYPE_IDE,  0, 32, 36, 0, 0, {  4,  2,  2,  1 } },
