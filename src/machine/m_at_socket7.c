@@ -4511,6 +4511,35 @@ machine_at_sp98agpx_init(const machine_t *model)
     return ret;
 }
 
+int
+machine_at_586sgx_init(const machine_t *model)
+{
+    int ret;
+
+    ret = bios_load_linear("roms/machines/586sgx/5sgx.20c",
+                           0x000e0000, 131072, 0);
+
+    if (bios_only || !ret)
+        return ret;
+
+    machine_at_common_init_ex(model, 2);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x01, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0D, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0F, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x02, PCI_CARD_AGPBRIDGE,   0, 0, 0, 0);
+
+    device_add(&sis_5591_1997_device);
+    device_add_params(&w83877_device, (void *) (W83877TF | W83877_3F0));
+    device_add(&sst_flash_29ee010_device);
+
+    return ret;
+}
+
 static const device_config_t ms5168_config[] = {
     // clang-format off
     {
