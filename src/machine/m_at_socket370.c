@@ -820,7 +820,7 @@ machine_at_acorp693ap_init(const machine_t *model)
 {
     int ret;
 
-    ret = bios_load_linear("roms/machines/acorp693ap/693AVP11.BIN",
+    ret = bios_load_linear("roms/machines/acorp693ap/693APV11.BIN",
                            0x000c0000, 262144, 0);
 
     if (bios_only || !ret)
