@@ -1783,6 +1783,8 @@ extern const device_t  m6vcg_device;
 #endif
 extern int             machine_at_m6vcg_init(const machine_t *);
 extern int             machine_at_ca64en_init(const machine_t *);
+extern int             machine_at_mb694a_init(const machine_t *);
+extern int             machine_at_p6vap_init(const machine_t *);
 extern int             machine_at_p6vap_init(const machine_t *);
 extern int             machine_at_p6vapme_init(const machine_t *);
 extern int             machine_at_p6vxa_init(const machine_t *);
@@ -1803,6 +1805,7 @@ extern int             machine_at_jetwayva4_init(const machine_t *);
 extern const device_t  jetwayvm4_device;
 #endif
 extern int             machine_at_jetwayvm4_init(const machine_t *);
+extern int             machine_at_kob694xfsx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6318_device;
 #endif
@@ -1816,7 +1819,6 @@ extern int             machine_at_p6v694xa10b_init(const machine_t *);
 extern int             machine_at_cairo5_init(const machine_t *);
 extern int             machine_at_sl65jvb_init(const machine_t *);
 extern int             machine_at_sl65kv2_init(const machine_t *);
-extern int             machine_at_s2507s_init(const machine_t *);
 
 /* m_at_misc.c */
 extern int             machine_at_vpc2007_init(const machine_t *);
