@@ -1047,6 +1047,15 @@ static const device_config_t ms6117_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "AMIBIOS 6 (071595) - Revision 1.9",
+                .internal_name = "ms6117a19",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms6117/A617MS19.ROM", "" }
+            },
+            {
                 .name          = "AMIBIOS 6 (071595) - Revision 2.0",
                 .internal_name = "ms6117a",
                 .bios_type     = BIOS_NORMAL,
@@ -1081,6 +1090,15 @@ static const device_config_t ms6117_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/ms6117/A617C410.ROM", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.5",
+                .internal_name = "ms6117w15",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms6117/W617MS15.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 2.5",
@@ -1126,6 +1144,15 @@ static const device_config_t ms6117_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/ms6117/BIOS.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.3 (Viglen Vig67M)",
+                .internal_name = "ms6117wvi13",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms6117/vig67131.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 1.5 (Viglen Vig67M)",
