@@ -226,6 +226,15 @@ static const device_config_t kn97_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 0114i",
+                .internal_name = "kn97_0114i",
+                .bios_type     = BIOS_NORMAL, 
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/kn97/NAKI0114.AWD", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 0116i-1 (Beta)",
                 .internal_name = "kn97_beta",
                 .bios_type     = BIOS_NORMAL, 
