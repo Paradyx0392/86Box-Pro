@@ -1361,11 +1361,15 @@ extern const device_t  m5ata_device;
 #endif
 extern int             machine_at_m5ata_init(const machine_t *);
 extern int             machine_at_5atxb_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ms5163_device;
+#endif
 extern int             machine_at_ms5163_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms5164_device;
 #endif
 extern int             machine_at_ms5164_init(const machine_t *);
+extern int             machine_at_ms5167_init(const machine_t *);
 extern int             machine_at_m560_init(const machine_t *);
 
 /* m_at_sockets7.c */
