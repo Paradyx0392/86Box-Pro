@@ -1260,6 +1260,10 @@ extern int             machine_at_an430tx_init(const machine_t *);
 extern int             machine_at_ym430tx_init(const machine_t *);
 extern int             machine_at_thunderbolt_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  ms5145_device;
+#endif
+extern int             machine_at_ms5145_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  ms5148_device;
 #endif
 extern int             machine_at_ms5148_init(const machine_t *);
