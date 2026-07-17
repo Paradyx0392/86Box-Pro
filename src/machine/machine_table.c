@@ -28988,6 +28988,55 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "QDI ADVANCE 10B", "QDI ADVANCE 10F", "QDI P6V694X/A10B", "QDI P6V694X/A10F", "" }
     },
+    /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
+       VT82C42N. */
+    {
+        .name              = "[VIA Apollo Pro 133A] QDI ADVANCE 10M",
+        .internal_name     = "p6v694xa10m",
+        .type              = MACHINE_TYPE_SOCKET370,
+        .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO_133A,
+        .init              = machine_at_p6v694xa10m_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SOCKET370,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 66666667,
+            .max_bus     = 150000000,
+            .min_voltage = 1300,
+            .max_voltage = 3500,
+            .min_multi   = MACHINE_MULTIPLIER_FIXED,
+            .max_multi   = MACHINE_MULTIPLIER_FIXED
+        },
+        .bus_flags = MACHINE_PS2_A97 | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_AG | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB,
+        .ram       = {
+            .min  = 16384,
+            .max  = 2097152,
+            .step = 8192
+        },
+        .nvrmask                  = 255,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = NULL,
+        .kbc_params               = 0x00000000,
+        .nvr_device               = NULL,
+        .nvr_params               = 0x00000000,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = NULL,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = &vt1611a_device, /* assumed */
+        .net_device               = NULL,
+        .aliases                  = { "QDI P6V694X/A10M", "" }
+    },
     /* Has the VIA VT82C686B southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
     {
