@@ -1545,9 +1545,6 @@ machine_at_cuv4xcm_init(const machine_t *model)
     spd_register(SPD_TYPE_SDRAM, 0xF, 1024);
     device_add(&as99127f_device); /* fans: Chassis, CPU, Power; temperatures: MB, JTPWR, CPU */
 
-    if (sound_card_current[0] == SOUND_INTERNAL)
-        device_add(machine_get_snd_device(machine));
-
     return ret;
 }
 
@@ -2203,7 +2200,7 @@ machine_at_j694as_init(const machine_t *model)
 
     device_add(&via_apro133a_device);
     device_add(&via_vt82c686b_device); /* fans: CPU1, CPU2; temperatures: CPU, System, unused */
-    device_add(ics9xxx_get(ICS9250_18));
+    device_add(ics9xxx_get(ICS9250_18)); /* assumed */
     device_add(&sst_flash_39sf020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
     hwm_values.temperatures[0] += 2; /* CPU offset */
@@ -2302,7 +2299,7 @@ machine_at_j694cs_init(const machine_t *model)
 
     device_add(&via_apro133a_device);
     device_add(&via_vt82c686b_device); /* fans: CPU1, CPU2; temperatures: CPU, System, unused */
-    device_add(ics9xxx_get(ICS9250_18));
+    device_add(ics9xxx_get(ICS9250_18)); /* assumed */
     device_add(&sst_flash_39sf020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
     hwm_values.temperatures[0] += 2; /* CPU offset */
@@ -2404,7 +2401,7 @@ machine_at_jetwayva4_init(const machine_t *model)
 
     device_add(&via_apro133a_device);
     device_add(&via_vt82c686a_device);
-    device_add(ics9xxx_get(ICS9250_18));
+    device_add(ics9xxx_get(ICS9250_18)); /* assumed */
     device_add(&sst_flash_39sf020_device); /* assumed */
     spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
     device_add(&via_vt82c686_hwm_device); /* fans: CPU1, Chassis; temperatures: CPU, System, unused */
@@ -2504,7 +2501,7 @@ machine_at_jetwayvm4_init(const machine_t *model)
 
     device_add(&via_apro133a_device);
     device_add(&via_vt82c686a_device);
-    device_add(ics9xxx_get(ICS9250_18));
+    device_add(ics9xxx_get(ICS9250_18)); /* assumed */
     device_add(&sst_flash_39sf020_device); /* assumed */
     spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
     device_add(&via_vt82c686_hwm_device); /* fans: CPU1, Chassis; temperatures: CPU, System, unused */
@@ -2518,16 +2515,72 @@ machine_at_jetwayvm4_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t kob694xfsx_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "kob694xfsx",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 02/13/2001",
+                .internal_name = "kob694xfsxfeb13",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/kob694xfsx/kob20b.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 08/13/2001",
+                .internal_name = "kob694xfsx",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/kob694xfsx/kob20.BIN", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t kob694xfsx_device = {
+    .name          = "Kobian/Mercury KOB 694X FSX",
+    .internal_name = "kob694xfsx",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = kob694xfsx_config
+};
+
 int
 machine_at_kob694xfsx_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/kob694xfsx/KOB20.BIN",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    int is_feb132001 = !strcmp(device_get_config_bios("bios"), "kob694xfsxfeb13");
+    fn               = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -2542,13 +2595,25 @@ machine_at_kob694xfsx_init(const machine_t *model)
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&via_apro133a_device);
-    device_add(&via_vt82c686a_device);
+
+    if (is_feb132001)
+        device_add(&via_vt82c686b_device);
+    else
+        device_add(&via_vt82c686a_device);
+
     device_add(&sst_flash_39sf020_device); /* assumed */
     spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
-    device_add(&via_vt82c686_hwm_device); /* fans: CPU1, Chassis; temperatures: CPU, System, unused */
-    hwm_values.temperatures[0] += 2; /* CPU offset */
-    hwm_values.temperatures[1] += 2; /* System offset */
-    hwm_values.temperatures[2] = 0;  /* unused */
+
+    if (is_feb132001) {
+        hwm_values.temperatures[0] += 2;
+        hwm_values.temperatures[1] += 2;
+        hwm_values.temperatures[2] = 0;
+    } else {
+        device_add(&via_vt82c686_hwm_device);
+        hwm_values.temperatures[0] += 2;
+        hwm_values.temperatures[1] += 2;
+        hwm_values.temperatures[2] = 0;
+    }
 
     if (sound_card_current[0] == SOUND_INTERNAL)
         device_add(machine_get_snd_device(machine));

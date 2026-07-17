@@ -28743,7 +28743,7 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
-    /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
+    /* Has the VIA VT82C686A/B southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
     {
         .name              = "[VIA Apollo Pro 133A] Kobian/Mercury KOB 694X FSX",
@@ -28784,7 +28784,7 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &kob694xfsx_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,

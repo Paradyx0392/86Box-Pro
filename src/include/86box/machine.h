@@ -1804,6 +1804,9 @@ extern int             machine_at_jetwayva4_init(const machine_t *);
 extern const device_t  jetwayvm4_device;
 #endif
 extern int             machine_at_jetwayvm4_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  kob694xfsx_device;
+#endif
 extern int             machine_at_kob694xfsx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6318_device;
