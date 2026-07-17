@@ -1843,6 +1843,7 @@ extern int             machine_at_p6v694xa10m_init(const machine_t *);
 extern int             machine_at_cairo5_init(const machine_t *);
 extern int             machine_at_sl65jvb_init(const machine_t *);
 extern int             machine_at_sl65kv2_init(const machine_t *);
+extern int             machine_at_zta694x_init(const machine_t *);
 
 /* m_at_misc.c */
 extern int             machine_at_vpc2007_init(const machine_t *);
