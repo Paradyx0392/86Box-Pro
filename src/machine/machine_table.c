@@ -27663,7 +27663,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = &cmi8738_onboard_device,
         .net_device               = NULL,
-        .aliases                  = { "Matsonic MS-7117C", "" }
+        .aliases                  = { "Kobian/Mercury KOB 693a FSX", "Matsonic MS-7117C", "" }
     },
     /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
@@ -27755,13 +27755,13 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &p6vaa_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
         .snd_device               = &alc100_device,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Kobian/Mercury KOB 693a FCSX", "Matsonic MS-7127C", "" }
     },
     /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
@@ -28302,7 +28302,7 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
-    /* Has the VIA VT82C686A southbridge with on-chip KBC identical to the VIA
+    /* Has the VIA VT82C686A/B southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
     {
         .name              = "[VIA Apollo Pro 133A] ECS MB694A",
@@ -28343,13 +28343,13 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &mb694a_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
         .snd_device               = &vt1611a_device,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Kobian/Mercury KOB 694X FSX", "" }
     },
     /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
@@ -28490,7 +28490,7 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &p6vxa_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
@@ -28746,11 +28746,11 @@ const machine_t machines[] = {
     /* Has the VIA VT82C686A/B southbridge with on-chip KBC identical to the VIA
        VT82C42N. */
     {
-        .name              = "[VIA Apollo Pro 133A] Kobian/Mercury KOB 694X FSX",
-        .internal_name     = "kob694xfsx",
+        .name              = "[VIA Apollo Pro 133A] Lucky Star 694X PRO",
+        .internal_name     = "ls694xpro",
         .type              = MACHINE_TYPE_SOCKET370,
         .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO_133A,
-        .init              = machine_at_kob694xfsx_init,
+        .init              = machine_at_ls694xpro_init,
         .p1_handler        = machine_generic_p1_handler,
         .gpio_handler      = NULL,
         .available_flag    = MACHINE_AVAILABLE,
@@ -28766,7 +28766,7 @@ const machine_t machines[] = {
             .max_multi   = MACHINE_MULTIPLIER_FIXED
         },
         .bus_flags = MACHINE_PS2_A97 | MACHINE_BUS_USB,
-        .flags     = MACHINE_IDE_DUAL | MACHINE_AG | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB,
         .ram       = {
             .min  = 16384,
             .max  = 3145728,
@@ -28784,11 +28784,11 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = &kob694xfsx_device,
+        .device                   = &ls694xpro_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
-        .snd_device               = &cmi8738_onboard_device,
+        .snd_device               = NULL,
         .net_device               = NULL,
         .aliases                  = { "" }
     },

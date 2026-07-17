@@ -1057,6 +1057,15 @@ static const device_config_t p6bap_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.3 06/30/2000 (Kobian/Mercury KOB 693a FSX)",
+                .internal_name = "kob693afsx",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6bap/bapa13k.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 1.4a 08/13/2001",
                 .internal_name = "p6bap",
                 .bios_type     = BIOS_NORMAL,
@@ -1187,16 +1196,80 @@ machine_at_p6bapme_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t p6vaa_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "p6vaa",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 1.0c 12/07/2000 (Matsonic MS-7127C)",
+                .internal_name = "p6vaa",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vaa/pvaa11a.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 1.0f 06/15/2001 (Kobian/Mercury KOB 693a FCSX)",
+                .internal_name = "kob693afcsx",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vaa/693a10f.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 1.1a 08/07/2001",
+                .internal_name = "p6vaa",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vaa/pvaa11a.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t p6vaa_device = {
+    .name          = "ECS P6VAA",
+    .internal_name = "p6vaa",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = p6vaa_config
+};
+
 int
 machine_at_p6vaa_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/p6vaa/pvaa11a.BIN",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -1981,16 +2054,81 @@ machine_at_ca64en_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t mb694a_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "mb694a",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 2.0e",
+                .internal_name = "mb694a",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/mb694a/mb20e.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 2.0b 02/13/2001 (Kobian/Mercury KOB 694X FSX)",
+                .internal_name = "kob694xfsxfeb13",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/mb694a/kob20b.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 2.0 08/13/2001 (Kobian/Mercury KOB 694X FSX)",
+                .internal_name = "kob694xfsx",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/mb694a/kob20.BIN", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t mb694a_device = {
+    .name          = "ECS MB694A",
+    .internal_name = "mb694a",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = mb694a_config
+};
+
 int
 machine_at_mb694a_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/mb694a/mb20e.BIN",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    int is_kobfeb132001 = !strcmp(device_get_config_bios("bios"), "kob694xfsxfeb13");
+    fn                  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -2005,13 +2143,25 @@ machine_at_mb694a_init(const machine_t *model)
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&via_apro133a_device);
-    device_add(&via_vt82c686a_device);
+
+    if (is_kobfeb132001)
+        device_add(&via_vt82c686b_device);
+    else
+        device_add(&via_vt82c686a_device);
+
     device_add(&sst_flash_39sf020_device); /* assumed */
     spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
-    device_add(&via_vt82c686_hwm_device); /* fans: CPU1, Chassis; temperatures: CPU, System, unused */
-    hwm_values.temperatures[0] += 2; /* CPU offset */
-    hwm_values.temperatures[1] += 2; /* System offset */
-    hwm_values.temperatures[2] = 0;  /* unused */
+
+    if (is_kobfeb132001) {
+        hwm_values.temperatures[0] += 2;
+        hwm_values.temperatures[1] += 2;
+        hwm_values.temperatures[2] = 0;
+    } else {
+        device_add(&via_vt82c686_hwm_device);
+        hwm_values.temperatures[0] += 2;
+        hwm_values.temperatures[1] += 2;
+        hwm_values.temperatures[2] = 0;
+    }
 
     if (sound_card_current[0] == SOUND_INTERNAL)
         device_add(machine_get_snd_device(machine));
@@ -2162,16 +2312,71 @@ machine_at_p6vapme_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t p6vxa_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "p6vxa",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 2.0 11/09/2000 (Matsonic MS-7177C)",
+                .internal_name = "ms7177c",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vxa/msvxa21.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 2.1 06/15/2001",
+                .internal_name = "p6vxa",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vxa/vxa21.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t p6vxa_device = {
+    .name          = "ECS P6VXA",
+    .internal_name = "p6vxa",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = p6vxa_config
+};
+
 int
 machine_at_p6vxa_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/p6vxa/vxa21.BIN",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -2646,35 +2851,35 @@ machine_at_jetwayvm4_init(const machine_t *model)
     return ret;
 }
 
-static const device_config_t kob694xfsx_config[] = {
+static const device_config_t ls694xpro_config[] = {
     // clang-format off
     {
         .name           = "bios",
         .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
-        .default_string = "kob694xfsx",
+        .default_string = "ls694xpro",
         .default_int    = 0,
         .file_filter    = NULL,
         .spinner        = { 0 },
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "Award Modular BIOS v6.00PG - Revision 02/13/2001",
-                .internal_name = "kob694xfsxfeb13",
+                .name          = "Award Modular BIOS v6.00PGN - Revision 07",
+                .internal_name = "ls694xlite",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/kob694xfsx/kob20b.BIN", "" }
+                .files         = { "roms/machines/ls694xpro/694pro07.bin", "" }
             },
             {
-                .name          = "Award Modular BIOS v6.00PG - Revision 08/13/2001",
-                .internal_name = "kob694xfsx",
+                .name          = "Award Modular BIOS v6.00PG - Revision B1",
+                .internal_name = "ls694xpro",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/kob694xfsx/kob20.BIN", "" }
+                .files         = { "roms/machines/ls694xpro/94prob1.bin", "" }
             },
             { .files_no = 0 }
         }
@@ -2683,9 +2888,9 @@ static const device_config_t kob694xfsx_config[] = {
     // clang-format on
 };
 
-const device_t kob694xfsx_device = {
-    .name          = "Kobian/Mercury KOB 694X FSX",
-    .internal_name = "kob694xfsx",
+const device_t ls694xpro_device = {
+    .name          = "Lucky Star 694X Pro",
+    .internal_name = "ls694xpro",
     .flags         = 0,
     .local         = 0,
     .init          = NULL,
@@ -2694,11 +2899,11 @@ const device_t kob694xfsx_device = {
     .available     = NULL,
     .speed_changed = NULL,
     .force_redraw  = NULL,
-    .config        = kob694xfsx_config
+    .config        = ls694xpro_config
 };
 
 int
-machine_at_kob694xfsx_init(const machine_t *model)
+machine_at_ls694xpro_init(const machine_t *model)
 {
     int         ret = 0;
     const char *fn;
@@ -2708,8 +2913,7 @@ machine_at_kob694xfsx_init(const machine_t *model)
         return ret;
 
     device_context(model->device);
-    int is_feb132001 = !strcmp(device_get_config_bios("bios"), "kob694xfsxfeb13");
-    fn               = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
     ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
     device_context_restore();
 
@@ -2718,36 +2922,22 @@ machine_at_kob694xfsx_init(const machine_t *model)
     pci_init(PCI_CONFIG_TYPE_1);
     pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
     pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
-    pci_register_slot(0x0A, PCI_CARD_NORMAL,      1, 2, 3, 4);
-    pci_register_slot(0x0B, PCI_CARD_NORMAL,      2, 3, 4, 1);
-    pci_register_slot(0x0C, PCI_CARD_NORMAL,      3, 4, 1, 2);
-    pci_register_slot(0x0D, PCI_CARD_NORMAL,      4, 1, 2, 3);
-    pci_register_slot(0x0E, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      1, 2, 3, 4);
     pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
 
     device_add(&via_apro133a_device);
-
-    if (is_feb132001)
-        device_add(&via_vt82c686b_device);
-    else
-        device_add(&via_vt82c686a_device);
-
-    device_add(&sst_flash_39sf020_device); /* assumed */
-    spd_register(SPD_TYPE_SDRAM, 0x7, 1024);
-
-    if (is_feb132001) {
-        hwm_values.temperatures[0] += 2;
-        hwm_values.temperatures[1] += 2;
-        hwm_values.temperatures[2] = 0;
-    } else {
-        device_add(&via_vt82c686_hwm_device);
-        hwm_values.temperatures[0] += 2;
-        hwm_values.temperatures[1] += 2;
-        hwm_values.temperatures[2] = 0;
-    }
-
-    if (sound_card_current[0] == SOUND_INTERNAL)
-        device_add(machine_get_snd_device(machine));
+    device_add(&via_vt82c686a_device);
+    device_add(ics9xxx_get(ICS9250_18)); /* assumed */
+    device_add(&sst_flash_39sf020_device);
+    device_add(&via_vt82c686_hwm_device); /* fans: CPU1, Chassis; temperatures: CPU, System, unused */
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+    hwm_values.temperatures[0] += 2; /* CPU offset */
+    hwm_values.temperatures[1] += 2; /* System offset */
+    hwm_values.temperatures[2] = 0;  /* unused */
 
     return ret;
 }
