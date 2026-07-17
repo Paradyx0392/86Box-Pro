@@ -52,7 +52,16 @@ static const device_config_t prosignias31x_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 5.3",
+                .name          = "Award Modular BIOS v4.51PG - Revision 5.3 05/22/2000 (Compaq ProSignia/Deskpro 440BX)",
+                .internal_name = "p6bxtcompaq_53",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/prosignias31x_bx/bxt53.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 5.3 06/02/2000",
                 .internal_name = "p6bxt_53",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -61,7 +70,7 @@ static const device_config_t prosignias31x_config[] = {
                 .files         = { "roms/machines/prosignias31x_bx/bxt53s.BIN", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 5.5 (Compaq ProSignia/Deskpro 440BX)",
+                .name          = "Award Modular BIOS v4.51PG - Revision 5.5 09/26/2000 (Compaq ProSignia/Deskpro 440BX)",
                 .internal_name = "prosignias31x_bx",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -70,7 +79,7 @@ static const device_config_t prosignias31x_config[] = {
                 .files         = { "roms/machines/prosignias31x_bx/p6bxt-ap-092600.bin", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 5.6",
+                .name          = "Award Modular BIOS v4.51PG - Revision 5.6 12/08/2000",
                 .internal_name = "p6bxt",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,

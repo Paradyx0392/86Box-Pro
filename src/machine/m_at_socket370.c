@@ -1074,6 +1074,15 @@ static const device_config_t p6bap_config[] = {
                 .size          = 262144,
                 .files         = { "roms/machines/p6bap/042.bin", "" }
             },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 10/30/2001 (Matsonic MS-7117C)",
+                .internal_name = "ms7117c_autumn2001",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6bap/011030.bin", "" }
+            },
             { .files_no = 0 }
         }
     },
@@ -2039,6 +2048,15 @@ static const device_config_t p6vap_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/p6vap/71570601.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 12/28/2000 (Matsonic MS-7157C)",
+                .internal_name = "ms7157c_dec2000",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vap/71571228.bin", "" }
             },
             { .files_no = 0 }
         }
