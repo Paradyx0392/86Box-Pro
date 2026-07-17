@@ -1697,6 +1697,10 @@ extern int             machine_at_m6vca_init(const machine_t *);
 extern const device_t  p6bat_device;
 #endif
 extern int             machine_at_p6bat_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  p6batme_device;
+#endif
+extern int             machine_at_p6batme_init(const machine_t *);
 
 /* m_at_slot2.c */
 /* i440GX */
