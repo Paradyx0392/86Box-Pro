@@ -1690,6 +1690,9 @@ extern int             machine_at_s1857_init(const machine_t *);
 extern const device_t  m6vca_device;
 #endif
 extern int             machine_at_m6vca_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  p6bat_device;
+#endif
 extern int             machine_at_p6bat_init(const machine_t *);
 
 /* m_at_slot2.c */
@@ -1752,6 +1755,9 @@ extern int             machine_at_m6vch_init(const machine_t *);
 extern const device_t  m6vci_device;
 #endif
 extern int             machine_at_m6vci_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  p6bap_device;
+#endif
 extern int             machine_at_p6bap_init(const machine_t *);
 extern int             machine_at_p6bapme_init(const machine_t *);
 extern int             machine_at_p6vaa_init(const machine_t *);
@@ -1784,6 +1790,9 @@ extern const device_t  m6vcg_device;
 extern int             machine_at_m6vcg_init(const machine_t *);
 extern int             machine_at_ca64en_init(const machine_t *);
 extern int             machine_at_mb694a_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  p6vap_device;
+#endif
 extern int             machine_at_p6vap_init(const machine_t *);
 extern int             machine_at_p6vapme_init(const machine_t *);
 extern int             machine_at_p6vxa_init(const machine_t *);

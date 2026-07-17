@@ -1044,16 +1044,71 @@ machine_at_m6vci_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t p6bap_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "p6bap",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.4a 08/13/2001",
+                .internal_name = "p6bap",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6bap/bapa14a.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 06/30/2000 (Matsonic MS-7117C)",
+                .internal_name = "ms7117c",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6bap/042.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t p6bap_device = {
+    .name          = "ECS P6BAP-A+",
+    .internal_name = "p6bap",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = p6bap_config
+};
+
 int
 machine_at_p6bap_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/p6bap/bapa14a.BIN",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -1545,6 +1600,9 @@ machine_at_cuv4xcm_init(const machine_t *model)
     spd_register(SPD_TYPE_SDRAM, 0xF, 1024);
     device_add(&as99127f_device); /* fans: Chassis, CPU, Power; temperatures: MB, JTPWR, CPU */
 
+    if (sound_card_current[0] == SOUND_INTERNAL)
+        device_add(machine_get_snd_device(machine));
+
     return ret;
 }
 
@@ -1952,16 +2010,71 @@ machine_at_mb694a_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t p6vap_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "p6vap",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 1.5b 08/13/2001",
+                .internal_name = "p6vap",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vap/vapa15b.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision 06/01/2000 (Matsonic MS-7157C)",
+                .internal_name = "ms7157c",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6vap/71570601.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t p6vap_device = {
+    .name          = "ECS P6VAP-A+",
+    .internal_name = "p6vap",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = p6vap_config
+};
+
 int
 machine_at_p6vap_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/p6vap/vapa15b.bin",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
