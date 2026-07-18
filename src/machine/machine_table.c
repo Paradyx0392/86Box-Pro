@@ -28355,7 +28355,7 @@ const machine_t machines[] = {
     {
         .name              = "[VIA Apollo Pro 133A] BCM GT694VP",
         .internal_name     = "gt694vp",
-        .type              = MACHINE_TYPE_SLOT1,
+        .type              = MACHINE_TYPE_SOCKET370,
         .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO_133A,
         .init              = machine_at_gt694vp_init,
         .p1_handler        = machine_generic_p1_handler,
@@ -28363,7 +28363,7 @@ const machine_t machines[] = {
         .available_flag    = MACHINE_AVAILABLE,
         .gpio_acpi_handler = NULL,
         .cpu               = {
-            .package     = CPU_PKG_SLOT1,
+            .package     = CPU_PKG_SOCKET370,
             .block       = CPU_BLOCK_NONE,
             .min_bus     = 66666667,
             .max_bus     = 133333333,
