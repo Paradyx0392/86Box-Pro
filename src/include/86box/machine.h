@@ -1657,6 +1657,7 @@ extern int             machine_at_ficka6130_init(const machine_t *);
 extern const device_t  p3v133_device;
 #endif
 extern int             machine_at_p3v133_init(const machine_t *);
+extern int             machine_at_gt693va_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6156va_device;
 #endif
@@ -1780,7 +1781,6 @@ extern const device_t  p6vaa_device;
 #endif
 extern int             machine_at_p6vaa_init(const machine_t *);
 extern int             machine_at_p6vam_init(const machine_t *);
-extern int             machine_at_gt693va_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6153va_device;
 #endif
@@ -1799,6 +1799,7 @@ extern int             machine_at_cuv4xcm_init(const machine_t *);
 extern const device_t  cuv4xls_device;
 #endif
 extern int             machine_at_cuv4xls_init(const machine_t *);
+extern int             machine_at_gt694vp_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  m6vcf_device;
 #endif
