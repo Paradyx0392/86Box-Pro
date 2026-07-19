@@ -17691,7 +17691,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Biostar MB-8500TVX", "" }
     },
     /* Has a SM(S)C FDC37C932QF Super I/O chip with on-chip KBC with AMI
        MegaKey (revision '5') KBC firmware. */
@@ -24168,10 +24168,10 @@ const machine_t machines[] = {
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
     {
-        .name              = "[i440EX] AOpen MX6B",
+        .name              = "[i440BX] AOpen MX6B",
         .internal_name     = "mx6b",
         .type              = MACHINE_TYPE_SLOT1,
-        .chipset           = MACHINE_CHIPSET_INTEL_440EX,
+        .chipset           = MACHINE_CHIPSET_INTEL_440BX,
         .init              = machine_at_mx6b_init,
         .p1_handler        = machine_generic_p1_handler,
         .gpio_handler      = NULL,
