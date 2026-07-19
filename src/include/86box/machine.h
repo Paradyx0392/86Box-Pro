@@ -1516,6 +1516,7 @@ extern int             machine_at_sl61b_init(const machine_t *);
 extern int             machine_at_sl66f_init(const machine_t *);
 
 /* i440EX */
+extern int             machine_at_mx6ep_init(const machine_t *);
 extern int             machine_at_brio83xx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6122_device;
