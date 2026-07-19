@@ -1560,6 +1560,7 @@ extern int             machine_at_ax6bcpro_init(const machine_t *);
 extern const device_t  ax6bcproii_device;
 #endif
 extern int             machine_at_ax6bcproii_init(const machine_t *);
+extern int             machine_at_mx6b_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  p2b_device;
 #endif
@@ -1612,6 +1613,7 @@ extern const device_t  ms6147v11_device;
 extern int             machine_at_ms6147v11_init(const machine_t *);
 extern int             machine_at_ms6156_init(const machine_t *);
 extern int             machine_at_ms6163_init(const machine_t *);
+extern int             machine_at_ms6199_init(const machine_t *);
 extern int             machine_at_sl62a_init(const machine_t *);
 extern int             machine_at_sl62b_init(const machine_t *);
 extern int             machine_at_sl67a_init(const machine_t *);
