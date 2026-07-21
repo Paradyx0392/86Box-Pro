@@ -1803,6 +1803,7 @@ extern int             machine_at_sl65fvb_init(const machine_t *);
 extern int             machine_at_sy7vba133_init(const machine_t *);
 
 /* VIA Apollo Pro 133A */
+extern int             machine_at_awin694x_init(const machine_t *);
 extern int             machine_at_6via90ap_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  cuv4xcm_device;
