@@ -931,7 +931,7 @@ static const device_config_t lx6ap2_config[] = {
     // clang-format off
     {
         .name           = "bios",
-        .description    = "BIOS Revision",
+        .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
         .default_string = "lx6ap2",
         .default_int    = 0,
@@ -1335,7 +1335,7 @@ static const device_config_t mx6ep_config[] = {
     // clang-format off
     {
         .name           = "bios",
-        .description    = "BIOS Revision",
+        .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
         .default_string = "mx6ep",
         .default_int    = 0,
@@ -1699,6 +1699,111 @@ machine_at_p6i440e2_init(const machine_t *model)
 }
 
 /* i440BX */
+static const device_config_t awin440bx_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "awin440bxe",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.5 (Chinese)",
+                .internal_name = "awin440bxc25",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/awin440bx/P3BX-1C.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.5 (English)",
+                .internal_name = "awin440bxe25",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/awin440bx/P3BX-1E.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.9 (Chinese)",
+                .internal_name = "awin440bxc",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/awin440bx/bx29mc.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.9 (English)",
+                .internal_name = "awin440bxe",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/awin440bx/bx29me.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t awin440bx_device = {
+    .name          = "A-WIN AW-P2BX and AW-P3BX",
+    .internal_name = "awin440bx",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = awin440bx_config
+};
+
+int
+machine_at_awin440bx_init(const machine_t *model)
+{
+    int         ret = 0;
+    const char *fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 1, 2, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0A, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0B, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0C, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&i440bx_device);
+    device_add(&piix4e_device);
+    device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
+    device_add(&winbond_flash_w29c020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+
+    return ret;
+}
+
 static const device_config_t bf6_config[] = {
     // clang-format off
     {
@@ -3092,7 +3197,7 @@ static const device_config_t cb650mbx_config[] = {
     // clang-format off
     {
         .name           = "bios",
-        .description    = "BIOS Revision",
+        .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
         .default_string = "cb650mbx",
         .default_int    = 0,
@@ -3209,7 +3314,7 @@ static const device_config_t p2xbl_config[] = {
     // clang-format off
     {
         .name           = "bios",
-        .description    = "BIOS Revision",
+        .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
         .default_string = "p2xbl",
         .default_int    = 0,
@@ -4996,16 +5101,71 @@ machine_at_ms6168_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t borapro_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "borapro",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 2.96",
+                .internal_name = "borapro296",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/borapro/a68p2296.rom", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 5.00",
+                .internal_name = "borapro",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/borapro/MS6168V2.50", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t borapro_device = {
+    .name          = "Packard Bell Bora Pro",
+    .internal_name = "borapro",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = borapro_config
+};
+
 int
 machine_at_borapro_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/borapro/MS6168V2.50",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_ms6168_common_init(model);
 

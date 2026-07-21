@@ -1533,6 +1533,10 @@ extern int             machine_at_como_init(const machine_t *);
 
 /* i440BX */
 #ifdef EMU_DEVICE_H
+extern const device_t  awin440bx_device;
+#endif
+extern int             machine_at_awin440bx_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  bf6_device;
 #endif
 extern int             machine_at_bf6_init(const machine_t *);
@@ -1650,6 +1654,9 @@ extern int             machine_at_ms6156zx_init(const machine_t *);
 extern const device_t  ms6168_device;
 #endif
 extern int             machine_at_ms6168_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  borapro_device;
+#endif
 extern int             machine_at_borapro_init(const machine_t *);
 
 /* SMSC VictoryBX-66 */

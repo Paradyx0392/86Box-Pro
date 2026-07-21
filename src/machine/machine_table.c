@@ -23785,7 +23785,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SLOT1,
-            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_PENTIUM2D, CPU_CYRIX3S),
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
             .min_bus     = 66666667,
             .max_bus     = 83333333,
             .min_voltage = 2050,
@@ -23823,13 +23823,13 @@ const machine_t machines[] = {
 
     /* 440BX */
     /* Has a Winbond W83977EF Super I/O chip with on-chip KBC with AMIKey-2 KBC
-       firmware. */
+       firmware. Note that this motherboard has Guardian BIOS. */
     {
-        .name              = "[i440BX] ABIT AB-BF6",
-        .internal_name     = "bf6",
+        .name              = "[i440BX] A-WIN AW-P2BX and AW-P3BX",
+        .internal_name     = "awin440bx",
         .type              = MACHINE_TYPE_SLOT1,
         .chipset           = MACHINE_CHIPSET_INTEL_440BX,
-        .init              = machine_at_bf6_init,
+        .init              = machine_at_awin440bx_init,
         .p1_handler        = machine_generic_p1_handler,
         .gpio_handler      = NULL,
         .available_flag    = MACHINE_AVAILABLE,
@@ -23838,7 +23838,7 @@ const machine_t machines[] = {
             .package     = CPU_PKG_SLOT1,
             .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_PENTIUM2, CPU_CYRIX3S),
             .min_bus     = 66666667,
-            .max_bus     = 133333333,
+            .max_bus     = 112121212,
             .min_voltage = 1800,
             .max_voltage = 3500,
             .min_multi   = 1.5,
@@ -23848,7 +23848,7 @@ const machine_t machines[] = {
         .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB,
         .ram       = {
             .min  = 8192,
-            .max  = 786432,
+            .max  = 1048576,
             .step = 8192
         },
         .nvrmask                  = 255,
@@ -23863,13 +23863,13 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = &bf6_device,
+        .device                   = &awin440bx_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "A-WIN AW-P2BX", "A-WIN AW-P3BX", "" }
     },
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
@@ -24375,7 +24375,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SLOT1,
-            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_PENTIUM2, CPU_CYRIX3S),
             .min_bus     = 66666667,
             .max_bus     = 150000000,
             .min_voltage = 1300,
@@ -25863,7 +25863,7 @@ const machine_t machines[] = {
         .kbc_p1                   = 0x00000cf0,
         .gpio                     = 0xffffffff,
         .gpio_acpi                = 0xffffffff,
-        .device                   = NULL,
+        .device                   = &borapro_device,
         .kbd_device               = NULL,
         .fdc_device               = NULL,
         .vid_device               = &voodoo_3_2000_agp_onboard_8m_device,
@@ -26097,6 +26097,55 @@ const machine_t machines[] = {
         .ram       = {
             .min  = 8192,
             .max  = 524288,
+            .step = 8192
+        },
+        .nvrmask                  = 255,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = NULL,
+        .kbc_params               = 0x00000000,
+        .nvr_device               = NULL,
+        .nvr_params               = 0x00000000,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = NULL,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "" }
+    },
+    /* Has the VIA VT82C596A southbridge with on-chip KBC identical to the VIA
+       VT82C42N. Also with W83977TF. */
+    {
+        .name              = "[VIA Apollo Pro] Soltek SL-67D",
+        .internal_name     = "sl67d",
+        .type              = MACHINE_TYPE_SLOT1,
+        .chipset           = MACHINE_CHIPSET_VIA_APOLLO_PRO,
+        .init              = machine_at_sl67d_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SLOT1,
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
+            .min_bus     = 66666667,
+            .max_bus     = 100000000,
+            .min_voltage = 1800,
+            .max_voltage = 3500,
+            .min_multi   = 1.5,
+            .max_multi   = 8.0
+        },
+        .bus_flags = MACHINE_PS2_AGP | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_GAMEPORT | MACHINE_USB, /* Machine has internal sound: ESS ES1938S */
+        .ram       = {
+            .min  = 8192,
+            .max  = 786432,
             .step = 8192
         },
         .nvrmask                  = 255,
