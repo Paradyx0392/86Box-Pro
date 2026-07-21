@@ -1654,7 +1654,7 @@ machine_at_pb810_init(const machine_t *model)
     pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
     pci_register_slot(0x13, PCI_CARD_NORMAL,      2, 1, 3, 4);
     pci_register_slot(0x11, PCI_CARD_NORMAL,      1, 3, 2, 4);
-    pci_register_slot(0x0b, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x0b, PCI_CARD_VIDEO,       1, 2, 3, 4);
     pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
 
     if (gfxcard[0] == VID_INTERNAL)
@@ -4389,6 +4389,15 @@ static const device_config_t sp97xv_config[] = {
                 .files         = { "roms/machines/sp97xv/SPXV0109.AWD", "" }
             },
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 0109xv-5",
+                .internal_name = "sp97xv_beta5",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/sp97xv/0109XV.005", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 0109xv-5 (Patched)",
                 .internal_name = "sp97xv_patch5",
                 .bios_type     = BIOS_NORMAL,
@@ -4583,6 +4592,15 @@ static const device_config_t sp98agpx_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/sp98agpx/S91XL103.AWD", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 0104xl-1",
+                .internal_name = "sp98agpx_beta",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/sp98agpx/0104XL.001", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 0104xl-1 (Patched)",
