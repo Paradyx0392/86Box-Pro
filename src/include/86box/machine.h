@@ -1664,6 +1664,7 @@ extern int             machine_at_atc6310bxii_init(const machine_t *);
 
 /* VIA Apollo Pro */
 extern int             machine_at_ficka6130_init(const machine_t *);
+extern int             machine_at_sl67d_init(const machine_t *);
 
 /* VIA Apollo Pro 133 */
 #ifdef EMU_DEVICE_H
