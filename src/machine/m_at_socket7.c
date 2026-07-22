@@ -3225,6 +3225,17 @@ static const device_config_t an430tx_config[] = {
                                    "roms/machines/an430tx/P02-0011.RCV", "" }
             },
             {
+                .name          = "PhoenixBIOS 4.0 Release 6.0 - Revision P07-0024 (Micron Millennia MME)",
+                .internal_name = "millenniamme",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 5,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/an430tx/P07-0024.BIO", "roms/machines/an430tx/P07-0024.BI1",
+                                   "roms/machines/an430tx/P07-0024.BI2", "roms/machines/an430tx/P07-0024.BI3",
+                                   "roms/machines/an430tx/P07-0024.RCV", "" }
+            },
+            {
                 .name          = "PhoenixBIOS 4.0 Release 6.0 - Revision P09-0006 (Packard Bell PB79x)",
                 .internal_name = "an430tx",
                 .bios_type     = BIOS_NORMAL,

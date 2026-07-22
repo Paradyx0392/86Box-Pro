@@ -120,6 +120,15 @@ static const device_config_t ficpo6000_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "PhoenixBIOS 4.05 - Revision 405F03B",
+                .internal_name = "405F03B",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ficpo6000/405F03B.ROM", "" }
+            },
+            {
                 .name          = "PhoenixBIOS 4.05 - Revision 405F03C (CD-ROM Boot support)",
                 .internal_name = "405F03C",
                 .bios_type     = BIOS_NORMAL,
@@ -403,6 +412,17 @@ static const device_config_t vs440fx_config[] = {
                 .files         = { "roms/machines/vs440fx/1006CS1J.BIO", "roms/machines/vs440fx/1006CS1J.BI1",
                                    "roms/machines/vs440fx/1006CS1J.BI2", "roms/machines/vs440fx/1006CS1J.BI3",
                                    "roms/machines/vs440fx/1006CS1J.RCV", "" }
+            },
+            {
+                .name          = "Intel AMIBIOS - Revision 1.00.07.CS15 (Micron Millennia Pro 1/ClientPro XVI)",
+                .internal_name = "millenniapro1",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 5,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/vs440fx/1007cs15.bio", "roms/machines/vs440fx/1007cs15.bi1",
+                                   "roms/machines/vs440fx/1007cs15.bi2", "roms/machines/vs440fx/1007cs15.bi3",
+                                   "roms/machines/vs440fx/1007cs15.rcv", "" }
             },
             {
                 .name          = "Intel AMIBIOS - Revision 1.00.11.CS1T (Gateway 2000)",

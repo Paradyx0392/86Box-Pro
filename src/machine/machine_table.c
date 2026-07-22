@@ -19113,7 +19113,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = &ymf715_onboard_device,
         .net_device               = NULL,
-        .aliases                  = { "Intel Anchorage", "Packard Bell PB79x", "Sony Vaio PCV-130", "Sony Vaio PCV-150", "" }
+        .aliases                  = { "Intel Anchorage", "Micron Millennia MME", "Packard Bell PB79x", "Sony Vaio PCV-130", "Sony Vaio PCV-150", "" }
     },
     /* This has the Winbond W83977 Super I/O Chip with AMIKey-2 KBC firmware, which is type 'H'. */
     {
@@ -22296,7 +22296,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = &cs4236_onboard_device,
         .net_device               = NULL,
-        .aliases                  = { "Intel Venus", "Dell Dimension XPS Pro___n", "Gateway 2000 Venus", "" }
+        .aliases                  = { "Intel Venus", "Micron Millennia Pro 1", "Micron ClientPro XVI", "Dell Dimension XPS Pro___n", "Gateway 2000 Venus", "" }
     },
     /* Has the AMIKey-2 ('H') KBC firmware. */
     {
