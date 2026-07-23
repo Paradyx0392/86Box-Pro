@@ -1044,12 +1044,12 @@ extern const device_t  p54sp4_device;
 extern int             machine_at_p54sp4_init(const machine_t *);
 extern int             machine_at_sq588_init(const machine_t *);
 extern int             machine_at_p54sps_init(const machine_t *);
-
-/* SiS 5501 */
 #ifdef EMU_DEVICE_H
 extern const device_t  ms5109_device;
 #endif
 extern int             machine_at_ms5109_init(const machine_t *);
+
+/* SiS 5501 */
 extern int             machine_at_torino_init(const machine_t *);
 
 /* UMC 889x */
@@ -1142,6 +1142,7 @@ extern int             machine_at_gw2kma_init(const machine_t *);
 extern const device_t  c5sbm2_device;
 #endif
 extern int             machine_at_5sbm2_init(const machine_t *);
+extern int             machine_at_p54sps2_init(const machine_t *);
 
 /* SiS 5511 */
 extern int             machine_at_amis727_init(const machine_t *);
