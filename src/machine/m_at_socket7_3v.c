@@ -1866,9 +1866,8 @@ machine_at_p54sps2_init(const machine_t *model)
     pci_register_slot(0x08, PCI_CARD_NORMAL,      3, 4, 1, 2);
     pci_register_slot(0x09, PCI_CARD_NORMAL,      4, 1, 2, 3);
 
-    device_add(&sis_550x_device);
-    device_add(&ide_pci_2ch_device);
     device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
+    device_add(&sis_550x_device);
     device_add_params(&w837x7_device, (void *) (W83787F | W837X7_KEY_89));
     device_add(&sst_flash_29ee010_device);
 
