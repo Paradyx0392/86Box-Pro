@@ -16298,7 +16298,7 @@ const machine_t machines[] = {
             .max  = 131072,
             .step = 2048
         },
-        .nvrmask                  = 127,
+        .nvrmask                  = 255,
         .jumpered_ecp_dma         = MACHINE_DMA_DISABLED | MACHINE_DMA_1 | MACHINE_DMA_3,
         .default_jumpered_ecp_dma = 3,
         .kbc_device               = &kbc_at_device,
@@ -24750,6 +24750,55 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "NMC 6BCX+", "" }
     },
+    /* Has a Winbond W83977EF Super I/O chip with on-chip KBC
+       with AMIKey-2 KBC firmware. */
+    {
+        .name              = "[i440BX] Freetech/Flexus P6F91i",
+        .internal_name     = "p6f91i",
+        .type              = MACHINE_TYPE_SLOT1,
+        .chipset           = MACHINE_CHIPSET_INTEL_440BX,
+        .init              = machine_at_p6f91i_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SLOT1,
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
+            .min_bus     = 66666667,
+            .max_bus     = 112121212,
+            .min_voltage = 1800,
+            .max_voltage = 3500,
+            .min_multi   = 1.5,
+            .max_multi   = 8.0
+        },
+        .bus_flags = MACHINE_PS2_AGP | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_ACPI | MACHINE_USB,
+        .ram       = {
+            .min  = 8192,
+            .max  = 786432,
+            .step = 8192
+        },
+        .nvrmask                  = 255,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = NULL,
+        .kbc_params               = 0x00000000,
+        .nvr_device               = NULL,
+        .nvr_params               = 0x00000000,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = &p6f91i_device,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "" }
+    },
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
     {
@@ -25576,7 +25625,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Leadtek WinFast 8000BX", "" }
+        .aliases                  = { "Tatung T2280", "Leadtek WinFast 8000BX", "" }
     },
     /* Has a National Semiconductors PC87309 Super I/O chip with on-chip KBC
        with most likely AMIKey-2 KBC firmware. */
@@ -26478,7 +26527,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SLOT1,
-            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_PENTIUM2, CPU_CYRIX3S),
             .min_bus     = 66666667,
             .max_bus     = 133333333,
             .min_voltage = 1300,
@@ -26529,7 +26578,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SLOT1,
-            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_PENTIUM2, CPU_CYRIX3S),
             .min_bus     = 66666667,
             .max_bus     = 150000000,
             .min_voltage = 1300,
@@ -26578,7 +26627,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SLOT1,
-            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_PENTIUM2, CPU_CYRIX3S),
             .min_bus     = 66666667,
             .max_bus     = 133333333,
             .min_voltage = 1300,
@@ -26627,7 +26676,7 @@ const machine_t machines[] = {
         .gpio_acpi_handler = NULL,
         .cpu               = {
             .package     = CPU_PKG_SLOT1,
-            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_CYRIX3S),
+            .block       = CPU_BLOCK(CPU_PENTIUMPRO, CPU_PENTIUM2, CPU_CYRIX3S),
             .min_bus     = 66666667,
             .max_bus     = 133333333,
             .min_voltage = 1300,
