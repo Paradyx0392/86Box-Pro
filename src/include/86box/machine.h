@@ -1142,7 +1142,6 @@ extern int             machine_at_gw2kma_init(const machine_t *);
 extern const device_t  c5sbm2_device;
 #endif
 extern int             machine_at_5sbm2_init(const machine_t *);
-extern int             machine_at_p54sps2_init(const machine_t *);
 
 /* SiS 5511 */
 extern int             machine_at_amis727_init(const machine_t *);
@@ -1589,6 +1588,10 @@ extern const device_t  p3bf_device;
 #endif
 extern int             machine_at_p3bf_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  m003_device;
+#endif
+extern int             machine_at_m003_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  cb650mbx_device;
 #endif
 extern int             machine_at_cb650mbx_init(const machine_t *);
@@ -1629,6 +1632,10 @@ extern int             machine_at_ms6147v11_init(const machine_t *);
 extern int             machine_at_ms6156_init(const machine_t *);
 extern int             machine_at_ms6163_init(const machine_t *);
 extern int             machine_at_ms6199_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  hot661p_device;
+#endif
+extern int             machine_at_hot661p_init(const machine_t *);
 extern int             machine_at_sl62a_init(const machine_t *);
 extern int             machine_at_sl62b_init(const machine_t *);
 extern int             machine_at_sl67a_init(const machine_t *);

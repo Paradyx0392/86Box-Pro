@@ -1845,35 +1845,6 @@ machine_at_5sbm2_init(const machine_t *model)
     return ret;
 }
 
-int
-machine_at_p54sps2_init(const machine_t *model)
-{
-    int ret;
-
-    ret = bios_load_linear("roms/machines/p54sps2/35s203.bin",
-                           0x000e0000, 131072, 0);
-
-    if (bios_only || !ret)
-        return ret;
-
-    machine_at_common_init(model);
-
-    pci_init(PCI_CONFIG_TYPE_1 | FLAG_TRC_CONTROLS_CPURST);
-    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
-    pci_register_slot(0x01, PCI_CARD_SOUTHBRIDGE, 0, 0, 0, 0);
-    pci_register_slot(0x06, PCI_CARD_NORMAL,      1, 2, 3, 4);
-    pci_register_slot(0x07, PCI_CARD_NORMAL,      2, 3, 4, 1);
-    pci_register_slot(0x08, PCI_CARD_NORMAL,      3, 4, 1, 2);
-    pci_register_slot(0x09, PCI_CARD_NORMAL,      4, 1, 2, 3);
-
-    device_add_params(machine_get_kbc_device(machine), (void *) model->kbc_params);
-    device_add(&sis_550x_device);
-    device_add_params(&w837x7_device, (void *) (W83787F | W837X7_KEY_89));
-    device_add(&sst_flash_29ee010_device);
-
-    return ret;
-}
-
 /* SiS 5511 */
 int
 machine_at_amis727_init(const machine_t *model)
