@@ -1502,6 +1502,9 @@ extern const device_t  ax6lc_device;
 extern int             machine_at_ax6lc_init(const machine_t *);
 extern int             machine_at_ax6lclite_init(const machine_t *);
 extern int             machine_at_optiplexgxa_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  prm0076i_device;
+#endif
 extern int             machine_at_prm0076i_init(const machine_t *);
 extern int             machine_at_p6lxap_init(const machine_t *);
 #ifdef EMU_DEVICE_H
@@ -1600,6 +1603,9 @@ extern int             machine_at_mbx8440_init(const machine_t *);
 extern const device_t  p2xbl_device;
 #endif
 extern int             machine_at_p2xbl_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  prm0080i_device;
+#endif
 extern int             machine_at_prm0080i_init(const machine_t *);
 extern int             machine_at_epoxbx3_init(const machine_t *);
 #ifdef EMU_DEVICE_H
