@@ -3266,7 +3266,7 @@ static const device_config_t m003_config[] = {
         .bios           = {
             {
               .name          = "Award Modular BIOS v4.51PGM - Revision BP43",
-              .internal_name = "m003_nl47",
+              .internal_name = "m003_bp43",
               .bios_type     = BIOS_NORMAL,
               .files_no      = 1,
               .local         = 0,
@@ -3274,8 +3274,17 @@ static const device_config_t m003_config[] = {
               .files         = { "roms/machines/m003/M003BP43.BIN", "" }
             },
             {
-              .name          = "Award Modular BIOS v4.51PGM - Revision NL47",
+              .name          = "Award Modular BIOS v4.51PGM - Revision BP45",
               .internal_name = "m003",
+              .bios_type     = BIOS_NORMAL,
+              .files_no      = 1,
+              .local         = 0,
+              .size          = 262144,
+              .files         = { "roms/machines/m003/M003BP45.BIN", "" }
+            },
+            {
+              .name          = "Award Modular BIOS v4.51PGM - Revision NL47",
+              .internal_name = "m003_nl47",
               .bios_type     = BIOS_NORMAL, 
               .files_no      = 1,
               .local         = 0,
@@ -3290,7 +3299,7 @@ static const device_config_t m003_config[] = {
 };
 
 const device_t m003_device = {
-    .name          = "Creative BlasterBoard",
+    .name          = "Creative M003",
     .internal_name = "m003",
     .flags         = 0,
     .local         = 0,
