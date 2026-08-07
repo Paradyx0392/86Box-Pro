@@ -419,7 +419,7 @@ static const device_config_t lx6_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 131072,
-                .files         = { "roms/machines/lx6/LX6C_DY.bin", "" }
+                .files         = { "roms/machines/lx6/LX6C_HG.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision LY",
@@ -2020,6 +2020,15 @@ static const device_config_t bx6_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision AM",
+                .internal_name = "bx6_AM",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/bx6/BX6_AM.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision CW",
                 .internal_name = "bx6_CW",
                 .bios_type     = BIOS_NORMAL,
@@ -2027,6 +2036,15 @@ static const device_config_t bx6_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/bx6/BX6_CW.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision DL",
+                .internal_name = "bx6_DL",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/bx6/BX6_DL.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision EG",
@@ -2038,6 +2056,15 @@ static const device_config_t bx6_config[] = {
                 .files         = { "roms/machines/bx6/BX6_EG.BIN", "" }
             },
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision FQ",
+                .internal_name = "bx6_FQ",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/bx6/BX6_FQ.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision GQ",
                 .internal_name = "bx6_GQ",
                 .bios_type     = BIOS_NORMAL,
@@ -2045,6 +2072,15 @@ static const device_config_t bx6_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/bx6/BX6_GQ.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision GX",
+                .internal_name = "bx6_GX",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/bx6/BX6_GX.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision HV",
@@ -2063,6 +2099,15 @@ static const device_config_t bx6_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/bx6/BX6_JL.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision LW",
+                .internal_name = "bx6_LW",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/bx6/BX6_LW.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision MP",
