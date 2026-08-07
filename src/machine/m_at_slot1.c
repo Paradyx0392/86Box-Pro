@@ -2205,6 +2205,24 @@ static const device_config_t bx6v20_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision HJ",
+                .internal_name = "bx6v20_HJ",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bx6v20/BXR_HJ.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision JH",
+                .internal_name = "bx6v20_JH",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bx6v20/BXR_JH.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision KH",
                 .internal_name = "bx6v20_KH",
                 .bios_type     = BIOS_NORMAL,
@@ -2212,6 +2230,24 @@ static const device_config_t bx6v20_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/bx6v20/BXR_KH.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision KU",
+                .internal_name = "bx6v20_KU",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bx6v20/BXR_KU.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision LU",
+                .internal_name = "bx6v20_LU",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bx6v20/BXR_LU.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision MN",
@@ -2302,6 +2338,8 @@ machine_at_bx6v20_init(const machine_t *model)
     device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee020_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
+    device_add(&w83782d_device); /* fans: Chassis, Power, CPU; temperatures: System, CPU, unused */
+    hwm_values.temperatures[2] = 0; /* unused */
 
     return ret;
 }
