@@ -1804,6 +1804,15 @@ static const device_config_t tx5_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 4K",
+                .internal_name = "tx5_4K",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/tx5/TX5_4K.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 6K",
                 .internal_name = "tx5_6K",
                 .bios_type     = BIOS_NORMAL,
@@ -1811,6 +1820,15 @@ static const device_config_t tx5_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/tx5/TX5B_6K.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 8X",
+                .internal_name = "tx5_8X",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/tx5/TX5B_8X.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision DZ",
