@@ -398,8 +398,17 @@ static const device_config_t g5a_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "AMIBIOS 6 (120299) - Revision F3",
+                .internal_name = "5aa",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/5aa/5AA.F3", "" }
+            },
+            {
                 .name          = "AMIBIOS 6 (120299) - Revision F6",
-                .internal_name = "5aa_f6",
+                .internal_name = "5aa",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
@@ -408,7 +417,7 @@ static const device_config_t g5a_config[] = {
             },
             {
                 .name          = "AMIBIOS 6 (120299) - Revision F7b (Beta)",
-                .internal_name = "5aa",
+                .internal_name = "5aa_f7b",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
@@ -583,7 +592,43 @@ static const device_config_t ms5169_config[] = {
                 .files         = { "roms/machines/ms5169/A569C311.ROM", "" }
             },
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 3.7",
+                .name          = "AMIBIOS 6 (071595) - Revision 1.4",
+                .internal_name = "ms5169v14",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5169/A569MS14.ROM", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 2.0",
+                .internal_name = "ms5169v20",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5169/A569MS20.ROM", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 2.7",
+                .internal_name = "ms5169v27",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5169/A569MS27.ROM", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (051499) - Revision 3.1",
+                .internal_name = "ms5169v31",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/ms5169/A569MS31.ROM", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071599) - Revision 3.7",
                 .internal_name = "ms5169",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -592,7 +637,7 @@ static const device_config_t ms5169_config[] = {
                 .files         = { "roms/machines/ms5169/a5169ams.370", "" }
             },
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 3.8B3",
+                .name          = "AMIBIOS 6 (071595) - Revision 3.8B3 (beta)",
                 .internal_name = "ms5169v38b3",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -940,7 +985,7 @@ machine_at_5emaplus_init(const machine_t *model)
     device_add(&via_mvp3_device);
     device_add(&via_vt82c586b_device);
     device_add_params(&fdc37c669_device, (void *) 0);
-    device_add(&sst_flash_29ee010_device);
+    device_add(&sst_flash_39sf010_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
 
     return ret;
@@ -1102,7 +1147,7 @@ machine_at_sl54u5_init(const machine_t *model)
     device_add(&via_vt82c586b_device);
     /* This actually has the Winbond W83877AF. */
     device_add_params(&w83877_device, (void *) (W83877F | W83877_3F0));
-    device_add(&sst_flash_29ee010_device);
+    device_add(&sst_flash_39sf010_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
 
     return ret;
