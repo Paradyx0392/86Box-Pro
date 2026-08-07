@@ -1904,6 +1904,42 @@ static const device_config_t bf6_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v6.00PG - Revision NP",
+                .internal_name = "bf6_NP",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bf6/BEH_NP.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision NY",
+                .internal_name = "bf6_NY",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bf6/BEH_NY.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision NZ",
+                .internal_name = "bf6_NZ",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bf6/BEH_NZ.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision PO",
+                .internal_name = "bf6_PO",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bf6/BEH_PO.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v6.00PG - Revision QJ",
                 .internal_name = "bf6_QJ",
                 .bios_type     = BIOS_NORMAL,
@@ -1920,6 +1956,15 @@ static const device_config_t bf6_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/bf6/BEH_RV.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v6.00PG - Revision SH",
+                .internal_name = "bf6_SH",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bf6/BEH_SH.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v6.00PG - Revision UH",
@@ -2003,6 +2048,8 @@ machine_at_bf6_init(const machine_t *model)
     device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_39sf020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+    device_add(&w83782d_device); /* fans: Chassis, Power, CPU; temperatures: System, CPU, unused */
+    hwm_values.temperatures[2] = 0; /* unused */
 
     return ret;
 }
