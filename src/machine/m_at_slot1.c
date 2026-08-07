@@ -359,6 +359,24 @@ static const device_config_t lx6_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 6Q",
+                .internal_name = "lx6_6q",
+                .bios_type     = BIOS_NORMAL, 
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/lx6/LX6_6Q.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 7H",
+                .internal_name = "lx6_7h",
+                .bios_type     = BIOS_NORMAL, 
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/lx6/LX6_7H.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 7Q",
                 .internal_name = "lx6_7q",
                 .bios_type     = BIOS_NORMAL, 
@@ -388,6 +406,15 @@ static const device_config_t lx6_config[] = {
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision DY",
                 .internal_name = "lx6_dy",
+                .bios_type     = BIOS_NORMAL, 
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/lx6/LX6C_DY.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision HG",
+                .internal_name = "lx6_hg",
                 .bios_type     = BIOS_NORMAL, 
                 .files_no      = 1,
                 .local         = 0,
