@@ -540,6 +540,33 @@ static const device_config_t ax6l_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PGM - Revision R1.10",
+                .internal_name = "ax6l_110",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6l/ax6l110.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PGM - Revision R1.20",
+                .internal_name = "ax6l_120",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6l/ax6l120.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PGM - Revision R1.30",
+                .internal_name = "ax6l_130",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6l/ax6l130.bin", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PGM - Revision R1.40",
                 .internal_name = "ax6l_140",
                 .bios_type     = BIOS_NORMAL,
@@ -3065,6 +3092,33 @@ static const device_config_t ax6b_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/ax6b/ax6b200.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.10",
+                .internal_name = "ax6b_210",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b210.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.31",
+                .internal_name = "ax6b_231",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b231.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.60PGMA - Revision R2.32",
+                .internal_name = "ax6b_232",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ax6b/ax6b232.bin", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.60PGMA - Revision R2.33",
