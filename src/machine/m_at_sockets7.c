@@ -398,8 +398,8 @@ static const device_config_t g5a_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "AMIBIOS 6 (120299) - Revision F3",
-                .internal_name = "5aa",
+                .name          = "AMIBIOS 6 (071599) - Revision F3",
+                .internal_name = "5aa_f3",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
@@ -413,7 +413,7 @@ static const device_config_t g5a_config[] = {
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 131072,
-                .files         = { "roms/machines/5aa/GA-5AA.F6", "" }
+                .files         = { "roms/machines/5aa/5AA.F6", "" }
             },
             {
                 .name          = "AMIBIOS 6 (120299) - Revision F7b (Beta)",
@@ -494,6 +494,33 @@ static const device_config_t g5x_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision F1",
+                .internal_name = "5ax_f1",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/5ax/5AX.F1", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision F2",
+                .internal_name = "5ax_f2",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/5ax/5AX.F2", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision F3",
+                .internal_name = "5ax_f3",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/5ax/5AX.F3", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision F4",
                 .internal_name = "5ax",
                 .bios_type     = BIOS_NORMAL,
@@ -501,6 +528,15 @@ static const device_config_t g5x_config[] = {
                 .local         = 0,
                 .size          = 131072,
                 .files         = { "roms/machines/5ax/5AX.F4", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision F4 (patched)",
+                .internal_name = "5ax_patch",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/5ax/5AXSOMOD.F42", "" }
             },
             {
                 .name          = "Phoenix - AwardBIOS v6.00PG - Release 4.1 (by eSupport)",
