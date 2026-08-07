@@ -4585,6 +4585,24 @@ static const device_config_t ms6119_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "AMIBIOS 6 (071595) - Revision 1.3 (Simplified Chinese)",
+                .internal_name = "ms6119ami",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/A619C313.ROM", "" }
+            },
+            {
+                .name          = "AMIBIOS 6 (071595) - Revision 1.53 (Packard Bell Tacoma)",
+                .internal_name = "tacoma_153",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/A19P2153.ROM", "" }
+            },
+            {
                 .name          = "AMIBIOS 6 (071595) - Revision 1.61 (Packard Bell-ZDS Tacoma)",
                 .internal_name = "tacoma_161",
                 .bios_type     = BIOS_NORMAL,
@@ -4621,6 +4639,15 @@ static const device_config_t ms6119_config[] = {
                 .files         = { "roms/machines/ms6119/A19P2174.ROM", "" }
             },
             {
+                .name          = "AMIBIOS 6 (071595) - Revision 1.83 (Packard Bell Tacoma)",
+                .internal_name = "tacoma_183",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/A19P2183.ROM", "" }
+            },
+            {
                 .name          = "AMIBIOS 6 (071595) - Revision 1.90 (Packard Bell Tacoma)",
                 .internal_name = "tacoma",
                 .bios_type     = BIOS_NORMAL,
@@ -4630,7 +4657,79 @@ static const device_config_t ms6119_config[] = {
                 .files         = { "roms/machines/ms6119/A19P2190.ROM", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 2.9",
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.2 (without CPU Plug-n-Play)",
+                .internal_name = "ms6119_12",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/W619MS12.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.2 (with CPU Plug-n-Play)",
+                .internal_name = "ms6119cpu12",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/W619MJ12.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.4 (without CPU Plug-n-Play)",
+                .internal_name = "ms6119_24",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/W619MS24.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.6 (without CPU Plug-n-Play)",
+                .internal_name = "ms6119_26",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/W619MS26.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.7 (without CPU Plug-n-Play)",
+                .internal_name = "ms6119_27",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/W619MS27.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.7 (with CPU Plug-n-Play)",
+                .internal_name = "ms6119cpu27",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/W619MJ27.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.8 (without CPU Plug-n-Play)",
+                .internal_name = "ms6119_28",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/W619MS28.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.8 (with CPU Plug-n-Play)",
+                .internal_name = "ms6119cpu28",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/w6119imj.280", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.9 (without CPU Plug-n-Play)",
                 .internal_name = "ms6119_29",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -4639,7 +4738,16 @@ static const device_config_t ms6119_config[] = {
                 .files         = { "roms/machines/ms6119/w6119ims.290", "" }
             },
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision 2.10",
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.9 (with CPU Plug-n-Play)",
+                .internal_name = "ms6119cpu",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6119/w6119imj.290", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.10 (without CPU Plug-n-Play)",
                 .internal_name = "ms6119",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -4716,6 +4824,7 @@ machine_at_ms6119_init(const machine_t *model)
 
     device_context(model->device);
     fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    int is_cpuplugnplay = !strcmp(device_get_config_bios("bios"), "ms6119cpu") || !strcmp(device_get_config_bios("bios"), "ms6119cpu28") || !strcmp(device_get_config_bios("bios"), "ms6119cpu27") || !strcmp(device_get_config_bios("bios"), "ms6119cpu12") || !strcmp(device_get_config_bios("bios"), "ms6119ami");
     ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
     device_context_restore();
 
@@ -4736,6 +4845,12 @@ machine_at_ms6119_init(const machine_t *model)
     device_add(&winbond_flash_w29c020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
 
+    if (is_cpuplugnplay) {
+        device_add(&w83781d_device);       /* fans: CPU, CHS, PS; temperatures: unused, CPU, System */
+        hwm_values.temperatures[0] = 0;    /* unused */
+        hwm_values.voltages[1]     = 3000; /* CPUVTT */ 
+    }
+
     return ret;
 }
 
@@ -4752,6 +4867,15 @@ static const device_config_t ms6147_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.1",
+                .internal_name = "ms6147_11",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6147/W647MS11.BIN", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision 1.2 (Fujitsu ErgoPro e368)",
                 .internal_name = "ergoproe368",
                 .bios_type     = BIOS_NORMAL,
@@ -4759,6 +4883,15 @@ static const device_config_t ms6147_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/ms6147/W647F412.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.3",
+                .internal_name = "ms6147_13",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6147/W647MS13.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 1.4 (Packard Bell Tempest)",
@@ -4867,6 +5000,15 @@ static const device_config_t ms6147v11_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/ms6147v11/W647MS18.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.0 (Packard Bell Tempest v2)",
+                .internal_name = "pbtempestv2_20",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6147v11/w647p220.pbc", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 2.1 (Packard Bell Tempest v2)",
