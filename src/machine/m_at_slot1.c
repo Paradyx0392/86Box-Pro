@@ -3990,16 +3990,161 @@ machine_at_ga686_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t g6a_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "6ba",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.03",
+                .internal_name = "6ba_103",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6ba.103", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.06",
+                .internal_name = "6ba_106",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6ba.106", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.02",
+                .internal_name = "6ba_202",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6ba.202", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.1",
+                .internal_name = "6ba_21",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6BA.21", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.4",
+                .internal_name = "6ba_24",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6BA.24", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.5",
+                .internal_name = "6ba_25",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6ba.25", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.6",
+                .internal_name = "6ba_26",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6BA.26", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.7",
+                .internal_name = "6ba_27",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6BA.27", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.8",
+                .internal_name = "6ba_28",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6BA.28", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.9",
+                .internal_name = "6ba_29",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6ba.29", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision F1g",
+                .internal_name = "6ba_f1g",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6BA.F1g", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision F1",
+                .internal_name = "6ba",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/6ba/6BA.F1", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t g6a_device = {
+    .name          = "Gigabyte GA-6BA",
+    .internal_name = "6ba",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = g6a_config
+};
+
 int
-machine_at_6ba_init(const machine_t *model)
+machine_at_g6a_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/6ba/6BA.F1",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
