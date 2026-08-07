@@ -142,13 +142,31 @@ static const device_config_t bm6_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "Award Modular BIOS v4.51PG - Revision MQ",
+                .name          = "Award Modular BIOS v4.51PG - Revision HL",
+                .internal_name = "bm6_HL",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bm6/BM6_HL.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision JN",
                 .internal_name = "bm6_JN",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
                 .size          = 262144,
-                .files         = { "roms/machines/bm6/BM6_MQ.BIN", "" }
+                .files         = { "roms/machines/bm6/BM6_JN.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision KV",
+                .internal_name = "bm6_KV",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/bm6/BM6_KV.BIN", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision MQ",
@@ -240,6 +258,8 @@ machine_at_bm6_init(const machine_t *model)
     device_add_params(&w83977_device, (void *) (W83977EF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_39sf020_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
+    device_add(&w83782d_device); /* fans: Chassis, Power, CPU; temperatures: System, CPU, unused */
+    hwm_values.temperatures[2] = 0; /* unused */
 
     return ret;
 }
