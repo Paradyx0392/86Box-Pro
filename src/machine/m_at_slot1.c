@@ -3911,8 +3911,89 @@ static const device_config_t ga686_config[] = {
                 .files         = { "roms/machines/686bx/31nologo.bin", "" }
             },
             {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2/10/1999 (Amptron PII-3100A)",
+                .internal_name = "pii3100a",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/31AP3.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.12",
+                .internal_name = "686bx_112",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6bx.112", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.15",
+                .internal_name = "686bx_115",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6bx.115", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.11",
+                .internal_name = "686bx_211",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6bx.211", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.2",
+                .internal_name = "686bx_22",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6BX.22", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.7",
+                .internal_name = "686bx_27",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6bx.27", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.8",
+                .internal_name = "686bx_28",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6bx.28", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.9",
+                .internal_name = "686bx_29",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6bx.29", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 3.1a",
+                .internal_name = "686bx_31a",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/686bx/6bx.31a", "" }
+            },
+            {
                 .name          = "Award Modular BIOS v4.51PG - Revision F1",
-                .internal_name = "686bx_f1",
+                .internal_name = "686bx",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,
@@ -3921,7 +4002,7 @@ static const device_config_t ga686_config[] = {
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision F2a (Beta)",
-                .internal_name = "686bx",
+                .internal_name = "686bx_f2a",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
                 .local         = 0,

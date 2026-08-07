@@ -24847,7 +24847,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "Amptron PII-3100", "Gigabyte GA-6BX", "" }
+        .aliases                  = { "Amptron PII-3100", "Amptron PII-3100A", "Gigabyte GA-6BX", "" }
     },
     /* Has a Winbond W83977TF Super I/O chip with on-chip KBC with AMIKey-2 KBC
        firmware. */
