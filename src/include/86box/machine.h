@@ -1507,6 +1507,9 @@ extern int             machine_at_optiplexgxa_init(const machine_t *);
 extern const device_t  prm0076i_device;
 #endif
 extern int             machine_at_prm0076i_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  p6lxap_device;
+#endif
 extern int             machine_at_p6lxap_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  epox61lxam_device;

@@ -923,16 +923,89 @@ machine_at_prm0076i_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t p6lxap_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "p6lxap",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 3.2",
+                .internal_name = "p6lxap_32",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6lxap/LXAP32.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 3.2a",
+                .internal_name = "p6lxap_32a",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6lxap/LXAP32A.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 3.3",
+                .internal_name = "p6lxap_33",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6lxap/LXAP33.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 3.3a",
+                .internal_name = "p6lxap",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/p6lxap/LXAP33A.bin", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t p6lxap_device = {
+    .name          = "ECS P6LX-A+",
+    .internal_name = "p6lxap",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = p6lxap_config
+};
+
 int
 machine_at_p6lxap_init(const machine_t *model)
 {
-    int ret;
+    int         ret = 0;
+    const char *fn;
 
-    ret = bios_load_linear("roms/machines/p6lxap/lxap33a.bin",
-                           0x000c0000, 262144, 0);
-
-    if (bios_only || !ret)
+    /* No ROMs available */
+    if (!device_available(model->device))
         return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
 
     machine_at_common_init(model);
 
@@ -2271,6 +2344,7 @@ machine_at_bx6_init(const machine_t *model)
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee010_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
+    device_add(&lm78_device); /* supposed to be the LM79CCVF Hardware Monitor chip */
 
     return ret;
 }
