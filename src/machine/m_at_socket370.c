@@ -1444,6 +1444,8 @@ machine_at_ga6vxe7p_init(const machine_t *model)
     device_add(&it8671f_device);
     device_add(&sst_flash_39sf020_device);
     spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+    device_add(&w83782d_device); /* fans: Chassis, Power, CPU; temperatures: System, CPU, unused */
+    hwm_values.temperatures[2] = 0; /* unused */
 
     return ret;
 }
