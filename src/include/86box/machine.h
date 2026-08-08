@@ -1827,6 +1827,10 @@ extern const device_t  p6vaa_device;
 extern int             machine_at_p6vaa_init(const machine_t *);
 extern int             machine_at_p6vam_init(const machine_t *);
 #ifdef EMU_DEVICE_H
+extern const device_t  ga6vxe7p_device;
+#endif
+extern int             machine_at_ga6vxe7p_init(const machine_t *);
+#ifdef EMU_DEVICE_H
 extern const device_t  ms6153va_device;
 #endif
 extern int             machine_at_ms6153va_init(const machine_t *);

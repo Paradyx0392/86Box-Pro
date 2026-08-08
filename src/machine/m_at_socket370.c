@@ -1361,6 +1361,93 @@ machine_at_p6vam_init(const machine_t *model)
     return ret;
 }
 
+static const device_config_t ga6vxe7p_config[] = {
+    // clang-format off
+    {
+        .name           = "bios",
+        .description    = "BIOS Version",
+        .type           = CONFIG_BIOS,
+        .default_string = "ga6vxe7p",
+        .default_int    = 0,
+        .file_filter    = NULL,
+        .spinner        = { 0 },
+        .selection      = { { 0 } },
+        .bios           = {
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision FA (original)",
+                .internal_name = "ga6vxe7p",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ga6vxe7p/6vxe7p.FA", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision FA (alternate)",
+                .internal_name = "ga6vxe7p_alt",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ga6vxe7p/alt6vxe7p.FA", "" }
+            },
+            { .files_no = 0 }
+        }
+    },
+    { .name = "", .description = "", .type = CONFIG_END }
+    // clang-format on
+};
+
+const device_t ga6vxe7p_device = {
+    .name          = "Gigabyte GA-6VXE7+",
+    .internal_name = "ga6vxe7p",
+    .flags         = 0,
+    .local         = 0,
+    .init          = NULL,
+    .close         = NULL,
+    .reset         = NULL,
+    .available     = NULL,
+    .speed_changed = NULL,
+    .force_redraw  = NULL,
+    .config        = ga6vxe7p_config
+};
+
+int
+machine_at_ga6vxe7p_init(const machine_t *model)
+{
+    int         ret = 0;
+    const char *fn;
+
+    /* No ROMs available */
+    if (!device_available(model->device))
+        return ret;
+
+    device_context(model->device);
+    fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
+    ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
+    device_context_restore();
+
+    machine_at_common_init(model);
+
+    pci_init(PCI_CONFIG_TYPE_1);
+    pci_register_slot(0x00, PCI_CARD_NORTHBRIDGE, 0, 0, 0, 0);
+    pci_register_slot(0x07, PCI_CARD_SOUTHBRIDGE, 0, 0, 3, 4);
+    pci_register_slot(0x08, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x09, PCI_CARD_NORMAL,      2, 3, 4, 1);
+    pci_register_slot(0x0a, PCI_CARD_NORMAL,      3, 4, 1, 2);
+    pci_register_slot(0x0b, PCI_CARD_NORMAL,      4, 1, 2, 3);
+    pci_register_slot(0x0c, PCI_CARD_NORMAL,      1, 2, 3, 4);
+    pci_register_slot(0x01, PCI_CARD_AGPBRIDGE,   1, 2, 3, 4);
+
+    device_add(&via_apro133a_device);  /* Rebranded as ET82C693A */
+    device_add(&via_vt82c596b_device); /* Rebranded as ET82C696B */
+    device_add(&it8671f_device);
+    device_add(&sst_flash_39sf020_device);
+    spd_register(SPD_TYPE_SDRAM, 0x7, 256);
+
+    return ret;
+}
+
 static const device_config_t ms6153va_config[] = {
     // clang-format off
     {
@@ -1381,6 +1468,15 @@ static const device_config_t ms6153va_config[] = {
                 .local         = 0,
                 .size          = 262144,
                 .files         = { "roms/machines/ms6153va/ms6153.200", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 2.10",
+                .internal_name = "ms6153va210",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/ms6153va/w6153vms.2a0", "" }
             },
             {
                 .name          = "Award Modular BIOS v4.51PG - Revision 5.1",
