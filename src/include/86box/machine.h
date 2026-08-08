@@ -1353,6 +1353,7 @@ extern int             machine_at_ap59s_init(const machine_t *);
 extern const device_t  sp98agpx_device;
 #endif
 extern int             machine_at_sp98agpx_init(const machine_t *);
+extern int             machine_at_ga586sg_init(const machine_t *);
 extern int             machine_at_586sgm_init(const machine_t *);
 extern int             machine_at_586sgx_init(const machine_t *);
 #ifdef EMU_DEVICE_H

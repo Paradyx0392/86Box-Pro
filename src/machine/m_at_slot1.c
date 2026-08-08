@@ -4846,15 +4846,6 @@ static const device_config_t ms6119_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "AMIBIOS 6 (071595) - Revision 1.3 (Simplified Chinese)",
-                .internal_name = "ms6119ami",
-                .bios_type     = BIOS_NORMAL,
-                .files_no      = 1,
-                .local         = 0,
-                .size          = 262144,
-                .files         = { "roms/machines/ms6119/A619C313.ROM", "" }
-            },
-            {
                 .name          = "AMIBIOS 6 (071595) - Revision 1.53 (Packard Bell Tacoma)",
                 .internal_name = "tacoma_153",
                 .bios_type     = BIOS_NORMAL,
@@ -5085,7 +5076,7 @@ machine_at_ms6119_init(const machine_t *model)
 
     device_context(model->device);
     fn  = device_get_bios_file(machine_get_device(machine), device_get_config_bios("bios"), 0);
-    int is_cpuplugnplay = !strcmp(device_get_config_bios("bios"), "ms6119cpu") || !strcmp(device_get_config_bios("bios"), "ms6119cpu28") || !strcmp(device_get_config_bios("bios"), "ms6119cpu27") || !strcmp(device_get_config_bios("bios"), "ms6119cpu12") || !strcmp(device_get_config_bios("bios"), "ms6119ami");
+    int is_cpuplugnplay = !strcmp(device_get_config_bios("bios"), "ms6119cpu") || !strcmp(device_get_config_bios("bios"), "ms6119cpu28") || !strcmp(device_get_config_bios("bios"), "ms6119cpu27") || !strcmp(device_get_config_bios("bios"), "ms6119cpu12");
     ret = bios_load_linear(fn, 0x000c0000, 262144, 0);
     device_context_restore();
 
