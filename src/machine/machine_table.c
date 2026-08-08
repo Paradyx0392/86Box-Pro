@@ -12031,7 +12031,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Zida 4DPS", "" }
     },
     /* This has the UMC 88xx on-chip KBC. */
     {
@@ -22586,6 +22586,54 @@ const machine_t machines[] = {
         .net_device               = NULL,
         .aliases                  = { "" }
     },
+    /* Has a Holtek HT6542B which emulates the AMIKey-2 ('H') KBC firmware. */
+    {
+        .name              = "[i440FX] Zida Tomato 6DXP",
+        .internal_name     = "zida6dxp",
+        .type              = MACHINE_TYPE_SOCKET8,
+        .chipset           = MACHINE_CHIPSET_INTEL_440FX,
+        .init              = machine_at_zida6dxp_init,
+        .p1_handler        = machine_generic_p1_handler,
+        .gpio_handler      = NULL,
+        .available_flag    = MACHINE_AVAILABLE,
+        .gpio_acpi_handler = NULL,
+        .cpu               = {
+            .package     = CPU_PKG_SOCKET8,
+            .block       = CPU_BLOCK_NONE,
+            .min_bus     = 60000000,
+            .max_bus     = 66666667,
+            .min_voltage = 2100,
+            .max_voltage = 3500,
+            .min_multi   = 2.0,
+            .max_multi   = 3.0
+        },
+        .bus_flags = MACHINE_PS2_PCI | MACHINE_BUS_USB,
+        .flags     = MACHINE_IDE_DUAL | MACHINE_APM | MACHINE_USB,
+        .ram       = {
+            .min  = 8192,
+            .max  = 524288,
+            .step = 8192
+        },
+        .nvrmask                  = 127,
+        .jumpered_ecp_dma         = 0,
+        .default_jumpered_ecp_dma = -1,
+        .kbc_device               = &kbc_at_device,
+        .kbc_params               = KBC_VEN_HOLTEK | 0x00004800,
+        .nvr_device               = &nvr_at_device,
+        .nvr_params               = NVR_AT,
+        .sio_device               = NULL,
+        .sio_params               = 0x00000000,
+        .kbc_p1                   = 0x00000cf0,
+        .gpio                     = 0xffffffff,
+        .gpio_acpi                = 0xffffffff,
+        .device                   = &zida6dxp_device,
+        .kbd_device               = NULL,
+        .fdc_device               = NULL,
+        .vid_device               = NULL,
+        .snd_device               = NULL,
+        .net_device               = NULL,
+        .aliases                  = { "Zida 6DXP", "" }
+    },
 
     /* Slot 1 machines */
     /* ALi ALADDiN-PRO II */
@@ -30063,7 +30111,7 @@ const machine_t machines[] = {
         .vid_device               = NULL,
         .snd_device               = NULL,
         .net_device               = NULL,
-        .aliases                  = { "" }
+        .aliases                  = { "Zida A694X", "" }
     },
 
     /* Miscellaneous/Fake/Hypervisor machines */

@@ -1469,6 +1469,10 @@ extern const device_t  mb600n_device;
 extern int             machine_at_mb600n_init(const machine_t *);
 extern int             machine_at_mb600nd_init(const machine_t *);
 extern int             machine_at_sl60a_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  zida6dxp_device;
+#endif
+extern int             machine_at_zida6dxp_init(const machine_t *);
 
 /* m_at_slot1.c */
 /* ALi ALADDiN-PRO II */
