@@ -2344,7 +2344,6 @@ machine_at_bx6_init(const machine_t *model)
     device_add_params(&w83977_device, (void *) (W83977TF | W83977_AMI | W83977_NO_NVR));
     device_add(&sst_flash_29ee010_device);
     spd_register(SPD_TYPE_SDRAM, 0xF, 256);
-    device_add(&lm78_device); /* supposed to be the LM79CCVF Hardware Monitor chip */
 
     return ret;
 }
