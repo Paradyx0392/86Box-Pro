@@ -1414,6 +1414,9 @@ extern int             machine_at_ms5169_init(const machine_t *);
 
 /* VIA MVP3 */
 extern int             machine_at_5via77_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  ax59pro_device;
+#endif
 extern int             machine_at_ax59pro_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  delhi3_device;
@@ -1549,10 +1552,6 @@ extern int             machine_at_in440exd_init(const machine_t *);
 extern const device_t  mx6ep_device;
 #endif
 extern int             machine_at_mx6ep_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  optiplexe1_device;
-#endif
-extern int             machine_at_optiplexe1_init(const machine_t *);
 extern int             machine_at_brio83xx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6122_device;
@@ -1622,10 +1621,6 @@ extern const device_t  cb650mbx_device;
 #endif
 extern int             machine_at_cb650mbx_init(const machine_t *);
 extern int             machine_at_mbx8440_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  optiplexgx1_device;
-#endif
-extern int             machine_at_optiplexgx1_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  p2xbl_device;
 #endif
