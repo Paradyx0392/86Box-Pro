@@ -1030,6 +1030,7 @@ extern int             machine_at_zappa_init(const machine_t *);
 extern const device_t  powermatev_device;
 #endif
 extern int             machine_at_powermatev_init(const machine_t *);
+extern int             machine_at_pb570_init(const machine_t *);
 extern int             machine_at_hawk_init(const machine_t *);
 
 /* OPTi 597 */
@@ -1868,6 +1869,7 @@ extern int             machine_at_cuv4xcm_init(const machine_t *);
 extern const device_t  cuv4xls_device;
 #endif
 extern int             machine_at_cuv4xls_init(const machine_t *);
+extern int             machine_at_gt694vp_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  m6vcf_device;
 #endif
