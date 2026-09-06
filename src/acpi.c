@@ -2411,7 +2411,7 @@ acpi_reset(void *priv)
                - Bit 19: password cleared (active low).
          */
         dev->regs.gpi_val = 0xfff57fc1;
-        if ((machines[machine].init == machine_at_ficva503a_init) || (machines[machine].init == machine_at_6via90ap_init || (machines[machine].init == machine_at_gt694vp_init))
+        if ((machines[machine].init == machine_at_ficva503a_init) || (machines[machine].init == machine_at_6via90ap_init) || (machines[machine].init == machine_at_gt694vp_init))
             dev->regs.gpi_val |= 0x00000004;
         else if ((machines[machine].init == machine_at_ficka6130_init))
             dev->regs.gpi_val |= 0x00080000;
