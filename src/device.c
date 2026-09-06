@@ -210,6 +210,7 @@ device_set_context(device_context_t *ctx, const device_t *dev, int inst)
         { .old = "Intel CU430HX (Cumberland)", .new = "Intel CU430HX" },
         { .old = "Intel TC430HX (Tucson)", .new = "Intel TC430HX" },
         { .old = "LG IBM Multinet x52 (MSI MS-5136)", .new = "LG IBM Multinet x52" },
+        { .old = "Packard Bell PB810", .new = "BCM FM530" },
         { .old = "Intel AN430TX (Anchorage)", .new = "Intel AN430TX" },
         { .old = "Intel VS440FX (Venus)", .new = "Intel VS440FX" },
         { .old = "Advanced Integration Research (AIR) P6KDI", .new = "AIR P6KDI" }, /* 6.0 pre-release */

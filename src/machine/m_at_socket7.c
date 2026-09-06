@@ -1586,7 +1586,7 @@ static const device_config_t pb810_config[] = {
     // clang-format off
     {
         .name           = "bios",
-        .description    = "OEM",
+        .description    = "BIOS Version",
         .type           = CONFIG_BIOS,
         .default_string = "pb810",
         .default_int    = 0,
@@ -1595,7 +1595,25 @@ static const device_config_t pb810_config[] = {
         .selection      = { { 0 } },
         .bios           = {
             {
-                .name          = "NEC - Revision 1.25I",
+                .name          = "Award Modular BIOS v4.51PG - Revision 3.00 (AST Bravo EL)",
+                .internal_name = "pb810_ast300",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/pb810/JEWEL.BIN", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 3.03 (AST Bravo EL)",
+                .internal_name = "pb810_ast",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 1,
+                .local         = 0,
+                .size          = 131072,
+                .files         = { "roms/machines/pb810/2a59gjew.bin", "" }
+            },
+            {
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.25I (NEC OEM)",
                 .internal_name = "pb810_nec",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -1604,7 +1622,7 @@ static const device_config_t pb810_config[] = {
                 .files         = { "roms/machines/pb810/NECV125I.BIN", "" }
             },
             {
-                .name          = "Packard Bell - Revision 1.25I",
+                .name          = "Award Modular BIOS v4.51PG - Revision 1.25I (Packard Bell PB810)",
                 .internal_name = "pb810",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 1,
@@ -1620,7 +1638,7 @@ static const device_config_t pb810_config[] = {
 };
 
 const device_t pb810_device = {
-    .name          = "Packard Bell PB810",
+    .name          = "BCM FM530",
     .internal_name = "pb810",
     .flags         = 0,
     .local         = 0,
@@ -3255,7 +3273,7 @@ static const device_config_t an430tx_config[] = {
             },
             {
                 .name          = "PhoenixBIOS 4.0 Release 6.0 - Revision P09-0006 (Packard Bell PB79x)",
-                .internal_name = "an430tx",
+                .internal_name = "pb79x",
                 .bios_type     = BIOS_NORMAL,
                 .files_no      = 5,
                 .local         = 0,
@@ -3263,6 +3281,17 @@ static const device_config_t an430tx_config[] = {
                 .files         = { "roms/machines/an430tx/ANP0911A.BIO", "roms/machines/an430tx/ANP0911A.BI1",
                                    "roms/machines/an430tx/ANP0911A.BI2", "roms/machines/an430tx/ANP0911A.BI3",
                                    "roms/machines/an430tx/ANP0911A.RCV", "" }
+            },
+            {
+                .name          = "PhoenixBIOS 4.0 Release 6.0 - Revision P10-0095",
+                .internal_name = "an430tx",
+                .bios_type     = BIOS_NORMAL,
+                .files_no      = 5,
+                .local         = 0,
+                .size          = 262144,
+                .files         = { "roms/machines/an430tx/P10-0095.BIO", "roms/machines/an430tx/P10-0095.BI1",
+                                   "roms/machines/an430tx/P10-0095.BI2", "roms/machines/an430tx/P10-0095.BI3",
+                                   "roms/machines/an430tx/P10-0095.RCV", "" }
             },
             { .files_no = 0 }
         }
