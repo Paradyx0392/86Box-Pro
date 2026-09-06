@@ -1030,7 +1030,6 @@ extern int             machine_at_zappa_init(const machine_t *);
 extern const device_t  powermatev_device;
 #endif
 extern int             machine_at_powermatev_init(const machine_t *);
-extern int             machine_at_pb570_init(const machine_t *);
 extern int             machine_at_hawk_init(const machine_t *);
 
 /* OPTi 597 */
@@ -1550,6 +1549,10 @@ extern int             machine_at_in440exd_init(const machine_t *);
 extern const device_t  mx6ep_device;
 #endif
 extern int             machine_at_mx6ep_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  optiplexe1_device;
+#endif
+extern int             machine_at_optiplexe1_init(const machine_t *);
 extern int             machine_at_brio83xx_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  ms6122_device;
@@ -1619,6 +1622,10 @@ extern const device_t  cb650mbx_device;
 #endif
 extern int             machine_at_cb650mbx_init(const machine_t *);
 extern int             machine_at_mbx8440_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  optiplexgx1_device;
+#endif
+extern int             machine_at_optiplexgx1_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  p2xbl_device;
 #endif
@@ -1869,6 +1876,9 @@ extern int             machine_at_cuv4xcm_init(const machine_t *);
 extern const device_t  cuv4xls_device;
 #endif
 extern int             machine_at_cuv4xls_init(const machine_t *);
+#ifdef EMU_DEVICE_H
+extern const device_t  gt694vp_device;
+#endif
 extern int             machine_at_gt694vp_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  m6vcf_device;
