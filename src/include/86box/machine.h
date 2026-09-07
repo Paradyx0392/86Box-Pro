@@ -1030,6 +1030,7 @@ extern int             machine_at_zappa_init(const machine_t *);
 extern const device_t  powermatev_device;
 #endif
 extern int             machine_at_powermatev_init(const machine_t *);
+extern int             machine_at_pb570_init(const machine_t *);
 extern int             machine_at_hawk_init(const machine_t *);
 
 /* OPTi 597 */
@@ -1414,9 +1415,6 @@ extern int             machine_at_ms5169_init(const machine_t *);
 
 /* VIA MVP3 */
 extern int             machine_at_5via77_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  ax59pro_device;
-#endif
 extern int             machine_at_ax59pro_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  delhi3_device;
@@ -1871,9 +1869,6 @@ extern int             machine_at_cuv4xcm_init(const machine_t *);
 extern const device_t  cuv4xls_device;
 #endif
 extern int             machine_at_cuv4xls_init(const machine_t *);
-#ifdef EMU_DEVICE_H
-extern const device_t  gt694vp_device;
-#endif
 extern int             machine_at_gt694vp_init(const machine_t *);
 #ifdef EMU_DEVICE_H
 extern const device_t  m6vcf_device;
